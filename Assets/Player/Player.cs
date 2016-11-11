@@ -23,15 +23,49 @@ public static class DirectionExtensions
 			default: return 0;
 		}
 	}
+
+	public static Vector2 ToVector2 ( this Direction self )
+	{
+		switch ( self )
+		{
+			case Direction.Up: return Vector2.up;
+			case Direction.Left: return Vector2.left;
+			case Direction.Down: return Vector2.down;
+			case Direction.Right: return Vector2.right;
+			default: return Vector2.zero;
+		}
+	}
 }
 
 
 public class Player : SceneSingleton<Player>
 {
-	public Vector3 moveSpeed = new Vector3 ( 10, 10, 10 );
-	public ForceMode MoveForceMode = ForceMode.Force;
+	public float moveSpeed = 50;
+	// public float velocityDecreasePerSecond = 50;
+	public float decelerationFactorPerSec = 0.5f;
+	Vector2 velocity = Vector2.zero;
 
-	public GameObject UmbrellaPrefab;
+	// public Vector3 moveSpeed = new Vector3 ( 10, 10, 10 );
+	// public ForceMode MoveForceMode = ForceMode.Force;
+
+	public GameObject WeaponPrefab;
+
+	internal int _energyPoints = 5;
+	internal int EnergyPoints
+	{
+		get { return _energyPoints; }
+		set
+		{
+			if ( _energyPoints != value )
+			{
+				int previousValue = _energyPoints;
+				_energyPoints = value;
+				if ( OnEnergyPointChanged != null )
+					OnEnergyPointChanged ( previousValue, _energyPoints );
+			}
+		}
+	}
+	internal System.Action<int, int> OnEnergyPointChanged;
 
 	new Rigidbody2D rigidbody;
 	IWeapon currentWeapon;
@@ -72,30 +106,39 @@ public class Player : SceneSingleton<Player>
 	{
 		if ( Input.GetKey ( KeyCode.LeftArrow ) || Input.GetAxis("Horizontal") < 0)
 		{
-			rigidbody.AddForce ( new Vector3 ( -moveSpeed.x, 0, 0 ), MoveForceMode );
+			velocity += Vector2.left;
 			direction = Direction.Left;
 		}
 
 		if ( Input.GetKey ( KeyCode.RightArrow ) || Input.GetAxis("Horizontal") > 0)
 		{
-			rigidbody.AddForce ( new Vector3 ( moveSpeed.x, 0, 0 ), MoveForceMode );
+			velocity += Vector2.right;
 			direction = Direction.Right;
 		}
 
 		if ( Input.GetKey ( KeyCode.UpArrow ) || Input.GetAxis("Vertical") > 0)
 		{
-			rigidbody.AddForce ( new Vector3 ( 0, moveSpeed.y, 0 ), MoveForceMode );
+			velocity += Vector2.up;
 			direction = Direction.Up;
 		}
 
 		if ( Input.GetKey ( KeyCode.DownArrow ) || Input.GetAxis("Vertical") < 0)
 		{
-			rigidbody.AddForce ( new Vector3 ( 0, -moveSpeed.y, 0 ), MoveForceMode );
+			velocity += Vector2.down;
 			direction = Direction.Down;
 		}
+			
+		rigidbody.velocity = ( velocity.normalized * moveSpeed );
+		velocity *= 0.25f;
 
-		if ( Input.GetKey ( KeyCode.Space ))
+		if ( Input.GetKey ( KeyCode.Space ) )
 			SpawnItem ();
+
+		if ( Input.GetKey ( KeyCode.Return ) )
+			OpenGate ();
+
+		if ( Input.GetKeyDown ( KeyCode.A ) )
+			DebugDrawRect ( new Vector3 ( 0, 0, 0 ), new Vector3 ( 50, 50, 0 ), Color.red, 1 );
 
 	}
 
@@ -103,7 +146,7 @@ public class Player : SceneSingleton<Player>
 	{
 		if ( currentWeapon == null )
 		{
-			GameObject weaponGO = gameObject.InstantiateChild ( UmbrellaPrefab );
+			GameObject weaponGO = gameObject.InstantiateChild ( WeaponPrefab );
 			weaponGO.transform.localPosition = new Vector3 ( 0, 32, 0 );
 
 			currentWeapon = weaponGO.GetComponentAs<IWeapon> ();
@@ -111,8 +154,36 @@ public class Player : SceneSingleton<Player>
 		}
 	}
 
+	void OpenGate ()
+	{
+		Vector3 hitTestCenterPosition = transform.position + (Vector3) ( direction.ToVector2 () * 50 );
+
+		RaycastHit2D[] hits = Physics2D.CircleCastAll ( hitTestCenterPosition, 200, Vector2.up, 0 );
+		for ( int i = 0; i < hits.Length; i++ )
+		{
+			RaycastHit2D hit = hits[i];
+			if ( hit.collider.isTrigger )
+			{
+				Gate gate = hit.collider.gameObject.GetComponent<Gate> ();
+				if ( gate != null )
+				{
+					gate.Open ();
+				}
+			}
+		}
+	}
+
 	void OnWeaponEffectEnd ()
 	{
 		currentWeapon = null;
 	}
+
+	static void DebugDrawRect ( Vector3 from, Vector3 to, Color color, float duration = 0 )
+	{
+		Debug.DrawLine ( from, to.WithYReplacedBy ( from.y ), color, duration );
+		Debug.DrawLine ( from.WithYReplacedBy ( to.y ), to, color, duration );
+		Debug.DrawLine ( from, to.WithXReplacedBy ( from.y ), color, duration );
+		Debug.DrawLine ( from.WithXReplacedBy ( to.y ), to, color, duration );
+	}
 }
+
