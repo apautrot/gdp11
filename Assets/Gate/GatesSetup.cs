@@ -24,9 +24,77 @@ public class SpawnList
 {
 	public string Name;
 	public List<Spawn> Items;
+
+	internal void Spawn ( Gate gate )
+	{
+		Debug.Log ( "Spawning list named " + Name );
+
+		// get total chance token count
+		int totalChanceCount = 0;
+		for ( int i = 0; i < Items.Count; i++ )
+			totalChanceCount += Items[i].Chance;
+
+		// draw a value in this full range
+		int chanceValue = RandomInt.Range ( 0, totalChanceCount );
+
+		// try to find to which item this value belongs to
+		int chanceRangeLowValue = 0;
+		for ( int i = 0; i < Items.Count; i++ )
+		{
+			int changeCountForThisItem = Items[i].Chance;
+
+			// compute low-high chance range
+			int chanceRangeHighValue = chanceRangeLowValue + changeCountForThisItem;
+
+			// spawn this item if change value in this item's chance range
+			bool isChanceInThisRange = ( chanceValue >= chanceRangeLowValue ) && ( chanceValue < chanceRangeHighValue );
+			// or spawn if forced by special 0 chance value
+			bool isSpawnForced = ( Items[i].Chance == 0 );
+
+			bool spawnThisItem = isSpawnForced || isChanceInThisRange;
+
+			if ( spawnThisItem )
+			{
+				ObjectType type = Items[i].ObjectType;
+
+				Debug.Log
+				(
+					"  -> Spawning item " + type.ToString () + " at gate " + gate.name + " => "
+					+ ( isSpawnForced ? "Spawn force by special chance value at 0. " : "" )
+					+ ( isChanceInThisRange ? ( "Chance value " + chanceValue + " in range [" + chanceRangeLowValue + " , " + chanceRangeHighValue + "]." ) : "" )
+				);
+
+				gate.SpawnItem ( type );
+			}
+
+			chanceRangeLowValue = chanceRangeHighValue;
+		}
+	}
 }
 
-public class GatesSetup : MonoBehaviour
+public class GatesSetup : SceneSingleton<GatesSetup>
 {
 	public List<SpawnList> SpawnLists;
+
+	new void Awake ()
+	{
+		base.Awake ();
+
+		for ( int i = 0; i < SpawnLists.Count; i++ )
+		{
+			SpawnList spawnList = SpawnLists[i];
+
+			if ( spawnList.Name.Length == 0 )
+				Debug.LogWarning ( "The spawn list at rank " + i + " has no name." );
+
+			if ( spawnList.Items.Count == 0 )
+				Debug.LogError ( "The spawn list named '" + spawnList.Name + " ( at rank " + i + " ) is not properly setup. The list is empty." );
+		}
+	}
+
+	internal void Spawn ( Gate gate )
+	{
+		SpawnList spawnList = SpawnLists[gate.SpawnListIndex];
+		spawnList.Spawn ( gate );
+	}
 }

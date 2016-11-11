@@ -16,10 +16,10 @@ class GatesSetupInspector : Editor
 
 	public override void OnInspectorGUI ()
 	{
-		DrawDefaultInspector ();
-
 		serializedObject.Update ();
 
+		int spawnListIndexToDelete = -1;
+		int spawnListIndexToDuplicate = -1;
 		int spawnListCount = spawnLists.arraySize;
 		for ( int i = 0; i < spawnListCount; i++ )
 		{
@@ -29,15 +29,17 @@ class GatesSetupInspector : Editor
 				SerializedProperty items = spawnList.FindPropertyRelative ( "Items" );
 				
 				EditorGUILayout.BeginVertical ( EditorStyles.helpBox );
-				// GUILayout.Space ( 10 );
+				GUILayout.Space ( 10 );
 				EditorGUILayout.BeginHorizontal ();
-				GUILayout.FlexibleSpace ();
+				string labelName = name.stringValue; if ( labelName.Length == 0 ) labelName = "?";
+				EditorGUILayout.PropertyField ( name, new GUIContent ( labelName ) );
+				if ( GUILayout.Button ( "D", GUILayout.Width ( 20 ), GUILayout.Height ( 16 ) ) )
+					spawnListIndexToDuplicate = i;
 				if ( GUILayout.Button ( "x", GUILayout.Width ( 20 ), GUILayout.Height ( 16 ) ) )
-				{
-				}
+					spawnListIndexToDelete = i;
 				EditorGUILayout.EndHorizontal ();
 
-				EditorGUILayout.PropertyField ( name );
+				int itemIndexToDelete = -1;
 	 			int itemCount = items.arraySize;
  				for ( int j = 0; j < itemCount; j++ )
 	 			{
@@ -46,14 +48,24 @@ class GatesSetupInspector : Editor
 	 				SerializedProperty objectType = spawnItem.FindPropertyRelative ( "ObjectType" );
 
 					EditorGUILayout.BeginHorizontal ();
-					GUILayout.Space ( 120 );
+					GUILayout.Space ( EditorGUIUtility.labelWidth );
 					EditorGUILayout.PropertyField ( objectType, GUIContent.none );
 					EditorGUILayout.PropertyField ( chance, GUIContent.none, GUILayout.Width ( 40 ) );
+					if ( GUILayout.Button ( "x", GUILayout.Width ( 20 ), GUILayout.Height ( 16 ) ) )
+					{
+						itemIndexToDelete = j;
+					}
 					EditorGUILayout.EndHorizontal ();
+				}
+				if ( itemIndexToDelete != -1 )
+				{
+					items.DeleteArrayElementAtIndex ( itemIndexToDelete );
+					serializedObject.ApplyModifiedProperties ();
 				}
 
 				EditorGUILayout.BeginHorizontal ();
-				// GUILayout.FlexibleSpace ();
+				GUILayout.Space ( EditorGUIUtility.labelWidth );
+				GUILayout.FlexibleSpace ();
 				if ( GUILayout.Button ( "Add item", GUILayout.Width ( 100 ) ) )
 				{
 					items.InsertArrayElementAtIndex ( items.arraySize );
@@ -65,10 +77,20 @@ class GatesSetupInspector : Editor
 				EditorGUILayout.EndVertical ();
 			}
 		}
+		if ( spawnListIndexToDuplicate != -1 )
+		{
+			spawnLists.InsertArrayElementAtIndex ( spawnListIndexToDuplicate );
+			serializedObject.ApplyModifiedProperties ();
+		}
+		if ( spawnListIndexToDelete != -1 )
+		{
+			spawnLists.DeleteArrayElementAtIndex ( spawnListIndexToDelete );
+			serializedObject.ApplyModifiedProperties ();
+		}
 
 		EditorGUILayout.BeginHorizontal ();
 		GUILayout.FlexibleSpace ();
-		if ( GUILayout.Button ( "Add gate", GUILayout.Width ( 150 ) ) )
+		if ( GUILayout.Button ( "Add spawn list", GUILayout.Width ( 150 ) ) )
 		{
 			spawnLists.InsertArrayElementAtIndex ( spawnLists.arraySize );
 		}
