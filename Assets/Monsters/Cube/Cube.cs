@@ -42,6 +42,7 @@ public class Cube : MonoBehaviour
                 duration = NormalJump();
 
             yield return new WaitForSeconds(duration);
+
             if(duration != 1)
             {
                 if ((Player.Instance.transform.position - transform.position).magnitude < crushJumpDistanceThreshold)
