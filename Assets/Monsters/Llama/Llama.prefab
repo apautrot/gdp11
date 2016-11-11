@@ -52,8 +52,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012783331622}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.47231603, y: 1.54, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 5, y: 205, z: 0}
+  m_LocalScale: {x: 100, y: 100, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000012293544634}
@@ -115,10 +115,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 1000014057341558, guid: 1bdc6fd460f7941dfa5ccd46ddab5af1, type: 2}
-  targetSpeed: 1
+  targetSpeed: 50
   accelerationDuration: 1
   fireRate: 2
   fireSpeed: 2
+  noFireArea: 200
 --- !u!212 &212000013379466190
 SpriteRenderer:
   m_ObjectHideFlags: 1

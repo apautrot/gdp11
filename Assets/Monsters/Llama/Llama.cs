@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Llama : MonoBehaviour {
 	public GameObject prefab;
-	public float targetSpeed, accelerationDuration, fireRate, fireSpeed;
+	public float targetSpeed, accelerationDuration, fireRate, fireSpeed, noFireArea;
 	float destX, destY;
 	float speed {
 		get;
@@ -29,10 +29,12 @@ public class Llama : MonoBehaviour {
 
 		//Tire quand le firerate est dépassé
 		if (Time.time - timeBefore >= fireRate) {
-			GameObject go = (GameObject)Instantiate(prefab);
-			go.transform.position = transform.position;
-			go.GetComponent<Sputum> ().Fire (destX, destY, fireSpeed);
-			timeBefore = Time.time;
+			if (Vector3.Distance(new Vector3(destX, destY, 0), transform.position) > noFireArea) {
+				GameObject go = (GameObject)Instantiate(prefab);
+				go.transform.position = transform.position;
+				go.GetComponent<Sputum> ().Fire (destX, destY, fireSpeed);
+				timeBefore = Time.time;
+			}
 		}
 	}
 
