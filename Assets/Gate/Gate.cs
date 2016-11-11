@@ -7,15 +7,17 @@ public class Gate : MonoBehaviour
 
 //	System.Action OnOpeningEnded;
 
-	GameObject frame;
 	GameObject door;
-	GameObject ground;
+	GameObject spawnArea;
+
+	float duration = 1;
+
+	public int SpawnListIndex = -1;
 
 	void Awake ()
 	{
-		frame = gameObject.FindChildByName ( "Frame" );
 		door = gameObject.FindChildByName ( "Door" );
-		ground = gameObject.FindChildByName ( "Ground" );
+		spawnArea = gameObject.FindChildByName ( "Spawn Area" );
 	}
 
 	public void Open ()
@@ -28,12 +30,20 @@ public class Gate : MonoBehaviour
 	{
 		isOpened = true;
 
-		float duration = 1;
 		door.transform.localPositionTo ( 1, new Vector3 ( 0, 100, 0 ), true );
 
 		yield return new WaitForSeconds ( duration );
 
+		if ( SpawnListIndex == -1 )
+			Debug.LogError ( "This gate ( " + name + " has an invalid setup index ! Find GatesSetup game object and setup it." );
+		else
+			GatesSetup.Instance.Spawn ( this );
+
 // 		if ( OnOpeningEnded != null )
 // 			OnOpeningEnded ();
+	}
+
+	internal void SpawnItem ( ObjectType type )
+	{
 	}
 }

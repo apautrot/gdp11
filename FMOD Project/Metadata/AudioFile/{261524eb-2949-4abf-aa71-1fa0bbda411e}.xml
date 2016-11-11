@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.08.00">
+    <object class="AudioFile" id="{261524eb-2949-4abf-aa71-1fa0bbda411e}">
+        <property name="assetPath">
+            <value>transitions.ogg</value>
+        </property>
+        <property name="isStreaming">
+            <value>true</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>48</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>80</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{dd041b6b-171d-41cd-885c-c9fdb6b17aa2}</destination>
+        </relationship>
+    </object>
+</objects>

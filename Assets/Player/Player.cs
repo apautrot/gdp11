@@ -156,11 +156,14 @@ public class Player : SceneSingleton<Player>
 	{
 		if ( currentWeapon == null )
 		{
-			GameObject weaponGO = gameObject.InstantiateChild ( WeaponPrefab );
-			weaponGO.transform.localPosition = new Vector3 ( 0, 32, 0 );
+			if ( WeaponPrefab != null )
+			{
+				GameObject weaponGO = gameObject.InstantiateChild ( WeaponPrefab );
+				weaponGO.transform.localPosition = new Vector3 ( 0, 32, 0 );
 
-			currentWeapon = weaponGO.GetComponentAs<IWeapon> ();
-			currentWeapon.OnEnd += OnWeaponEffectEnd;
+				currentWeapon = weaponGO.GetComponentAs<IWeapon> ();
+				currentWeapon.OnEnd += OnWeaponEffectEnd;
+			}
 		}
 	}
 
