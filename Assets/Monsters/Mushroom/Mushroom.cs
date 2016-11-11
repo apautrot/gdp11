@@ -17,8 +17,8 @@ public class Mushroom : MonoBehaviour {
 	}
 		
 	void FixedUpdate() {
-		destX = GameObject.Find ("Player Test").transform.position.x;
-		destY = GameObject.Find ("Player Test").transform.position.y;
+		destX = Player.Instance.transform.position.x;
+		destY = Player.Instance.transform.position.y;
 
 		//Acceleration
 		this.floatTo("speed", accelerationDuration, targetSpeed, false);
