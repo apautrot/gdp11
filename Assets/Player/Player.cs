@@ -70,32 +70,33 @@ public class Player : SceneSingleton<Player>
 
 	void Update ()
 	{
-		if ( Input.GetKey ( KeyCode.LeftArrow ) )
+		if ( Input.GetKey ( KeyCode.LeftArrow ) || Input.GetAxis("Horizontal") < 0)
 		{
 			rigidbody.AddForce ( new Vector3 ( -moveSpeed.x, 0, 0 ), MoveForceMode );
 			direction = Direction.Left;
 		}
 
-		if ( Input.GetKey ( KeyCode.RightArrow ) )
+		if ( Input.GetKey ( KeyCode.RightArrow ) || Input.GetAxis("Horizontal") > 0)
 		{
 			rigidbody.AddForce ( new Vector3 ( moveSpeed.x, 0, 0 ), MoveForceMode );
 			direction = Direction.Right;
 		}
 
-		if ( Input.GetKey ( KeyCode.UpArrow ) )
+		if ( Input.GetKey ( KeyCode.UpArrow ) || Input.GetAxis("Vertical") > 0)
 		{
 			rigidbody.AddForce ( new Vector3 ( 0, moveSpeed.y, 0 ), MoveForceMode );
 			direction = Direction.Up;
 		}
 
-		if ( Input.GetKey ( KeyCode.DownArrow ) )
+		if ( Input.GetKey ( KeyCode.DownArrow ) || Input.GetAxis("Vertical") < 0)
 		{
 			rigidbody.AddForce ( new Vector3 ( 0, -moveSpeed.y, 0 ), MoveForceMode );
 			direction = Direction.Down;
 		}
 
-		if ( Input.GetKey ( KeyCode.Space ) )
+		if ( Input.GetKey ( KeyCode.Space ))
 			SpawnItem ();
+
 	}
 
 	void SpawnItem ()
