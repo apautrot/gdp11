@@ -11,8 +11,8 @@ public class Sputum : MonoBehaviour {
 
 	void Awake() {
 		body = GetComponent<Rigidbody2D> ();
-		maxHeight = GameCamera.Instance.GetComponent<Camera> ().orthographicSize;
-		maxWidth = maxHeight * GameCamera.Instance.GetComponent<Camera> ().aspect;
+		maxHeight = GameCamera.Instance.maxHeight;
+        maxWidth = GameCamera.Instance.maxWidth;
 		//Debug.Log (maxHeight + "   " + maxWidth);
 	}
 

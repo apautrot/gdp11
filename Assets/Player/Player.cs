@@ -44,6 +44,7 @@ public class Player : SceneSingleton<Player>
 	// public float velocityDecreasePerSecond = 50;
 	public float decelerationFactorPerSec = 0.5f;
 	Vector2 velocity = Vector2.zero;
+	Animator animator;
 
 	// public Vector3 moveSpeed = new Vector3 ( 10, 10, 10 );
 	// public ForceMode MoveForceMode = ForceMode.Force;
@@ -95,6 +96,7 @@ public class Player : SceneSingleton<Player>
 		base.Awake ();
 		rigidbody = GetComponent<Rigidbody2D> ();
 		frontPivot = gameObject.FindChildByName ( "Front Pivot" );
+		animator = GetComponent<Animator> ();
 	}
 
 	void Start ()
@@ -104,30 +106,30 @@ public class Player : SceneSingleton<Player>
 
 	void Update ()
 	{
-		if ( Input.GetKey ( KeyCode.LeftArrow ) )
+		if ( Input.GetKey ( KeyCode.LeftArrow ) || Input.GetAxis("Horizontal") < 0)
 		{
 			velocity += Vector2.left;
 			direction = Direction.Left;
 		}
 
-		if ( Input.GetKey ( KeyCode.RightArrow ) )
+		if ( Input.GetKey ( KeyCode.RightArrow ) || Input.GetAxis("Horizontal") > 0)
 		{
 			velocity += Vector2.right;
 			direction = Direction.Right;
 		}
 
-		if ( Input.GetKey ( KeyCode.UpArrow ) )
+		if ( Input.GetKey ( KeyCode.UpArrow ) || Input.GetAxis("Vertical") > 0)
 		{
 			velocity += Vector2.up;
 			direction = Direction.Up;
 		}
 
-		if ( Input.GetKey ( KeyCode.DownArrow ) )
+		if ( Input.GetKey ( KeyCode.DownArrow ) || Input.GetAxis("Vertical") < 0)
 		{
 			velocity += Vector2.down;
 			direction = Direction.Down;
 		}
-
+			
 		rigidbody.velocity = ( velocity.normalized * moveSpeed );
 		velocity *= 0.25f;
 
@@ -139,6 +141,7 @@ public class Player : SceneSingleton<Player>
 
 		if ( Input.GetKeyDown ( KeyCode.A ) )
 			DebugDrawRect ( new Vector3 ( 0, 0, 0 ), new Vector3 ( 50, 50, 0 ), Color.red, 1 );
+
 	}
 
 	void SpawnItem ()
@@ -186,6 +189,14 @@ public class Player : SceneSingleton<Player>
 		Debug.DrawLine ( from.WithYReplacedBy ( to.y ), to, color, duration );
 		Debug.DrawLine ( from, to.WithXReplacedBy ( from.y ), color, duration );
 		Debug.DrawLine ( from.WithXReplacedBy ( to.y ), to, color, duration );
+	}
+
+	void OnCollisionEnter2D (Collision2D collision) {
+		if (collision.gameObject.GetComponent<Monster>()) {
+			velocity = (transform.position - collision.transform.position) * collision.gameObject.GetComponent<Monster>().damage * 1.5f;
+			EnergyPoints--;
+			GameCamera.Instance.GetComponent<camera_shake> ().Shake (3);
+		}
 	}
 }
 

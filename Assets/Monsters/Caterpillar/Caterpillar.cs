@@ -4,44 +4,57 @@ using System.Collections;
 public class Caterpillar : MonoBehaviour {
 
     Rigidbody2D body;
-    GameObject sprite;
-    public GameObject prefab;
+    public GameObject sectionPrefab;
     
     public float caterpillarLength = 5;
     public float targetSpeed, accelerationDuration;
-    private float destX, destY;
-    float speed
-    {
-        get;
-        set;
-    }
-    float timeBefore;
+    Vector3 positionCaterpillar;
+
+    public float speed;
+
+    float maxHeight;
+    float maxWidth;
+
+    float countSection;
 
     void Start()
     {
-        speed = 0;
+        speed = 100;
+        countSection = 0;
         body = GetComponent<Rigidbody2D>();
-        timeBefore = Time.time;
-        //Acceleration
-        this.floatTo("speed", accelerationDuration, targetSpeed, false);
-        NewPosition();
+        maxHeight = GameCamera.Instance.maxHeight;
+        maxWidth = GameCamera.Instance.maxWidth;
 
+        StartCoroutine(AnimateCoroutine());
     }
 
-    void FixedUpdate()
+    IEnumerator AnimateCoroutine()
     {
-        if ((int)this.transform.position.x == (int)destX && (int)this.transform.position.y == (int)destY)
-            NewPosition();
+        GameObject lastSectionInstantiated = gameObject;
+        this.NewPosition();
+        while (true)
+        {
+            if ((int)this.transform.position.x == (int)positionCaterpillar.x && (int)this.transform.position.y == (int)positionCaterpillar.y)
+                this.NewPosition();
 
-        body.velocity = (new Vector3(destX, destY, 0) - transform.position).normalized * speed;
+            body.velocity = (positionCaterpillar - transform.position).normalized * speed;
+
+            if (countSection < caterpillarLength)
+            {
+                GameObject go = GameObject.Instantiate(sectionPrefab);
+                go.transform.position = new Vector3(transform.position.x + 100, transform.position.y + 100, 0);
+                go.GetComponent<SectionCaterpillar>().following = lastSectionInstantiated;
+                lastSectionInstantiated = go;
+                countSection++;
+            }
+        
+            yield return new WaitForSeconds(1f);
+        }
     }
 
     void NewPosition()
     {
-        float maxHeight = GameCamera.Instance.maxHeight;
-        float maxWidth = GameCamera.Instance.maxWidth;
-        destX = Random.Range(-maxHeight, maxHeight);
-        destY = Random.Range(-maxWidth, maxWidth);
+        positionCaterpillar = new Vector3(Random.Range(-maxHeight, maxHeight), Random.Range(-maxWidth, maxWidth), 0);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
