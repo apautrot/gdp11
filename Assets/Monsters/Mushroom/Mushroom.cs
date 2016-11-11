@@ -21,7 +21,7 @@ public class Mushroom : MonoBehaviour {
 		destY = GameObject.Find ("Player Test").transform.position.y;
 
 		//Acceleration
-		this.floatTo("speed", 3, accelerationDuration, false);
+		this.floatTo("speed", accelerationDuration, targetSpeed, false);
 
 		body.velocity = (new Vector3(destX, destY, 0) - transform.position).normalized * speed;
 	}
