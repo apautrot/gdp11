@@ -14,14 +14,13 @@ public class Mushroom : MonoBehaviour {
 	void Start () {
 		speed = 0;
 		body = GetComponent<Rigidbody2D> ();
+		//Acceleration
+		this.floatTo("speed", accelerationDuration, targetSpeed, false);
 	}
 		
 	void FixedUpdate() {
 		destX = Player.Instance.transform.position.x;
 		destY = Player.Instance.transform.position.y;
-
-		//Acceleration
-		this.floatTo("speed", accelerationDuration, targetSpeed, false);
 
 		body.velocity = (new Vector3(destX, destY, 0) - transform.position).normalized * speed;
 	}

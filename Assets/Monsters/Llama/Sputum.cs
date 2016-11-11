@@ -20,17 +20,16 @@ public class Sputum : MonoBehaviour {
 		this.speed = speed;
 		direction = new Vector3 (x, y, 0) - transform.position;
 		//On décale le crachat en direction du joueur pour qu'il ne rentre pas dans le lama
-		transform.Translate (direction / 6);
-		Debug.Log ("Fired");
+		transform.Translate (direction / 5);
+		//Debug.Log ("Fired");
 	}
 
 	void FixedUpdate() {
 		body.velocity = direction * speed;
-		Debug.Log ("Test");
 		//On supprime le GameObject si il n'est plus visible
 		if (transform.position.x > maxWidth|| transform.position.x < -maxWidth || transform.position.y > maxHeight || transform.position.y < -maxHeight) {
 			Destroy (gameObject);
-			Debug.Log ("Bullet destroyed");
+			//Debug.Log ("Bullet destroyed");
 		}
 	}
 
