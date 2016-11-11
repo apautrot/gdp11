@@ -45,6 +45,7 @@ public class Cube : MonoBehaviour
 
             if(duration != 1)
             {
+
                 if ((Player.Instance.transform.position - transform.position).magnitude < crushJumpDistanceThreshold)
                 {
                     Player.Instance.GetComponent<Rigidbody2D>().AddForce(Vector2.up, ForceMode.Force);

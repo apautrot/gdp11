@@ -6,10 +6,13 @@ public class HUD : MonoBehaviour {
 
 	TextMesh roomLabel, timeLabel;
 	List<GameObject> hearts;
+	Player player;
 
 	void Start () {
-		roomLabel = RoomLabel.Instance.GetComponent<TextMesh> ();
-		timeLabel = TimeLabel.Instance.GetComponent<TextMesh> ();
+		player = Player.Instance;
+		player.OnEnergyPointChanged += OnEnergyPointChanged;
+		roomLabel = GameObject.Find ("RoomLabel").GetComponent<TextMesh> ();
+		timeLabel = GameObject.Find ("TimeLabel").GetComponent<TextMesh> ();
 		hearts = new List<GameObject> ();
 		hearts.Add(GameObject.Find ("Heart 1"));
 		hearts.Add(GameObject.Find ("Heart 2"));
@@ -37,6 +40,10 @@ public class HUD : MonoBehaviour {
 				hearts [i].SetActive (false);
 			}
 		}
+	}
+
+	void OnEnergyPointChanged (int previous, int current) {
+		setLifes (current);
 	}
 
 }

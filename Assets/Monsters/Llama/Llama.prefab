@@ -22,6 +22,7 @@ GameObject:
   - 58: {fileID: 58000013719533138}
   - 50: {fileID: 50000011685294088}
   - 114: {fileID: 114000010425832898}
+  - 114: {fileID: 114000010261146526}
   m_Layer: 0
   m_Name: Llama
   m_TagString: Untagged
@@ -103,6 +104,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.25714976
+--- !u!114 &114000010261146526
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012783331622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be818d9af2afc455980d80eb2aa7625a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  life: 2
 --- !u!114 &114000010425832898
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -44,6 +44,7 @@ public class Player : SceneSingleton<Player>
 	// public float velocityDecreasePerSecond = 50;
 	public float decelerationFactorPerSec = 0.5f;
 	Vector2 velocity = Vector2.zero;
+	Animator animator;
 
 	// public Vector3 moveSpeed = new Vector3 ( 10, 10, 10 );
 	// public ForceMode MoveForceMode = ForceMode.Force;
@@ -95,6 +96,7 @@ public class Player : SceneSingleton<Player>
 		base.Awake ();
 		rigidbody = GetComponent<Rigidbody2D> ();
 		frontPivot = gameObject.FindChildByName ( "Front Pivot" );
+		animator = GetComponent<Animator> ();
 	}
 
 	void Start ()
@@ -184,6 +186,14 @@ public class Player : SceneSingleton<Player>
 		Debug.DrawLine ( from.WithYReplacedBy ( to.y ), to, color, duration );
 		Debug.DrawLine ( from, to.WithXReplacedBy ( from.y ), color, duration );
 		Debug.DrawLine ( from.WithXReplacedBy ( to.y ), to, color, duration );
+	}
+
+	void OnCollisionEnter2D (Collision2D collision) {
+		if (collision.gameObject.GetComponent<Monster>()) {
+			velocity = (transform.position - collision.transform.position) * collision.gameObject.GetComponent<Monster>().damage * 1.5f;
+			EnergyPoints--;
+			GameCamera.Instance.GetComponent<camera_shake> ().Shake (3);
+		}
 	}
 }
 

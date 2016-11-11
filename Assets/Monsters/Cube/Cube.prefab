@@ -38,6 +38,7 @@ GameObject:
   - 114: {fileID: 114000013859217476}
   - 50: {fileID: 50000011379333358}
   - 58: {fileID: 58000011367678782}
+  - 114: {fileID: 114000011234738410}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -103,6 +104,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 30.22
+--- !u!114 &114000011234738410
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012369888118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be818d9af2afc455980d80eb2aa7625a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 3
+  life: 3
 --- !u!114 &114000013859217476
 MonoBehaviour:
   m_ObjectHideFlags: 1
