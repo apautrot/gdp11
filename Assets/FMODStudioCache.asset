@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 114000011515989488}
-  - {fileID: 114000011198358130}
+  - {fileID: 114000012331660882}
   EditorEvents:
   - {fileID: 114000013207879692}
   - {fileID: 114000010475500734}
@@ -21,7 +21,7 @@ MonoBehaviour:
   - {fileID: 114000013479645166}
   - {fileID: 114000012339670002}
   - {fileID: 114000014044034088}
-  MasterBankRef: {fileID: 114000011198358130}
+  MasterBankRef: {fileID: 114000012331660882}
   StringsBankRef: {fileID: 114000011515989488}
   stringsBankWriteTime: 636145515202235215
   cacheVersion: 2
@@ -102,14 +102,14 @@ MonoBehaviour:
   Path: event:/Music/MusicFirstRoom
   guid: 183700d9bdb39b4592b96dac03a3039a
   Banks:
-  - {fileID: 114000011198358130}
+  - {fileID: 114000012331660882}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 114000012974978590}
-  - {fileID: 114000011254555718}
-  - {fileID: 114000012988624896}
+  - {fileID: 114000011008398624}
+  - {fileID: 114000012308959408}
+  - {fileID: 114000011664207828}
   MinDistance: 0
   MaxDistance: 0
 --- !u!114 &114000010651523654
@@ -148,26 +148,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
---- !u!114 &114000011198358130
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: C:\Users\vnico\OneDrive\Documents\gdp11\FMOD Project\Build\Desktop\Master
-    Bank.bank
-  lastModified: 636145515202205195
-  LoadResult: 0
-  FileSizes:
-  - Name: Desktop
-    Value: 9449664
-  Exists: 1
---- !u!114 &114000011254555718
+--- !u!114 &114000011008398624
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -178,10 +159,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Life
+  Name: EnemiesOnScreen
   Min: 0
-  Max: 100
-  Default: 100
+  Max: 10
+  Default: 0
 --- !u!114 &114000011335548774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,6 +262,21 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &114000011664207828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: DoorsOpened
+  Min: 0
+  Max: 14
+  Default: 0
 --- !u!114 &114000011713384306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -356,6 +352,40 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &114000012308959408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Life
+  Min: 0
+  Max: 100
+  Default: 100
+--- !u!114 &114000012331660882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: C:\Users\vnico\OneDrive\Documents\gdp11\FMOD Project\Build\Desktop\Master
+    Bank.bank
+  lastModified: 636145515202205195
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 9449664
+  Exists: 1
 --- !u!114 &114000012339670002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -370,7 +400,7 @@ MonoBehaviour:
   Path: event:/SD/SDPlayerWalks
   guid: 932281e7c2227343bee7ac5a1bc591dc
   Banks:
-  - {fileID: 114000011198358130}
+  - {fileID: 114000012331660882}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -427,7 +457,7 @@ MonoBehaviour:
   FileSizes:
   - Name: Desktop
     Value: 9449664
-  Exists: 1
+  Exists: 0
 --- !u!114 &114000012833914454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -446,36 +476,6 @@ MonoBehaviour:
   - Name: Desktop
     Value: 914
   Exists: 1
---- !u!114 &114000012974978590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: EnemiesOnScreen
-  Min: 0
-  Max: 10
-  Default: 0
---- !u!114 &114000012988624896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: DoorsOpened
-  Min: 0
-  Max: 14
-  Default: 0
 --- !u!114 &114000013207879692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -490,7 +490,7 @@ MonoBehaviour:
   Path: event:/SD/SDGetItem
   guid: 0d387597d2fe9343adf6aa3fb4176187
   Banks:
-  - {fileID: 114000011198358130}
+  - {fileID: 114000012331660882}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -559,7 +559,7 @@ MonoBehaviour:
   Path: event:/SD/SDDoors
   guid: 59d73e12999a7d4993cfb5483f5a026e
   Banks:
-  - {fileID: 114000011198358130}
+  - {fileID: 114000012331660882}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -580,7 +580,7 @@ MonoBehaviour:
   Path: event:/SD/SDAmbient
   guid: 9229a68d246ffb43a4b99b62ca3c935d
   Banks:
-  - {fileID: 114000011198358130}
+  - {fileID: 114000012331660882}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -691,7 +691,7 @@ MonoBehaviour:
   Path: event:/SD/SDPlayerDies
   guid: d1dbb9839d5c29439d5a481ff8c3483d
   Banks:
-  - {fileID: 114000011198358130}
+  - {fileID: 114000012331660882}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
