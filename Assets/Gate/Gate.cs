@@ -3,20 +3,15 @@ using System.Collections;
 
 public class Gate : MonoBehaviour
 {
-	bool isOpened;
-
-//	System.Action OnOpeningEnded;
-
-	GameObject sprite;
-//	GameObject spawnArea;
-
-	float duration = 1;
-
+	public float openingDuration = 1;
 	public int SpawnListIndex = -1;
+
+	bool isOpened;
+	GameObject sprite;
 
 	void Awake ()
 	{
-		sprite = gameObject.FindChildByName ( "Sprite" );
+		sprite = gameObject.FindChildByName ( "Sprite", false );
 //		spawnArea = gameObject.FindChildByName ( "Spawn Area" );
 	}
 
@@ -30,10 +25,11 @@ public class Gate : MonoBehaviour
 	{
 		isOpened = true;
 
-		sprite.transform.localPositionTo ( 1, new Vector3 ( 0, 100, 0 ), true );
+		if ( sprite != null )
+			sprite.transform.localPositionTo ( openingDuration, new Vector3 ( 0, 100, 0 ), true );
 
         //o Son d'une porte qui s'ouvre (nombre de son en fonction du nombre de porte
-        yield return new WaitForSeconds ( duration );
+        yield return new WaitForSeconds ( openingDuration );
 
 		if ( SpawnListIndex == -1 )
 			Debug.LogError ( "This gate ( " + name + " has an invalid setup index ! Find GatesSetup game object and setup it." );

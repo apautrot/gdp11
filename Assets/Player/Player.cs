@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
 public enum Direction
@@ -238,19 +238,27 @@ public class Player : SceneSingleton<Player>
 	{
 		Vector3 hitTestCenterPosition = transform.position + (Vector3) ( direction.ToVector2 () * 50 );
 
+		Gate nearest = null;
 		RaycastHit2D[] hits = Physics2D.CircleCastAll ( hitTestCenterPosition, 200, Vector2.up, 0 );
 		for ( int i = 0; i < hits.Length; i++ )
 		{
 			RaycastHit2D hit = hits[i];
-			if ( hit.collider.isTrigger )
+			// if ( hit.collider.isTrigger )
 			{
 				Gate gate = hit.collider.gameObject.GetComponent<Gate> ();
 				if ( gate != null )
 				{
-					gate.Open ();
+					if ( nearest == null )
+						nearest = gate;
+					else
+						if ( gate.transform.DistanceTo ( gameObject ) < nearest.transform.DistanceTo ( gameObject ) )
+							nearest = gate;
 				}
 			}
 		}
+
+		if ( nearest != null )
+			nearest.Open ();
 	}
 
 	void OnWeaponEffectEnd ()
