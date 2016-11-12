@@ -43,8 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c7b66e4c10c7fd4c8db3af8e1ebb64f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceleration: 250
-  maximumSpeed: 250
+  acceleration: 180
+  maximumSpeed: 180
   decelerationFactor: 5
   invincibilityTime: 1
   WeaponPrefab: {fileID: 0}
