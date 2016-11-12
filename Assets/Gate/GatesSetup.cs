@@ -58,12 +58,12 @@ public class SpawnList
 			{
 				ObjectType type = Items[i].ObjectType;
 
-				Debug.Log
-				(
-					"  -> Spawning item " + type.ToString () + " at gate " + gate.name + " => "
-					+ ( isSpawnForced ? "Spawn force by special chance value at 0. " : "" )
-					+ ( isChanceInThisRange ? ( "Chance value " + chanceValue + " in range [" + chanceRangeLowValue + " , " + chanceRangeHighValue + "]." ) : "" )
-				);
+// 				Debug.Log
+// 				(
+// 					"  -> Spawning item " + type.ToString () + " at gate " + gate.name + " => "
+// 					+ ( isSpawnForced ? "Spawn force by special chance value at 0. " : "" )
+// 					+ ( isChanceInThisRange ? ( "Chance value " + chanceValue + " in range [" + chanceRangeLowValue + " , " + chanceRangeHighValue + "]." ) : "" )
+// 				);
 
 				objectsToSpawn.Add ( type );
 			}

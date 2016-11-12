@@ -197,14 +197,14 @@ public class Player : SceneSingleton<Player>
 		// DebugWindow.Log ( "Player", "addedVelocity", addedVelocity.ToStringEx () );
 		// DebugWindow.Log ( "Player", "rigidbody.velocity", rigidbody.velocity.ToStringEx () );
 
-		if ( Input.GetKey ( KeyCode.Space ) )
+		if ( Input.GetKeyDown ( KeyCode.Space ) )
 			SpawnItem ();
 
-		if ( Input.GetKey ( KeyCode.Return ) )
+		if ( Input.GetKeyDown ( KeyCode.Return ) )
 			OpenGate ();
 
-		if ( Input.GetKeyDown ( KeyCode.A ) )
-			DebugDrawRect ( new Vector3 ( 0, 0, 0 ), new Vector3 ( 50, 50, 0 ), Color.red, 1 );
+// 		if ( Input.GetKeyDown ( KeyCode.A ) )
+// 			DebugDrawRect ( new Vector3 ( 0, 0, 0 ), new Vector3 ( 50, 50, 0 ), Color.red, 1 );
 
 		if ((rigidbody.velocity.x > 1 || rigidbody.velocity.x < -1) || (rigidbody.velocity.y > 1 || rigidbody.velocity.y < -1)) {
 			animator.SetBool ("Walking", true);
