@@ -26,7 +26,7 @@ public class SpawnList
 
 	internal List<ObjectType> Spawn ( Gate gate )
 	{
-		Debug.Log ( "Spawning list named " + Name );
+		// Debug.Log ( "Spawning list named " + Name );
 
 		List<ObjectType> objectsToSpawn = new List<ObjectType>();
 

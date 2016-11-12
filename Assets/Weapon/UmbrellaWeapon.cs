@@ -6,7 +6,7 @@ interface IWeapon
 	System.Action OnEnd { get; set; }
 }
 
-public class FakeWeapon : MonoBehaviour, IWeapon
+public class UmbrellaWeapon : MonoBehaviour, IWeapon
 {
 	System.Action onEnd;
 	public System.Action OnEnd { get { return onEnd; } set { onEnd = value; } }
