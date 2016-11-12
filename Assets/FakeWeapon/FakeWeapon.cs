@@ -35,10 +35,14 @@ public class FakeWeapon : MonoBehaviour, IWeapon
 			if ( collider.gameObject.GetComponentAs<IMonster> () != null )
 			{
 				collider.gameObject.GetComponent<Rigidbody2D> ().AddForce ( new Vector2 ( 0, 50 ), ForceMode.VelocityChange );
-			}
+                //Son quand il frappe (en fonction du type d'arme)
+            } else
+            {
+               // Son quand il frappe et qu'il touche ne touche rien
+            }
 
-//			Debug.Log ( "Hits[" + i + "] => " + hits[i].collider.name );
-		}
+            //			Debug.Log ( "Hits[" + i + "] => " + hits[i].collider.name );
+        }
 
 		transform.localEulerAngles = new Vector3 ( 0, 0, 90 );
 		transform.localEularAnglesTo ( 0.25f, new Vector3 ( 0, 0, -90 ) );

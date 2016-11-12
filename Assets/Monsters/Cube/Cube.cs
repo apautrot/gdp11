@@ -49,7 +49,8 @@ public class Cube : MonoBehaviour
                 if ((Player.Instance.transform.position - transform.position).magnitude < crushJumpDistanceThreshold)
                 {
                     Player.Instance.GetComponent<Rigidbody2D>().AddForce(Vector2.up, ForceMode.Force);
-                    Debug.Log("Joueur Touché");
+
+                    // Son d'écrasement des ennemis
                 }
             }
         }
