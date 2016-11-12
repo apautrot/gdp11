@@ -98,6 +98,7 @@ public class Player : SceneSingleton<Player>
 		rigidbody = GetComponent<Rigidbody2D> ();
 		frontPivot = gameObject.FindChildByName ( "Front Pivot" );
 		animator = gameObject.FindChildByName("Sprite").GetComponent<Animator> ();
+		animator.speed = 0.5f;
 	}
 
 	void Reawake ()
@@ -196,9 +197,17 @@ public class Player : SceneSingleton<Player>
 		if ( Input.GetKey ( KeyCode.Return ) )
 			OpenGate ();
 
+		if (Input.GetKey(KeyCode.D))
+			animator.SetInteger ("Direction", 5);
+
 		if ( Input.GetKeyDown ( KeyCode.A ) )
 			DebugDrawRect ( new Vector3 ( 0, 0, 0 ), new Vector3 ( 50, 50, 0 ), Color.red, 1 );
 
+		if ((rigidbody.velocity.x > 1 || rigidbody.velocity.x < -1) || (rigidbody.velocity.y > 1 || rigidbody.velocity.y < -1)) {
+			animator.SetBool ("Walking", true);
+		} else {
+			animator.SetBool ("Walking", false);
+		}
 
 	}
 
@@ -252,9 +261,12 @@ public class Player : SceneSingleton<Player>
 	void OnCollisionEnter2D (Collision2D collision) {
 		if (collision.gameObject.GetComponent<Monster>())
 		{
-			rigidbody.velocity = (transform.position - collision.transform.position) * collision.gameObject.GetComponent<Monster>().damage * 1.5f;
+			rigidbody.velocity = (transform.position - collision.transform.position) * collision.gameObject.GetComponent<Monster>().damage * 10f;
 			EnergyPoints--;
-			GameCamera.Instance.GetComponent<camera_shake> ().Shake (3);
+			if (EnergyPoints <= 0) {
+				animator.SetInteger ("Direction", 5);
+			}
+			//GameCamera.Instance.GetComponent<camera_shake> ().Shake (3);
 		}
 	}
 }
