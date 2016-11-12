@@ -23,12 +23,24 @@ public class Cube : MonoBehaviour
     public GoEaseType crushJumpMoveEase = GoEaseType.QuadInOut;
     public GoEaseType crushJumpSpriteEase = GoEaseType.QuadInOut;
 
+    GoTween tween;
+    AbstractGoTween spriteTween;
+
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
         sprite = gameObject.FindChildByName("Sprite");
 
         StartCoroutine(AnimateCoroutine());
+    }
+
+    void OnDestroy()
+    {
+        if (tween != null)
+            tween.destroy();
+
+        if (spriteTween != null)
+            spriteTween.destroy();
     }
 
     IEnumerator AnimateCoroutine()
@@ -61,27 +73,27 @@ public class Cube : MonoBehaviour
     {
         Vector3 velocity = (Player.Instance.transform.position - transform.position).normalized * crushJumpDistance;
 
-        GoTween tween = transform.positionTo(crushJumpDuration, velocity, true)
+        tween = transform.positionTo(crushJumpDuration, velocity, true)
             .eases(crushJumpMoveEase);
 
-        AbstractGoTween spriteTween = sprite.transform.localPositionTo(crushJumpDuration / 2, new Vector3(0, crushJumpHeight, 0), true)
+        spriteTween = sprite.transform.localPositionTo(crushJumpDuration / 2, new Vector3(0, crushJumpHeight, 0), true)
             .eases(crushJumpSpriteEase)
             .loops(2, GoLoopType.PingPong);
 
-        return tween.totalDuration;
+        return tween.totalDuration + spriteTween.totalDuration;
     }
 
     float NormalJump()
     {
         Vector3 velocity = (Player.Instance.transform.position - transform.position).normalized * jumpDistance;
 
-        GoTween tween = transform.positionTo(jumpDuration, velocity, true)
+         tween = transform.positionTo(jumpDuration, velocity, true)
             .eases(jumpMoveEase);
 
-        AbstractGoTween spriteTween = sprite.transform.localPositionTo(jumpDuration / 2, new Vector3(0, jumpHeight, 0), true)
+        spriteTween = sprite.transform.localPositionTo(jumpDuration / 2, new Vector3(0, jumpHeight, 0), true)
             .eases(jumpSpriteEase)
             .loops(2, GoLoopType.PingPong);
 
-        return tween.totalDuration;
+        return tween.totalDuration + spriteTween.totalDuration;
     }
 }
