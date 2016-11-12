@@ -363,6 +363,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa8c184321aaa4bf9a3232c02e815a43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialHeartApparitionDelay: 0.25
+  heartScaleInDuration: 1
+  heartScaleOutDuration: 0.25
+  heartScaleInEase: 23
+  heartScaleOutEase: 2
 --- !u!212 &212000010556211164
 SpriteRenderer:
   m_ObjectHideFlags: 1
