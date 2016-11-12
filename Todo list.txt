@@ -1,0 +1,36 @@
+[Alex] - déclencher arme joueur par espace
+[Alex] - écran game over quand on est mort
+[Tom]  - ne plus tirer sur le joueur quand il est mort
+[Tom]  - il faut mourrir quand on a 0 énergie et pas -1
+
+[Tom]  - chenille : comportement à revoir
+
+[Tom]  - temps à écouler
+[Tom]  - temps à afficher
+[Tom]  - brancher mort sur timer à zéro
+
+[Nico] - créer gameobject item bonus temps (qui rajoute du temps)
+
+[Alex]- gérer porte finale
+	- spawner cadenas devant
+	- gérer déverouillage cadenas avec clef
+	- créer gameobject clef
+	- spawner clef sur mort d'un des monstres
+
+[Kévin] - peut-il revoir le sprite de la box
+[Kévin] - pas d'animation de marche sur les mushrooms ?
+[Kévin] - pas d'animation de marche sur le lama
+[Kévin] - sprite cracha est encore un placeholder
+[Tom]   - désactiver collider / prise de collision quand on est mort
+[Tom]   - quand enemi spawn il est orienté dans mauvaise direction
+[Tom&Alex]	-> revoir spawn enemis (+ orienter vers le centre au démarrage)
+[Alex]  - animation (générique) mort des enemis
+[Alex]  - porte la plus haut/droite s'anime à l'envers
+[Tom]   - faire effet clignotement sur le joueur quand il est invicible
+[Justin] - le joueur glisse un peu sur le sol, revoir paramétrage
+[Justin] - police à trouver
+[Joss]  - intégrer fichiers sons
+[Nico]  - lancer play des sons
+[Alex]  - écran splash titre
+[Kévin] - ombres sous sprites à revoir
+[nico]  - chenille : tête trop grosse
