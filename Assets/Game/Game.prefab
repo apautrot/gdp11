@@ -40,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012959605502}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -379.99997, y: 324, z: 0}
+  m_LocalPosition: {x: 0, y: 922, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -362,6 +362,8 @@ MonoBehaviour:
       type: 2}
     CaterpillarPrefab: {fileID: 1000013109869938, guid: c9e3abcd2dee569429ed8532e301eadd,
       type: 2}
+    ClockItemPrefab: {fileID: 1000011334475684, guid: c8d0f476d247bcf45b01223333a92d90,
+      type: 2}
     HeartItemPrefab: {fileID: 1000012677727050, guid: 17a3ddf2695bf60469b48fbb140c9ca0,
       type: 2}
 --- !u!114 &114000011239490254
@@ -370,7 +372,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012959605502}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 

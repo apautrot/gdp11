@@ -1,4 +1,4 @@
-[Alex] - déclencher arme joueur par espace
+﻿[Alex] - déclencher arme joueur par espace
 [Alex] - écran game over quand on est mort
 [Tom]  - ne plus tirer sur le joueur quand il est mort
 [Tom]  - il faut mourrir quand on a 0 énergie et pas -1
@@ -8,8 +8,7 @@
 [Tom]  - temps à écouler
 [Tom]  - temps à afficher
 [Tom]  - brancher mort sur timer à zéro
-
-[Nico] - créer gameobject item bonus temps (qui rajoute du temps)
+[Tom] - Remplir la methode (dans ItemClock) qui rajoute du temps
 
 [Alex]- gérer porte finale
 	- spawner cadenas devant
