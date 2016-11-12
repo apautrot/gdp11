@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public enum Direction
@@ -43,6 +43,8 @@ public class Player : SceneSingleton<Player>
 	public float acceleration = 150;
 	public float maximumSpeed = 100;
 	public float decelerationFactor = 0.5f;
+	public float invincibilityTime = 3f;
+	private float lastDamage;
 	Animator animator;
 
 	// public Vector3 moveSpeed = new Vector3 ( 10, 10, 10 );
@@ -92,12 +94,17 @@ public class Player : SceneSingleton<Player>
 		}
 	}
 
+	public bool Movable, Hurtable;
+
 	new void Awake ()
 	{
 		base.Awake ();
 		rigidbody = GetComponent<Rigidbody2D> ();
 		animator = gameObject.FindChildByName("Sprite").GetComponent<Animator> ();
 		animator.speed = 0.5f;
+		Movable = true;
+		Hurtable = true;
+		lastDamage = Time.time;
 	}
 
 	void Reawake ()
@@ -117,7 +124,7 @@ public class Player : SceneSingleton<Player>
 		Vector2 addedVelocity = Vector2.zero;
 
 		// if ( Input.GetKey ( KeyCode.LeftArrow ) || Input.GetAxis("Horizontal") < 0)
-		if ( InputConfiguration.Instance.Left.IsDown )
+		if ( InputConfiguration.Instance.Left.IsDown && Movable)
 		{
 			isActivelyMoving = true;
 			addedVelocity += Vector2.left;
@@ -131,7 +138,7 @@ public class Player : SceneSingleton<Player>
 		}
 
 		// if ( Input.GetKey ( KeyCode.RightArrow ) || Input.GetAxis("Horizontal") > 0)
-		if ( InputConfiguration.Instance.Right.IsDown )
+		if ( InputConfiguration.Instance.Right.IsDown && Movable)
 		{
 			isActivelyMoving = true;
 			addedVelocity += Vector2.right;
@@ -144,7 +151,7 @@ public class Player : SceneSingleton<Player>
 		}
 
 		// if ( Input.GetKey ( KeyCode.UpArrow ) || Input.GetAxis("Vertical") > 0)
-		if ( InputConfiguration.Instance.Up.IsDown )
+		if ( InputConfiguration.Instance.Up.IsDown && Movable)
 		{
 			isActivelyMoving = true;
 			addedVelocity += Vector2.up;
@@ -157,7 +164,7 @@ public class Player : SceneSingleton<Player>
 		}
 
 		// if ( Input.GetKey ( KeyCode.DownArrow ) || Input.GetAxis("Vertical") < 0)
-		if ( InputConfiguration.Instance.Down.IsDown )
+		if ( InputConfiguration.Instance.Down.IsDown && Movable)
 		{
 			isActivelyMoving = true;
 			addedVelocity += Vector2.down;
@@ -196,9 +203,6 @@ public class Player : SceneSingleton<Player>
 		if ( Input.GetKey ( KeyCode.Return ) )
 			OpenGate ();
 
-		if (Input.GetKey(KeyCode.D))
-			animator.SetInteger ("Direction", 5);
-
 		if ( Input.GetKeyDown ( KeyCode.A ) )
 			DebugDrawRect ( new Vector3 ( 0, 0, 0 ), new Vector3 ( 50, 50, 0 ), Color.red, 1 );
 
@@ -206,6 +210,11 @@ public class Player : SceneSingleton<Player>
 			animator.SetBool ("Walking", true);
 		} else {
 			animator.SetBool ("Walking", false);
+		}
+
+		//On check si le joueur a été frappé il y a moins de x secondes
+		if (Time.time - lastDamage >= invincibilityTime) {
+			Hurtable = true;
 		}
 
 	}
@@ -260,10 +269,17 @@ public class Player : SceneSingleton<Player>
 	void OnCollisionEnter2D (Collision2D collision) {
 		if (collision.gameObject.GetComponent<Monster>())
 		{
-			rigidbody.velocity = (transform.position - collision.transform.position) * collision.gameObject.GetComponent<Monster>().damage * 10f;
-			EnergyPoints--;
-			if (EnergyPoints <= 0) {
-				animator.SetInteger ("Direction", 5);
+			rigidbody.velocity = (transform.position - collision.transform.position) * collision.gameObject.GetComponent<Monster>().damage * 300f;
+
+			if (Hurtable) {
+				lastDamage = Time.time;
+				Hurtable = false;
+				if (EnergyPoints <= 0) {
+					animator.SetInteger ("Direction", 4);
+					Movable = false;
+				} else {
+					EnergyPoints--;
+				}
 			}
 			//GameCamera.Instance.GetComponent<camera_shake> ().Shake (3);
 		}

@@ -25,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 144134}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -50.5, y: -83.2, z: 0}
+  m_LocalPosition: {x: -366, y: 177, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -46,7 +46,10 @@ MonoBehaviour:
   acceleration: 250
   maximumSpeed: 250
   decelerationFactor: 5
+  invincibilityTime: 3
   WeaponPrefab: {fileID: 0}
+  Movable: 0
+  Hurtable: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

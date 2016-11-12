@@ -5,7 +5,9 @@ public class Mushroom : MonoBehaviour {
 
 	public float targetSpeed, accelerationDuration;
 	private float destX, destY;
-	float speed {
+    int direction = 0;
+    Animator anim;
+    float speed {
 		get;
 		set;
 	}
@@ -16,14 +18,18 @@ public class Mushroom : MonoBehaviour {
 		body = GetComponent<Rigidbody2D> ();
 		//Acceleration
 		this.floatTo("speed", accelerationDuration, targetSpeed, false);
-	}
-		
-	void FixedUpdate() {
+        anim = gameObject.FindChildByName("Sprite").GetComponent<Animator>();
+
+    }
+
+    void FixedUpdate() {
 		destX = Player.Instance.transform.position.x;
 		destY = Player.Instance.transform.position.y;
 
 		if (Player.Instance.EnergyPoints>0) {
 			body.velocity = (new Vector3(destX, destY, 0) - transform.position).normalized * speed;
 		}
-	}
+
+        anim.SetInteger("Direction", direction);
+    }
 }

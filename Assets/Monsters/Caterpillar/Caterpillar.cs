@@ -17,6 +17,36 @@ public class Caterpillar : MonoBehaviour {
 
     float countSection;
 
+    Animator anim;
+    SpriteRenderer sprite;
+
+    int direction
+    {
+        get
+        {
+            if ((body.velocity.x > 0 && body.velocity.x > body.velocity.y) || (body.velocity.x < 0 && body.velocity.x < body.velocity.y))
+            {
+                if (body.velocity.x > 0)
+                    return 2;
+                if (body.velocity.x < 0)
+                    return 1;
+            }
+            else
+            {
+                if (body.velocity.y > 0)
+                    return 3;
+                if (body.velocity.y < 0)
+                    return 0;
+            }
+            return 0;
+        }
+
+        set
+        {
+            direction = value;
+        }
+    }
+
     void Start()
     {
         speed = 100;
@@ -24,6 +54,9 @@ public class Caterpillar : MonoBehaviour {
         body = GetComponent<Rigidbody2D>();
         maxHeight = GameCamera.Instance.maxHeight;
         maxWidth = GameCamera.Instance.maxWidth;
+
+        sprite = gameObject.FindChildByName("Sprite").GetComponent<SpriteRenderer>();
+        anim = gameObject.FindChildByName("Sprite").GetComponent<Animator>();
 
         StartCoroutine(AnimateCoroutine());
     }
@@ -50,7 +83,15 @@ public class Caterpillar : MonoBehaviour {
 
                 countSection++;
             }
-        
+
+            if (direction == 2)
+                sprite.flipX = true;
+
+            if (direction == 1)
+                sprite.flipX = false;
+
+            anim.SetInteger("Direction", direction);
+
             yield return new WaitForSeconds(1f);
         }
     }
