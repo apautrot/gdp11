@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HasSourceProject: 1
   HasPlatforms: 1
-  SourceProjectPath: FMOD Project\GameJam gdp11.fspro
+  SourceProjectPath: FMOD Project/GameJam gdp11.fspro
   SourceBankPath: FMOD Project\Build
   AutomaticEventLoading: 1
   AutomaticSampleLoading: 0
