@@ -44,8 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c7b66e4c10c7fd4c8db3af8e1ebb64f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 200
-  decelerationSpeedPerSec: 200
+  acceleration: 250
+  maximumSpeed: 250
+  decelerationFactor: 5
   WeaponPrefab: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
