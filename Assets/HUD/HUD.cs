@@ -37,7 +37,19 @@ public class HUD : SceneSingleton<HUD>
 	}
 
 	public void SetTime(int time) {
-		this.timeLabel.text = (time / 60) + ":" + (time % 60);
+		string secs = (time % 60).ToString(), mins = (time / 60).ToString();
+		if (time % 60 < 10)
+			secs = "0" + (time % 60);
+		if (time / 60 < 10)
+			mins = "0" + time / 60;
+		this.timeLabel.text = mins + ":" + secs;
+
+		if (time <= 5) {
+			timeLabel.color = new Color (255, 0, 0);
+			timeLabel.transform.SetScale (0.7f);
+			timeLabel.transform.scaleTo( heartScaleInDuration, 1 ).eases(heartScaleInEase);
+		}
+			
 	}
 
 	void SetRoom(string room) {

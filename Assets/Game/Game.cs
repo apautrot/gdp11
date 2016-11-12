@@ -69,7 +69,7 @@ public class Game : Singleton<Game>
 
 	void FixedUpdate() {
 		//Décompte timer
-		if (Time.time - lastTime >= 1) {
+		if (Time.time - lastTime >= 1 && time > 0) {
 			lastTime = Time.time;
 			time--;
 			HUD.Instance.GetComponent<HUD> ().SetTime (time);

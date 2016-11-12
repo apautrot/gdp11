@@ -70,7 +70,8 @@ public class Caterpillar : MonoBehaviour {
             if ((int)this.transform.position.x == (int)positionCaterpillar.x && (int)this.transform.position.y == (int)positionCaterpillar.y)
                 this.NewPosition();
 
-            body.velocity = (positionCaterpillar - transform.position).normalized * speed;
+			if (Player.Instance.EnergyPoints > 0)
+            	body.velocity = (positionCaterpillar - transform.position).normalized * speed;
 
             if (countSection < caterpillarLength)
             {
