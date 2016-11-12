@@ -8,8 +8,8 @@ public enum ObjectType
     ItemClock,
 	EnemyMushroom,
 	EnemyLlama,
-	EnemyJumpingRock,
-	EnemyCaterpillar
+    EnemyCaterpillar,
+    EnemyJumpingRock
 }
 
 [System.Serializable]
