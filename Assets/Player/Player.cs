@@ -50,6 +50,7 @@ public class Player : SceneSingleton<Player>
 
 	public GameObject WeaponPrefab;
 
+	const int MaximumEnergyPoints = 5;
 	const int EnergyPointsAtStartOfGame = 5;
 
 	internal int _energyPoints = 0;
@@ -58,6 +59,8 @@ public class Player : SceneSingleton<Player>
 		get { return _energyPoints; }
 		set
 		{
+			value = Mathf.Clamp ( value, 0, MaximumEnergyPoints );
+
 			if ( _energyPoints != value )
 			{
 				int previousValue = _energyPoints;
