@@ -51,7 +51,8 @@ public class Llama : MonoBehaviour {
 		destX = Player.Instance.transform.position.x;
 		destY = Player.Instance.transform.position.y;
 
-		body.velocity = (new Vector3(destX, destY, 0) - transform.position).normalized * speed;
+		if (Player.Instance.EnergyPoints > 0)
+			body.velocity = (new Vector3(destX, destY, 0) - transform.position).normalized * speed;
 
 		if (direction == 2)
 			sprite.flipX = true;
@@ -61,7 +62,7 @@ public class Llama : MonoBehaviour {
 
 
 		//Tire quand le firerate est dépassé
-		if (Time.time - timeBefore >= fireRate) {
+		if (Time.time - timeBefore >= fireRate && Player.Instance.EnergyPoints > 0) {
 			if (Vector3.Distance(new Vector3(destX, destY, 0), transform.position) > noFireArea) {
                 
 				anim.SetBool ("Sputum", true);

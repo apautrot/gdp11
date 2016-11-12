@@ -60,9 +60,8 @@ public class Mushroom : MonoBehaviour {
         if (direction == 1)
             sprite.flipX = false;
 
-        if (Player.Instance.EnergyPoints>0) {
+        if (Player.Instance.EnergyPoints > 0)
 			body.velocity = (new Vector3(destX, destY, 0) - transform.position).normalized * speed;
-		}
 
         anim.SetInteger("Direction", direction);
     }

@@ -1,8 +1,8 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class HUD : MonoBehaviour
+public class HUD : SceneSingleton<HUD>
 {
 	public float initialHeartApparitionDelay = 0.25f;
 	public float heartScaleInDuration = 0.5f;
@@ -32,16 +32,27 @@ public class HUD : MonoBehaviour
 			ShowHeart ( hearts[i], i * initialHeartApparitionDelay );
 		}
 
-		setRoom ("Room #1");
-		setTime ("04:33");
-		setLifes ( Player.Instance.EnergyPoints );
+		SetRoom ("#1");
+		SetLifes ( Player.Instance.EnergyPoints );
 	}
 
-	void setTime(string time) {
-		this.timeLabel.text = time;
+	public void SetTime(int time) {
+		string secs = (time % 60).ToString(), mins = (time / 60).ToString();
+		if (time % 60 < 10)
+			secs = "0" + (time % 60);
+		if (time / 60 < 10)
+			mins = "0" + time / 60;
+		this.timeLabel.text = mins + ":" + secs;
+
+		if (time <= 5) {
+			timeLabel.color = new Color (255, 0, 0);
+			timeLabel.transform.SetScale (0.7f);
+			timeLabel.transform.scaleTo( heartScaleInDuration, 1 ).eases(heartScaleInEase);
+		}
+			
 	}
 
-	void setRoom(string room) {
+	void SetRoom(string room) {
 		this.roomLabel.text = room;
 	}
 
@@ -61,7 +72,7 @@ public class HUD : MonoBehaviour
 		.setOnCompleteHandler ( c => heart.SetActive ( false ) );
 	}
 
-	void setLifes (int lifes)
+	void SetLifes (int lifes)
 	{
 		for (int i = 0; i < hearts.Count; i++)
 		{
@@ -78,7 +89,7 @@ public class HUD : MonoBehaviour
 
 	void OnEnergyPointChanged ( int previous, int current )
 	{
-		setLifes (current);
+		SetLifes (current);
 	}
 
 }

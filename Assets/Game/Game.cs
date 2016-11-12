@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -24,11 +24,16 @@ public class Game : Singleton<Game>
 			case ObjectType.EnemyJumpingRock: return prefabs.JumpingRockPrefab;
 			case ObjectType.EnemyLlama: return prefabs.LlamaPrefab;
 			case ObjectType.EnemyMushroom: return prefabs.MushroomPrefab;
+			case ObjectType.EnemyCaterpillar: return prefabs.CaterpillarPrefab;
 			case ObjectType.ItemHeart: return prefabs.HeartItemPrefab;
             case ObjectType.ItemClock: return prefabs.ClockItemPrefab;
             default: return null;
 		}
 	}
+
+	//Temps du timer
+	public int time = 60;
+	private float lastTime;
 
 	void Start ()
 	{
@@ -58,6 +63,22 @@ public class Game : Singleton<Game>
 		}
 		else
 			Debug.LogError ( "The GatesSetup in this scene is not properly setup." );
+
+		//Init timer
+		lastTime = Time.time;
+	}
+
+	void FixedUpdate() {
+		//Décompte timer
+		if (Time.time - lastTime >= 1 && time > 0) {
+			lastTime = Time.time;
+			time--;
+			HUD.Instance.GetComponent<HUD> ().SetTime (time);
+		}
+
+		if (time == 0) {
+			Player.Instance.Die ();
+		}
 	}
 
 // 	void Update ()
