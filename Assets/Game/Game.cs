@@ -29,6 +29,10 @@ public class Game : Singleton<Game>
 		}
 	}
 
+	//Temps du timer
+	public int time = 60;
+	private float lastTime;
+
 	void Start ()
 	{
 		Gate[] gates = FindObjectsOfType<Gate> ();
@@ -57,6 +61,22 @@ public class Game : Singleton<Game>
 		}
 		else
 			Debug.LogError ( "The GatesSetup in this scene is not properly setup." );
+
+		//Init timer
+		lastTime = Time.time;
+	}
+
+	void FixedUpdate() {
+		//Décompte timer
+		if (Time.time - lastTime >= 1) {
+			lastTime = Time.time;
+			time--;
+			HUD.Instance.GetComponent<HUD> ().SetTime (time);
+		}
+
+		if (time == 0) {
+			Player.Instance.Die ();
+		}
 	}
 
 // 	void Update ()
