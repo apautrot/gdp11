@@ -46,7 +46,10 @@ MonoBehaviour:
   acceleration: 250
   maximumSpeed: 250
   decelerationFactor: 5
+  invincibilityTime: 3
   WeaponPrefab: {fileID: 0}
+  Movable: 0
+  Hurtable: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

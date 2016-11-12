@@ -72,7 +72,7 @@ public class Llama : MonoBehaviour {
 		}
 		anim.SetInteger ("Direction", direction);
 		//Debug.Log (anim.GetBool("Sputum"));
-		Debug.Log (anim.GetInteger("Direction"));
+		//Debug.Log (anim.GetInteger("Direction"));
 	}
 
 	void Shoot () {
@@ -80,7 +80,7 @@ public class Llama : MonoBehaviour {
 		go.transform.position = transform.position;
 		// Son de tirs
 		go.GetComponent<Sputum> ().Fire (destX, destY, fireSpeed);
-		//anim.SetBool ("Sputum", false);
+		anim.SetBool ("Sputum", false);
 	}
 
 }
