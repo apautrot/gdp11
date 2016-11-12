@@ -40,7 +40,6 @@ GameObject:
   - 4: {fileID: 4000010195740170}
   - 212: {fileID: 212000013579170318}
   - 95: {fileID: 95000012146026112}
-  - 114: {fileID: 114000013742747958}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -55,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000014124468554}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 28.3, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -68,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013952024584}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -47.1, y: -84.9, z: 0}
+  m_LocalPosition: {x: 0, y: 0.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -105,7 +104,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 31.01
+  m_Radius: 0.252743
 --- !u!95 &95000012146026112
 Animator:
   serializedVersion: 3
@@ -149,17 +148,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetSpeed: 100
   accelerationDuration: 1
---- !u!114 &114000013742747958
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000014124468554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af85efcd723db7a468fd9d8a2eb43e2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &212000013579170318
 SpriteRenderer:
   m_ObjectHideFlags: 1
