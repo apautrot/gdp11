@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class HUD : MonoBehaviour
+public class HUD : SceneSingleton<HUD>
 {
 	public float initialHeartApparitionDelay = 0.25f;
 	public float heartScaleInDuration = 0.5f;
@@ -32,16 +32,15 @@ public class HUD : MonoBehaviour
 			ShowHeart ( hearts[i], i * initialHeartApparitionDelay );
 		}
 
-		setRoom ("Room #1");
-		setTime ("04:33");
-		setLifes ( Player.Instance.EnergyPoints );
+		SetRoom ("#1");
+		SetLifes ( Player.Instance.EnergyPoints );
 	}
 
-	void setTime(string time) {
-		this.timeLabel.text = time;
+	public void SetTime(int time) {
+		this.timeLabel.text = (time / 60) + ":" + (time % 60);
 	}
 
-	void setRoom(string room) {
+	void SetRoom(string room) {
 		this.roomLabel.text = room;
 	}
 
@@ -61,7 +60,7 @@ public class HUD : MonoBehaviour
 		.setOnCompleteHandler ( c => heart.SetActive ( false ) );
 	}
 
-	void setLifes (int lifes)
+	void SetLifes (int lifes)
 	{
 		for (int i = 0; i < hearts.Count; i++)
 		{
@@ -78,7 +77,7 @@ public class HUD : MonoBehaviour
 
 	void OnEnergyPointChanged ( int previous, int current )
 	{
-		setLifes (current);
+		SetLifes (current);
 	}
 
 }

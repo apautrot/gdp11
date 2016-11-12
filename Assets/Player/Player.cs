@@ -276,15 +276,20 @@ public class Player : SceneSingleton<Player>
 				lastDamage = Time.time;
 				Hurtable = false;
 				if (EnergyPoints <= 0) {
-					animator.SetBool ("Dead", true);
-					animator.Play ("Die");
-					Movable = false;
+					Die ();
 				} else {
 					EnergyPoints--;
 				}
 			}
 			//GameCamera.Instance.GetComponent<camera_shake> ().Shake (3);
 		}
+	}
+
+	public void Die() {
+		animator.SetBool ("Dead", true);
+		animator.Play ("Die");
+		Movable = false;
+		GetComponent<CircleCollider2D>().enabled = false;
 	}
 }
 
