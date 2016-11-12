@@ -34,3 +34,5 @@
 [Alex]  - écran splash titre
 [Kévin] - ombres sous sprites à revoir
 [nico]  - chenille : tête trop grosse
+
+- crachas lama sont trop rapides

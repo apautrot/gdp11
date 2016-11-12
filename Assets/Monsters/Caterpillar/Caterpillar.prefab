@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010430347726}
   - 212: {fileID: 212000013482036210}
+  - 114: {fileID: 114000013550215026}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -153,6 +154,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 2
   life: 2
+--- !u!114 &114000013550215026
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012709156628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af85efcd723db7a468fd9d8a2eb43e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212000011130267340
 SpriteRenderer:
   m_ObjectHideFlags: 1

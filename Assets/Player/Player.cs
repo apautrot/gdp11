@@ -119,7 +119,7 @@ public class Player : SceneSingleton<Player>
 
 	void Update ()
 	{
-		if ( InputConfiguration.Instance.ActionB.IsJustDown )
+		if ( InputConfiguration.Instance.ActionA.IsJustDown )
 			UseWeapon ();
 
 		if ( InputConfiguration.Instance.ActionB.IsJustDown )
