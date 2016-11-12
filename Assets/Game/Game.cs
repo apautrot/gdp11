@@ -24,6 +24,7 @@ public class Game : Singleton<Game>
 			case ObjectType.EnemyJumpingRock: return prefabs.JumpingRockPrefab;
 			case ObjectType.EnemyLlama: return prefabs.LlamaPrefab;
 			case ObjectType.EnemyMushroom: return prefabs.MushroomPrefab;
+			case ObjectType.EnemyCaterpillar: return prefabs.CaterpillarPrefab;
 			case ObjectType.ItemHeart: return prefabs.HeartItemPrefab;
 			default: return null;
 		}
