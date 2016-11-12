@@ -24,9 +24,11 @@ public class SpawnList
 	public string Name;
 	public List<Spawn> Items;
 
-	internal void Spawn ( Gate gate )
+	internal List<ObjectType> Spawn ( Gate gate )
 	{
 		Debug.Log ( "Spawning list named " + Name );
+
+		List<ObjectType> objectsToSpawn = new List<ObjectType>();
 
 		// get total chance token count
 		int totalChanceCount = 0;
@@ -63,11 +65,13 @@ public class SpawnList
 					+ ( isChanceInThisRange ? ( "Chance value " + chanceValue + " in range [" + chanceRangeLowValue + " , " + chanceRangeHighValue + "]." ) : "" )
 				);
 
-				gate.SpawnItem ( type );
+				objectsToSpawn.Add ( type );
 			}
 
 			chanceRangeLowValue = chanceRangeHighValue;
 		}
+
+		return objectsToSpawn;
 	}
 }
 
@@ -94,6 +98,18 @@ public class GatesSetup : SceneSingleton<GatesSetup>
 	internal void Spawn ( Gate gate )
 	{
 		SpawnList spawnList = SpawnLists[gate.SpawnListIndex];
-		spawnList.Spawn ( gate );
+
+		List<ObjectType> objectsToSpawn = spawnList.Spawn ( gate );
+
+		StartCoroutine ( SpawnObjectList ( gate, objectsToSpawn ) );
+	}
+
+	IEnumerator SpawnObjectList ( Gate gate, List<ObjectType> objectsToSpawn )
+	{
+		for ( int i = 0; i < objectsToSpawn.Count; i++ )
+		{
+			gate.SpawnItem ( objectsToSpawn[i] );
+			yield return new WaitForSeconds ( 1 );
+		}
 	}
 }

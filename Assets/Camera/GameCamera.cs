@@ -3,8 +3,8 @@ using System.Collections;
 
 public class GameCamera : SceneSingleton<GameCamera> 
 {
-    public float maxHeight;
-    public float maxWidth;
+    internal float maxHeight;
+	internal float maxWidth;
 
 	new void Awake ()
     {
