@@ -40,10 +40,9 @@ public static class DirectionExtensions
 
 public class Player : SceneSingleton<Player>
 {
-	public float moveSpeed = 50;
-	// public float velocityDecreasePerSecond = 50;
-	public float decelerationFactorPerSec = 0.5f;
-	Vector2 velocity = Vector2.zero;
+	public float acceleration = 150;
+	public float maximumSpeed = 100;
+	public float decelerationFactor = 0.5f;
 	Animator animator;
 
 	// public Vector3 moveSpeed = new Vector3 ( 10, 10, 10 );
@@ -51,7 +50,9 @@ public class Player : SceneSingleton<Player>
 
 	public GameObject WeaponPrefab;
 
-	internal int _energyPoints = 5;
+	const int EnergyPointsAtStartOfGame = 5;
+
+	internal int _energyPoints = 0;
 	internal int EnergyPoints
 	{
 		get { return _energyPoints; }
@@ -99,54 +100,95 @@ public class Player : SceneSingleton<Player>
 		animator = gameObject.FindChildByName("Sprite").GetComponent<Animator> ();
 	}
 
-	void Start ()
+	void Reawake ()
 	{
-
+		Awake ();
 	}
 
-	void Update ()
+	void Start ()
 	{
+		EnergyPoints = EnergyPointsAtStartOfGame;
+	}
 
-		if ( Input.GetKey ( KeyCode.LeftArrow ) || Input.GetAxis("Horizontal") < 0)
+	void FixedUpdate()
+	{
+		bool isActivelyMoving = false;
+
+		Vector2 addedVelocity = Vector2.zero;
+
+		// if ( Input.GetKey ( KeyCode.LeftArrow ) || Input.GetAxis("Horizontal") < 0)
+		if ( InputConfiguration.Instance.Left.IsDown )
 		{
-			velocity += Vector2.left;
+			isActivelyMoving = true;
+			addedVelocity += Vector2.left;
 			direction = Direction.Left;
-			animator.SetInteger ("Direction", 1);
-			animator.SetBool ("Walking", true);
+			if ( animator != null )
+			{
+				animator.SetInteger ( "Direction", 1 );
+				animator.SetBool ( "Walking", true );
+			}
 		
 		}
 
-		if ( Input.GetKey ( KeyCode.RightArrow ) || Input.GetAxis("Horizontal") > 0)
+		// if ( Input.GetKey ( KeyCode.RightArrow ) || Input.GetAxis("Horizontal") > 0)
+		if ( InputConfiguration.Instance.Right.IsDown )
 		{
-			velocity += Vector2.right;
+			isActivelyMoving = true;
+			addedVelocity += Vector2.right;
 			direction = Direction.Right;
-			animator.SetInteger ("Direction", 2);
-			animator.SetBool ("Walking", true);
+			if ( animator != null )
+			{
+				animator.SetInteger ( "Direction", 2 );
+				animator.SetBool ( "Walking", true );
+			}
 		}
 
-		if ( Input.GetKey ( KeyCode.UpArrow ) || Input.GetAxis("Vertical") > 0)
+		// if ( Input.GetKey ( KeyCode.UpArrow ) || Input.GetAxis("Vertical") > 0)
+		if ( InputConfiguration.Instance.Up.IsDown )
 		{
-			velocity += Vector2.up;
+			isActivelyMoving = true;
+			addedVelocity += Vector2.up;
 			direction = Direction.Up;
-			animator.SetInteger ("Direction", 3);
-			animator.SetBool ("Walking", true);
+			if ( animator != null )
+			{
+				animator.SetInteger ( "Direction", 3 );
+				animator.SetBool ( "Walking", true );
+			}
 		}
 
-		if ( Input.GetKey ( KeyCode.DownArrow ) || Input.GetAxis("Vertical") < 0)
+		// if ( Input.GetKey ( KeyCode.DownArrow ) || Input.GetAxis("Vertical") < 0)
+		if ( InputConfiguration.Instance.Down.IsDown )
 		{
-			velocity += Vector2.down;
+			isActivelyMoving = true;
+			addedVelocity += Vector2.down;
 			direction = Direction.Down;
-			animator.SetInteger ("Direction", 0);
-			animator.SetBool ("Walking", true);
+			if ( animator != null )
+			{
+				animator.SetInteger ( "Direction", 0 );
+				animator.SetBool ( "Walking", true );
+			}
 		}
 
-		if (Input.GetKeyUp ( KeyCode.DownArrow ) || Input.GetKeyUp ( KeyCode.UpArrow ) || Input.GetKeyUp ( KeyCode.LeftArrow ) || Input.GetKeyUp ( KeyCode.RightArrow )) {
-			
+		rigidbody.velocity += ( addedVelocity.normalized * acceleration );
+
+		// DebugWindow.ClearGroup ( "Player" );
+
+		if ( rigidbody.velocity.magnitude > maximumSpeed )
+		{
+			rigidbody.velocity = rigidbody.velocity.normalized * maximumSpeed;
+			// DebugWindow.Log ( "Player", "maximum speed reached", "" );
 		}
 
-			
-		rigidbody.velocity = ( velocity.normalized * moveSpeed );
-		velocity *= 0.25f;
+		if ( rigidbody.velocity != Vector2.zero && !isActivelyMoving )
+		{
+			Vector2 deceleration = ( rigidbody.velocity * decelerationFactor * Time.fixedDeltaTime );
+			// DebugWindow.Log ( "Player", "deceleration", deceleration.ToStringEx () );
+
+			rigidbody.velocity -= deceleration;
+		}
+
+		// DebugWindow.Log ( "Player", "addedVelocity", addedVelocity.ToStringEx () );
+		// DebugWindow.Log ( "Player", "rigidbody.velocity", rigidbody.velocity.ToStringEx () );
 
 		if ( Input.GetKey ( KeyCode.Space ) )
 			SpawnItem ();
@@ -208,8 +250,9 @@ public class Player : SceneSingleton<Player>
 	}
 
 	void OnCollisionEnter2D (Collision2D collision) {
-		if (collision.gameObject.GetComponent<Monster>()) {
-			velocity = (transform.position - collision.transform.position) * collision.gameObject.GetComponent<Monster>().damage * 1.5f;
+		if (collision.gameObject.GetComponent<Monster>())
+		{
+			rigidbody.velocity = (transform.position - collision.transform.position) * collision.gameObject.GetComponent<Monster>().damage * 1.5f;
 			EnergyPoints--;
 			GameCamera.Instance.GetComponent<camera_shake> ().Shake (3);
 		}

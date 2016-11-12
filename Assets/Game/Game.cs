@@ -7,15 +7,27 @@ public class Game : Singleton<Game>
 	[System.Serializable]
 	public class Prefabs
 	{
-		GameObject MushroomPrefab;
-		GameObject LlamaPrefab;
-		GameObject JumpingRockPrefab;
-		GameObject CaterpillarPrefab;
+		public GameObject MushroomPrefab;
+		public GameObject LlamaPrefab;
+		public GameObject JumpingRockPrefab;
+		public GameObject CaterpillarPrefab;
 
-		GameObject HeartItemPrefab;
+		public GameObject HeartItemPrefab;
 	}
 
 	public Prefabs prefabs;
+
+	internal GameObject GetPrefab ( ObjectType type )
+	{
+		switch ( type )
+		{
+			case ObjectType.EnemyJumpingRock: return prefabs.JumpingRockPrefab;
+			case ObjectType.EnemyLlama: return prefabs.LlamaPrefab;
+			case ObjectType.EnemyMushroom: return prefabs.MushroomPrefab;
+			case ObjectType.ItemHeart: return prefabs.HeartItemPrefab;
+			default: return null;
+		}
+	}
 
 	void Start ()
 	{

@@ -45,5 +45,8 @@ public class Gate : MonoBehaviour
 
 	internal void SpawnItem ( ObjectType type )
 	{
+		GameObject prefab = Game.Instance.GetPrefab ( type );
+		GameObject go = Game.Instance.gameObject.InstantiateSibling ( prefab );
+		go.transform.position = spawnArea.transform.position;
 	}
 }

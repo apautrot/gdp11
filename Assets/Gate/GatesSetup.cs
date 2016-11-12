@@ -5,7 +5,6 @@ using System.Collections.Generic;
 public enum ObjectType
 {
 	ItemHeart,
-	ItemSpeedUp,
 
 	EnemyMushroom,
 	EnemyLlama,
