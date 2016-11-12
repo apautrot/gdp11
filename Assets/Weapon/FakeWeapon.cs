@@ -32,7 +32,7 @@ public class FakeWeapon : MonoBehaviour, IWeapon
 		for ( int i = 0; i < hits.Length; i++ )
 		{
 			Collider2D collider = hits[i].collider;
-			if ( collider.gameObject.GetComponentAs<IMonster> () != null )
+			if ( collider.gameObject.GetComponent<Monster> () != null )
 			{
 				collider.gameObject.GetComponent<Rigidbody2D> ().AddForce ( new Vector2 ( 0, 50 ), ForceMode.VelocityChange );
                 //Son quand il frappe (en fonction du type d'arme)

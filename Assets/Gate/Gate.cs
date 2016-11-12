@@ -7,8 +7,8 @@ public class Gate : MonoBehaviour
 
 //	System.Action OnOpeningEnded;
 
-	GameObject door;
-	GameObject spawnArea;
+	GameObject sprite;
+//	GameObject spawnArea;
 
 	float duration = 1;
 
@@ -16,8 +16,8 @@ public class Gate : MonoBehaviour
 
 	void Awake ()
 	{
-		door = gameObject.FindChildByName ( "Door" );
-		spawnArea = gameObject.FindChildByName ( "Spawn Area" );
+		sprite = gameObject.FindChildByName ( "Sprite" );
+//		spawnArea = gameObject.FindChildByName ( "Spawn Area" );
 	}
 
 	public void Open ()
@@ -30,7 +30,7 @@ public class Gate : MonoBehaviour
 	{
 		isOpened = true;
 
-		door.transform.localPositionTo ( 1, new Vector3 ( 0, 100, 0 ), true );
+		sprite.transform.localPositionTo ( 1, new Vector3 ( 0, 100, 0 ), true );
 
         //o Son d'une porte qui s'ouvre (nombre de son en fonction du nombre de porte
         yield return new WaitForSeconds ( duration );
@@ -48,6 +48,8 @@ public class Gate : MonoBehaviour
 	{
 		GameObject prefab = Game.Instance.GetPrefab ( type );
 		GameObject go = Game.Instance.gameObject.InstantiateSibling ( prefab );
-		go.transform.position = spawnArea.transform.position;
+		// go.transform.position = spawnArea.transform.position;
+
+		go.transform.position = transform.position;
 	}
 }
