@@ -12,19 +12,61 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 114000012833914454}
-  - {fileID: 114000012023945128}
+  - {fileID: 114000011515989488}
+  - {fileID: 114000012827720082}
   EditorEvents:
-  - {fileID: 114000010306477598}
-  - {fileID: 114000011387723006}
-  - {fileID: 114000010957894366}
-  - {fileID: 114000011335548774}
-  - {fileID: 114000011816795034}
-  - {fileID: 114000012252941082}
-  MasterBankRef: {fileID: 114000012023945128}
-  StringsBankRef: {fileID: 114000012833914454}
+  - {fileID: 114000013207879692}
+  - {fileID: 114000010475500734}
+  - {fileID: 114000013284035662}
+  - {fileID: 114000013479645166}
+  - {fileID: 114000012339670002}
+  - {fileID: 114000014044034088}
+  MasterBankRef: {fileID: 114000012827720082}
+  StringsBankRef: {fileID: 114000011515989488}
   stringsBankWriteTime: 636145022600000000
   cacheVersion: 2
+--- !u!114 &114000010180139898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/SD/SDPlayerDies
+  guid: d1dbb9839d5c29439d5a481ff8c3483d
+  Banks:
+  - {fileID: 114000012674675126}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &114000010300957478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/SD/SDAmbient
+  guid: 9229a68d246ffb43a4b99b62ca3c935d
+  Banks:
+  - {fileID: 114000012674675126}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &114000010306477598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46,6 +88,45 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &114000010475500734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Music/MusicFirstRoom
+  guid: 183700d9bdb39b4592b96dac03a3039a
+  Banks:
+  - {fileID: 114000012827720082}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 114000013554732238}
+  - {fileID: 114000011713384306}
+  - {fileID: 114000010651523654}
+  MinDistance: 0
+  MaxDistance: 0
+--- !u!114 &114000010651523654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: DoorsOpened
+  Min: 0
+  Max: 14
+  Default: 0
 --- !u!114 &114000010957894366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,6 +169,21 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &114000011387668900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Life
+  Min: 0
+  Max: 100
+  Default: 100
 --- !u!114 &114000011387723006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,6 +208,60 @@ MonoBehaviour:
   - {fileID: 114000013960915784}
   MinDistance: 0
   MaxDistance: 0
+--- !u!114 &114000011515989488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: FMOD Project\Build\Desktop\Master Bank.strings.bank
+  lastModified: 636145022600000000
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 914
+  Exists: 1
+--- !u!114 &114000011605863716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/SD/SDDoors
+  guid: 59d73e12999a7d4993cfb5483f5a026e
+  Banks:
+  - {fileID: 114000012674675126}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &114000011713384306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Life
+  Min: 0
+  Max: 100
+  Default: 100
 --- !u!114 &114000011816795034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,6 +322,78 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &114000012339670002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/SD/SDPlayerWalks
+  guid: 932281e7c2227343bee7ac5a1bc591dc
+  Banks:
+  - {fileID: 114000012827720082}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &114000012621597786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: EnemiesOnScreen
+  Min: 0
+  Max: 10
+  Default: 0
+--- !u!114 &114000012674675126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: C:\Unity\gdp11\FMOD Project\Build\Desktop\Master Bank.bank
+  lastModified: 636145022580000000
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 9449664
+  Exists: 1
+--- !u!114 &114000012827720082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: C:\Unity\gdp11\FMOD Project\Build\Desktop\Master Bank.bank
+  lastModified: 636145022580000000
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 9449664
+  Exists: 1
 --- !u!114 &114000012833914454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,6 +412,27 @@ MonoBehaviour:
   - Name: Desktop
     Value: 914
   Exists: 1
+--- !u!114 &114000013207879692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/SD/SDGetItem
+  guid: 0d387597d2fe9343adf6aa3fb4176187
+  Banks:
+  - {fileID: 114000012827720082}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &114000013220061268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,6 +448,24 @@ MonoBehaviour:
   Min: 0
   Max: 10
   Default: 0
+--- !u!114 &114000013243263414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: FMOD Project\Build\Desktop\Master Bank.strings.bank
+  lastModified: 636145022600000000
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 914
+  Exists: 1
 --- !u!114 &114000013256537336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,6 +481,123 @@ MonoBehaviour:
   Min: 0
   Max: 100
   Default: 100
+--- !u!114 &114000013284035662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/SD/SDDoors
+  guid: 59d73e12999a7d4993cfb5483f5a026e
+  Banks:
+  - {fileID: 114000012827720082}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &114000013479645166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/SD/SDAmbient
+  guid: 9229a68d246ffb43a4b99b62ca3c935d
+  Banks:
+  - {fileID: 114000012827720082}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &114000013554732238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: EnemiesOnScreen
+  Min: 0
+  Max: 10
+  Default: 0
+--- !u!114 &114000013583523684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/SD/SDGetItem
+  guid: 0d387597d2fe9343adf6aa3fb4176187
+  Banks:
+  - {fileID: 114000012674675126}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &114000013697852330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Music/MusicFirstRoom
+  guid: 183700d9bdb39b4592b96dac03a3039a
+  Banks:
+  - {fileID: 114000012674675126}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 114000012621597786}
+  - {fileID: 114000011387668900}
+  - {fileID: 114000013941495772}
+  MinDistance: 0
+  MaxDistance: 0
+--- !u!114 &114000013941495772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: DoorsOpened
+  Min: 0
+  Max: 14
+  Default: 0
 --- !u!114 &114000013960915784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,3 +613,45 @@ MonoBehaviour:
   Min: 0
   Max: 14
   Default: 0
+--- !u!114 &114000014044034088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/SD/SDPlayerDies
+  guid: d1dbb9839d5c29439d5a481ff8c3483d
+  Banks:
+  - {fileID: 114000012827720082}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &114000014052002234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/SD/SDPlayerWalks
+  guid: 932281e7c2227343bee7ac5a1bc591dc
+  Banks:
+  - {fileID: 114000012674675126}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
