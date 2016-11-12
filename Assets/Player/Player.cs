@@ -72,8 +72,6 @@ public class Player : SceneSingleton<Player>
 	new Rigidbody2D rigidbody;
 	IWeapon currentWeapon;
 
-	GameObject frontPivot;
-
 	Direction _direction;
 	Direction direction
 	{
@@ -87,7 +85,6 @@ public class Player : SceneSingleton<Player>
 			if ( _direction != value )
 			{
 				_direction = value;
-				frontPivot.transform.localEulerAngles = new Vector3 ( 0, 0, direction.ToRotationAngle () );
 			}
 		}
 	}
@@ -96,7 +93,6 @@ public class Player : SceneSingleton<Player>
 	{
 		base.Awake ();
 		rigidbody = GetComponent<Rigidbody2D> ();
-		frontPivot = gameObject.FindChildByName ( "Front Pivot" );
 		animator = gameObject.FindChildByName("Sprite").GetComponent<Animator> ();
 		animator.speed = 0.5f;
 	}
