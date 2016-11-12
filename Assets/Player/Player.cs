@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public enum Direction
@@ -193,9 +193,6 @@ public class Player : SceneSingleton<Player>
 		if ( Input.GetKey ( KeyCode.Return ) )
 			OpenGate ();
 
-		if (Input.GetKey(KeyCode.D))
-			animator.SetInteger ("Direction", 5);
-
 		if ( Input.GetKeyDown ( KeyCode.A ) )
 			DebugDrawRect ( new Vector3 ( 0, 0, 0 ), new Vector3 ( 50, 50, 0 ), Color.red, 1 );
 
@@ -258,9 +255,11 @@ public class Player : SceneSingleton<Player>
 		if (collision.gameObject.GetComponent<Monster>())
 		{
 			rigidbody.velocity = (transform.position - collision.transform.position) * collision.gameObject.GetComponent<Monster>().damage * 10f;
-			EnergyPoints--;
+
 			if (EnergyPoints <= 0) {
-				animator.SetInteger ("Direction", 5);
+				animator.SetInteger ("Direction", 4);
+			} else {
+				EnergyPoints--;
 			}
 			//GameCamera.Instance.GetComponent<camera_shake> ().Shake (3);
 		}

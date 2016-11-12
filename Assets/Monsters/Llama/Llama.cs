@@ -71,7 +71,8 @@ public class Llama : MonoBehaviour {
 			}
 		}
 		anim.SetInteger ("Direction", direction);
-		Debug.Log (anim.GetBool("Sputum"));
+		//Debug.Log (anim.GetBool("Sputum"));
+		Debug.Log (anim.GetInteger("Direction"));
 	}
 
 	void Shoot () {
