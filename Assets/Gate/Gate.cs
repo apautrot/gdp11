@@ -32,7 +32,8 @@ public class Gate : MonoBehaviour
 
 		door.transform.localPositionTo ( 1, new Vector3 ( 0, 100, 0 ), true );
 
-		yield return new WaitForSeconds ( duration );
+        //o Son d'une porte qui s'ouvre (nombre de son en fonction du nombre de porte
+        yield return new WaitForSeconds ( duration );
 
 		if ( SpawnListIndex == -1 )
 			Debug.LogError ( "This gate ( " + name + " has an invalid setup index ! Find GatesSetup game object and setup it." );

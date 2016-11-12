@@ -32,7 +32,8 @@ public class Llama : MonoBehaviour {
 			if (Vector3.Distance(new Vector3(destX, destY, 0), transform.position) > noFireArea) {
 				GameObject go = (GameObject)Instantiate(prefab);
 				go.transform.position = transform.position;
-				go.GetComponent<Sputum> ().Fire (destX, destY, fireSpeed);
+                // Son de tirs
+                go.GetComponent<Sputum> ().Fire (destX, destY, fireSpeed);
 				timeBefore = Time.time;
 			}
 		}

@@ -45,6 +45,9 @@ public class Caterpillar : MonoBehaviour {
                 go.transform.position = new Vector3(transform.position.x + 100, transform.position.y + 100, 0);
                 go.GetComponent<SectionCaterpillar>().following = lastSectionInstantiated;
                 lastSectionInstantiated = go;
+
+                // Son de pop des morceaux de la chenille
+
                 countSection++;
             }
         
