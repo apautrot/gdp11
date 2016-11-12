@@ -77,7 +77,7 @@ public class Game : Singleton<Game>
 		}
 
 		if (time == 0) {
-			Player.Instance.Die ();
+			Player.Instance.Die();
 		}
 	}
 
