@@ -119,7 +119,7 @@ public class Player : SceneSingleton<Player>
 
 	void Update ()
 	{
-		if ( InputConfiguration.Instance.ActionB.IsJustDown )
+		if ( InputConfiguration.Instance.ActionA.IsJustDown )
 			UseWeapon ();
 
 		if ( InputConfiguration.Instance.ActionB.IsJustDown )
@@ -222,7 +222,7 @@ public class Player : SceneSingleton<Player>
 			if ( WeaponPrefab != null )
 			{
 				GameObject weaponGO = gameObject.InstantiateChild ( WeaponPrefab );
-				weaponGO.transform.localPosition = new Vector3 ( 0, 32, 0 );
+				weaponGO.transform.localPosition = direction.ToVector2() * 32;
 
 				currentWeapon = weaponGO.GetComponentAs<IWeapon> ();
 				currentWeapon.OnEnd += OnWeaponEffectEnd;
@@ -235,21 +235,18 @@ public class Player : SceneSingleton<Player>
 		Vector3 hitTestCenterPosition = transform.position + (Vector3) ( direction.ToVector2 () * 50 );
 
 		Gate nearest = null;
-		RaycastHit2D[] hits = Physics2D.CircleCastAll ( hitTestCenterPosition, 200, Vector2.up, 0 );
+		RaycastHit2D[] hits = Physics2D.CircleCastAll ( hitTestCenterPosition, 100, Vector2.up, 0 );
 		for ( int i = 0; i < hits.Length; i++ )
 		{
 			RaycastHit2D hit = hits[i];
-			// if ( hit.collider.isTrigger )
+			Gate gate = hit.collider.gameObject.GetComponent<Gate> ();
+			if ( gate != null )
 			{
-				Gate gate = hit.collider.gameObject.GetComponent<Gate> ();
-				if ( gate != null )
-				{
-					if ( nearest == null )
+				if ( nearest == null )
+					nearest = gate;
+				else
+					if ( gate.transform.DistanceTo ( gameObject ) < nearest.transform.DistanceTo ( gameObject ) )
 						nearest = gate;
-					else
-						if ( gate.transform.DistanceTo ( gameObject ) < nearest.transform.DistanceTo ( gameObject ) )
-							nearest = gate;
-				}
 			}
 		}
 
@@ -279,15 +276,20 @@ public class Player : SceneSingleton<Player>
 				lastDamage = Time.time;
 				Hurtable = false;
 				if (EnergyPoints <= 0) {
-					animator.SetBool ("Dead", true);
-					animator.Play ("Die");
-					Movable = false;
+					Die ();
 				} else {
 					EnergyPoints--;
 				}
 			}
 			//GameCamera.Instance.GetComponent<camera_shake> ().Shake (3);
 		}
+	}
+
+	public void Die() {
+		animator.SetBool ("Dead", true);
+		animator.Play ("Die");
+		Movable = false;
+		GetComponent<CircleCollider2D>().enabled = false;
 	}
 }
 

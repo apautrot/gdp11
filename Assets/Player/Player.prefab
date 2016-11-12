@@ -43,8 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c7b66e4c10c7fd4c8db3af8e1ebb64f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceleration: 180
-  maximumSpeed: 180
+  acceleration: 250
+  maximumSpeed: 250
   decelerationFactor: 5
   invincibilityTime: 1
   WeaponPrefab: {fileID: 0}
@@ -71,6 +71,7 @@ GameObject:
   - 4: {fileID: 4000012932495502}
   - 212: {fileID: 212000010184174792}
   - 95: {fileID: 95000010332097178}
+  - 114: {fileID: 114000010369463800}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -139,6 +140,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114000010369463800
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012095806538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af85efcd723db7a468fd9d8a2eb43e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212000010184174792
 SpriteRenderer:
   m_ObjectHideFlags: 1
