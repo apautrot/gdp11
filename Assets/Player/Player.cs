@@ -117,13 +117,21 @@ public class Player : SceneSingleton<Player>
 		EnergyPoints = EnergyPointsAtStartOfGame;
 	}
 
+	void Update ()
+	{
+		if ( InputConfiguration.Instance.ActionB.IsJustDown )
+			UseWeapon ();
+
+		if ( InputConfiguration.Instance.ActionB.IsJustDown )
+			OpenGate ();
+	}
+
 	void FixedUpdate()
 	{
 		bool isActivelyMoving = false;
 
 		Vector2 addedVelocity = Vector2.zero;
 
-		// if ( Input.GetKey ( KeyCode.LeftArrow ) || Input.GetAxis("Horizontal") < 0)
 		if ( InputConfiguration.Instance.Left.IsDown && Movable)
 		{
 			isActivelyMoving = true;
@@ -137,7 +145,6 @@ public class Player : SceneSingleton<Player>
 		
 		}
 
-		// if ( Input.GetKey ( KeyCode.RightArrow ) || Input.GetAxis("Horizontal") > 0)
 		if ( InputConfiguration.Instance.Right.IsDown && Movable)
 		{
 			isActivelyMoving = true;
@@ -150,7 +157,6 @@ public class Player : SceneSingleton<Player>
 			}
 		}
 
-		// if ( Input.GetKey ( KeyCode.UpArrow ) || Input.GetAxis("Vertical") > 0)
 		if ( InputConfiguration.Instance.Up.IsDown && Movable)
 		{
 			isActivelyMoving = true;
@@ -163,7 +169,6 @@ public class Player : SceneSingleton<Player>
 			}
 		}
 
-		// if ( Input.GetKey ( KeyCode.DownArrow ) || Input.GetAxis("Vertical") < 0)
 		if ( InputConfiguration.Instance.Down.IsDown && Movable)
 		{
 			isActivelyMoving = true;
@@ -197,15 +202,6 @@ public class Player : SceneSingleton<Player>
 		// DebugWindow.Log ( "Player", "addedVelocity", addedVelocity.ToStringEx () );
 		// DebugWindow.Log ( "Player", "rigidbody.velocity", rigidbody.velocity.ToStringEx () );
 
-		if ( Input.GetKeyDown ( KeyCode.Space ) )
-			SpawnItem ();
-
-		if ( Input.GetKeyDown ( KeyCode.Return ) )
-			OpenGate ();
-
-// 		if ( Input.GetKeyDown ( KeyCode.A ) )
-// 			DebugDrawRect ( new Vector3 ( 0, 0, 0 ), new Vector3 ( 50, 50, 0 ), Color.red, 1 );
-
 		if ((rigidbody.velocity.x > 1 || rigidbody.velocity.x < -1) || (rigidbody.velocity.y > 1 || rigidbody.velocity.y < -1)) {
 			animator.SetBool ("Walking", true);
 		} else {
@@ -219,7 +215,7 @@ public class Player : SceneSingleton<Player>
 
 	}
 
-	void SpawnItem ()
+	void UseWeapon ()
 	{
 		if ( currentWeapon == null )
 		{

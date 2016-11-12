@@ -39,7 +39,7 @@ public class InputButton
 	internal bool IsDown
 	{
 		get { return isDown; }
-		private set
+		/*private*/ set
 		{
 			wasDown = isDown;
 			isDown = value;
@@ -80,20 +80,13 @@ public class InputConfiguration : Singleton<InputConfiguration>
 		inputs.Clear ();
 	}
 
-	InputButton TopLeft;
-	InputButton TopRight;
-	InputButton BottomLeft;
-	InputButton BottomRight;
-	internal InputButton Action;
+	internal InputButton ActionA;
+	internal InputButton ActionB;
 	internal InputButton Cancel;
 	internal InputButton Left;
 	internal InputButton Right;
 	internal InputButton Up;
 	internal InputButton Down;
-
-	internal Direction	MoveDirection;
-	internal Direction	ShootDirection = Direction.None;
-	internal Vector2	FreeDirection;
 
 	void Awake ()
 	{
@@ -110,11 +103,8 @@ public class InputConfiguration : Singleton<InputConfiguration>
 	{
 		ClearAllInputs ();
 
-		TopLeft =		RegisterInput ( "TopLeft", KeyCode.Keypad4 );
-		TopRight =		RegisterInput ( "TopRight", KeyCode.Keypad5 );
-		BottomLeft =	RegisterInput ( "BottomLeft", KeyCode.Keypad1 );
-		BottomRight =	RegisterInput ( "BottomRight", KeyCode.Keypad2 );
-		Action =		RegisterInput ( "Action", KeyCode.Space, KeyCode.Return, KeyCode.JoystickButton0 );
+		ActionA =		RegisterInput ( "ActionA", KeyCode.Space, KeyCode.JoystickButton0 );
+		ActionB =		RegisterInput ( "ActionB", KeyCode.Return, KeyCode.JoystickButton2 );
 		Cancel =		RegisterInput ( "Cancel", KeyCode.Escape, KeyCode.JoystickButton1 );
 		Left =			RegisterInput ( "Left", KeyCode.LeftArrow, KeyCode.Keypad4 );
 		Right =			RegisterInput ( "Right", KeyCode.RightArrow, KeyCode.Keypad6 );
@@ -132,13 +122,20 @@ public class InputConfiguration : Singleton<InputConfiguration>
 		for ( int i = 0; i < inputs.Count; i++ )
 			inputs[i].Update ();
 
-// 		FreeDirection = GetAxisVector ( "LS X Axis", "LS Y Axis", freemoveThreshold );
-// 		if ( FreeDirection == Vector2.zero )
-// 			FreeDirection = GetAxisVector ( "DPad X Axis", "DPad Y Axis", freemoveThreshold );
-// 		if ( FreeDirection == Vector2.zero )
-// 			FreeDirection = GetAxisVector ( "RS X Axis", "RS Y Axis", freemoveThreshold );
-// 		if ( FreeDirection == Vector2.zero )
-// 			FreeDirection = GetCardinalDirection ( Up, Down, Left, Right );
+		Vector2 FreeDirection = GetAxisVector ( "Horizontal", "Vertical", freemoveThreshold );
+		// 		if ( FreeDirection == Vector2.zero )
+		// 			FreeDirection = GetAxisVector ( "DPad X Axis", "DPad Y Axis", freemoveThreshold );
+		// 		if ( FreeDirection == Vector2.zero )
+		// 			FreeDirection = GetAxisVector ( "RS X Axis", "RS Y Axis", freemoveThreshold );
+		// 		if ( FreeDirection == Vector2.zero )
+		//  			FreeDirection = GetCardinalDirection ( Up, Down, Left, Right );
+
+		DebugWindow.Log ( "InputConfiguration", "FreeDirection", FreeDirection.ToStringEx () );
+
+		if ( FreeDirection.x < 0 ) Left.IsDown = true;
+		if ( FreeDirection.x > 0 ) Right.IsDown = true;
+		if ( FreeDirection.y < 0 ) Down.IsDown = true;
+		if ( FreeDirection.y > 0 ) Up.IsDown = true;
 	}
 
 	internal KeyCode GetInputKeyCode ( string inputName, int keyCodeIndex = 0 )

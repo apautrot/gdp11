@@ -22,7 +22,7 @@ GameObject:
   - 114: {fileID: 114000013049272270}
   - 61: {fileID: 61000012534747166}
   m_Layer: 0
-  m_Name: FakeWeapon
+  m_Name: UmbrellaWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
