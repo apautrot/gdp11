@@ -1,6 +1,5 @@
 [Alex] - déclencher arme joueur par espace
 [Alex] - écran game over quand on est mort
-[Tom]  - ne plus tirer sur le joueur quand il est mort
 [Tom]  - il faut mourrir quand on a 0 énergie et pas -1
 
 [Tom]  - chenille : comportement à revoir
@@ -36,3 +35,4 @@
 [Tom]  - temps à afficher
 [Tom]  - brancher mort sur timer à zéro
 [Tom]   - désactiver collider / prise de collision quand on est mort
+[Tom]  - ne plus tirer sur le joueur quand il est mort

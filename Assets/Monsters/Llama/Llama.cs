@@ -62,7 +62,7 @@ public class Llama : MonoBehaviour {
 
 
 		//Tire quand le firerate est dépassé
-		if (Time.time - timeBefore >= fireRate) {
+		if (Time.time - timeBefore >= fireRate && Player.Instance.EnergyPoints > 0) {
 			if (Vector3.Distance(new Vector3(destX, destY, 0), transform.position) > noFireArea) {
                 
 				anim.SetBool ("Sputum", true);
