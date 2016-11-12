@@ -283,7 +283,8 @@ public class Player : SceneSingleton<Player>
 				lastDamage = Time.time;
 				Hurtable = false;
 				if (EnergyPoints <= 0) {
-					animator.SetInteger ("Direction", 4);
+					animator.SetBool ("Dead", true);
+					animator.Play ("Die");
 					Movable = false;
 				} else {
 					EnergyPoints--;
