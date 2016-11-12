@@ -821,7 +821,7 @@ MonoBehaviour:
     Items:
     - Chance: 0
       ObjectType: 2
-    - Chance: 0
+    - Chance: 2
       ObjectType: 2
   - Name: Rock'n roll
     Items:
