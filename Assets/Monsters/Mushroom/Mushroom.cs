@@ -22,6 +22,8 @@ public class Mushroom : MonoBehaviour {
 		destX = Player.Instance.transform.position.x;
 		destY = Player.Instance.transform.position.y;
 
-		body.velocity = (new Vector3(destX, destY, 0) - transform.position).normalized * speed;
+		if (Player.Instance.EnergyPoints>0) {
+			body.velocity = (new Vector3(destX, destY, 0) - transform.position).normalized * speed;
+		}
 	}
 }
