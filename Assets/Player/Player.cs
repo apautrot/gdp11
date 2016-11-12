@@ -112,6 +112,7 @@ public class Player : SceneSingleton<Player>
 			velocity += Vector2.left;
 			direction = Direction.Left;
 			animator.SetInteger ("Direction", 1);
+			animator.SetBool ("Walking", true);
 		
 		}
 
@@ -120,6 +121,7 @@ public class Player : SceneSingleton<Player>
 			velocity += Vector2.right;
 			direction = Direction.Right;
 			animator.SetInteger ("Direction", 2);
+			animator.SetBool ("Walking", true);
 		}
 
 		if ( Input.GetKey ( KeyCode.UpArrow ) || Input.GetAxis("Vertical") > 0)
@@ -127,6 +129,7 @@ public class Player : SceneSingleton<Player>
 			velocity += Vector2.up;
 			direction = Direction.Up;
 			animator.SetInteger ("Direction", 3);
+			animator.SetBool ("Walking", true);
 		}
 
 		if ( Input.GetKey ( KeyCode.DownArrow ) || Input.GetAxis("Vertical") < 0)
@@ -134,6 +137,11 @@ public class Player : SceneSingleton<Player>
 			velocity += Vector2.down;
 			direction = Direction.Down;
 			animator.SetInteger ("Direction", 0);
+			animator.SetBool ("Walking", true);
+		}
+
+		if (Input.GetKeyUp ( KeyCode.DownArrow ) || Input.GetKeyUp ( KeyCode.UpArrow ) || Input.GetKeyUp ( KeyCode.LeftArrow ) || Input.GetKeyUp ( KeyCode.RightArrow )) {
+			
 		}
 
 			
