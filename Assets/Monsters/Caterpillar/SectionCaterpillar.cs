@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SectionCaterpillar : MonoBehaviour
+public class SectionCaterpillar : Monster
 {
 	GameObject following;
 

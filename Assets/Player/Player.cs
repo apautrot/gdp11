@@ -74,6 +74,22 @@ public class Player : SceneSingleton<Player>
 	}
 	internal System.Action<int, int> OnEnergyPointChanged;
 
+	bool _isHavingKey;
+	internal bool IsHavingKey
+	{
+		get { return _isHavingKey; }
+		set
+		{
+			if ( _isHavingKey != value )
+			{
+				_isHavingKey = value;
+				if ( OnIsHavingKeyChanged != null )
+					OnIsHavingKeyChanged ();
+			}
+		}
+	}
+	internal System.Action OnIsHavingKeyChanged;
+
 	new Rigidbody2D rigidbody;
 	IWeapon currentWeapon;
 
@@ -107,6 +123,8 @@ public class Player : SceneSingleton<Player>
 		Movable = true;
 		Hurtable = true;
 		lastDamage = Time.time;
+
+		EnergyPoints = EnergyPointsAtStartOfGame;
 	}
 
 	void Reawake ()
@@ -116,16 +134,18 @@ public class Player : SceneSingleton<Player>
 
 	void Start ()
 	{
-		EnergyPoints = EnergyPointsAtStartOfGame;
 	}
 
 	void Update ()
 	{
-		if ( InputConfiguration.Instance.ActionA.IsJustDown )
-			UseWeapon ();
+		if ( EnergyPoints > 0 )
+		{
+			if ( InputConfiguration.Instance.ActionA.IsJustDown )
+				UseWeapon ();
 
-		if ( InputConfiguration.Instance.ActionB.IsJustDown )
-			OpenGate ();
+			if ( InputConfiguration.Instance.ActionB.IsJustDown )
+				OpenGate ();
+		}
 	}
 
 	void FixedUpdate()
@@ -264,14 +284,27 @@ public class Player : SceneSingleton<Player>
 		for ( int i = 0; i < hits.Length; i++ )
 		{
 			RaycastHit2D hit = hits[i];
-			Gate gate = hit.collider.gameObject.GetComponent<Gate> ();
-			if ( gate != null )
+
+			Lock lockGO = hit.collider.gameObject.GetComponent<Lock> ();
+			if ( lockGO != null )
 			{
-				if ( nearest == null )
-					nearest = gate;
-				else
-					if ( gate.transform.DistanceTo ( gameObject ) < nearest.transform.DistanceTo ( gameObject ) )
+				if ( IsHavingKey )
+				{
+					Debug.Log ( "Fin du jeu !!!" );
+					return;
+				}
+			}
+			else
+			{
+				Gate gate = hit.collider.gameObject.GetComponent<Gate> ();
+				if ( gate != null )
+				{
+					if ( nearest == null )
 						nearest = gate;
+					else
+						if ( gate.transform.DistanceTo ( gameObject ) < nearest.transform.DistanceTo ( gameObject ) )
+						nearest = gate;
+				}
 			}
 		}
 
