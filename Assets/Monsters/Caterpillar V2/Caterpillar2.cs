@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Caterpillar2 : MonoBehaviour {
 
-	/*int direction
+	int direction
 	{
 		get
 		{
@@ -29,29 +29,69 @@ public class Caterpillar2 : MonoBehaviour {
 			direction = value;
 		}
 	}
-		
+
 	Rigidbody2D body;
 	Vector3 target;
 	public float targetSpeed = 0.1f;
+	public float phaseTime = 10;
+	private float timeB;
 	private float speed {
 		get;
 		set;
 	}
+	private Animator anim;
+	private SpriteRenderer renderer;
+	//On doit calculer la vitesse du caterpillar pour savoir si il est bloqué
+	private float lastX, lastY;
 
 	void Start () {
-		body = gameObject.FindChildByName ("Head").GetComponent<Rigidbody2D> ();
-		NewPosition ();	
-		this.floatTo("speed", 3f, targetSpeed / 10, false);
+		timeB = Time.time;
+		lastX = transform.position.x;
+		lastY = transform.position.y;
+		body = GetComponent<Rigidbody2D> ();
+		anim = GetComponent<Animator> ();
+		renderer = GetComponent<SpriteRenderer> ();
+		NewPosition ();
+		//body.velocity = new Vector3(-1, -1, 0).normalized;
+		this.floatTo("speed", 1f, targetSpeed / 10, false);
 	}
 
 	public void NewPosition()
 	{
-		target = new Vector3(Random.Range(-GameCamera.Instance.maxWidth, GameCamera.Instance.maxWidth), Random.Range(-GameCamera.Instance.maxHeight, GameCamera.Instance.maxHeight), 0);
-		Debug.Log (target);
+		target = new Vector3(Random.Range(-GameCamera.Instance.maxWidth, GameCamera.Instance.maxWidth), Random.Range(-GameCamera.Instance.maxHeight, GameCamera.Instance.maxHeight), 0).normalized * 1000;
+		//Debug.Log (target);
 	}
 
 	void FixedUpdate () {
-		body.velocity = (target - transform.position).normalized * speed;
-	}*/
-		
+		body.velocity = (target/* - transform.position*/) * speed;
+		if (Time.time - timeB >= phaseTime) {
+			timeB = Time.time;
+			NewPosition ();
+		}
+
+		if (direction == 1)
+			renderer.flipX = false;
+	
+		if (direction == 2)
+			renderer.flipX = true;
+
+		Debug.Log (transform.position.x - lastX);
+
+		//On check si le caterpillar est bloqué
+		if ((transform.position.x - lastX < 0.1f && transform.position.x - lastX > -0.1f) || (transform.position.y - lastY < 0.1f && transform.position.y - lastY > -0.1f)) {
+			NewPosition ();
+			Debug.Log ("Caterpillar blocked, trying to generate new angle");
+		}
+		//Debug.Log (body.velocity.x);
+
+		lastX = transform.position.x;
+		lastY = transform.position.y;
+		anim.SetInteger ("Direction", direction);
+	}
+
+	void OnCollisionStay2D(Collision2D other) {
+		if (other.gameObject.name != "Body") {
+			NewPosition ();
+		}
+	}
 }
