@@ -47,9 +47,10 @@ public class Llama : Monster
                 
 				anim.SetBool ("Sputum", true);
 				timeBefore = Time.time;
-				this.WaitAndDo (1.5f, Shoot);
+                
+                this.WaitAndDo (1.5f, Shoot);
 
-			}
+            }
 		}
 		anim.SetInteger ("Direction", direction);
 		//Debug.Log (anim.GetBool("Sputum"));
@@ -58,11 +59,14 @@ public class Llama : Monster
 
 	void Shoot ()
 	{
-		GameObject go = (GameObject)Instantiate(prefab);
+        
+        GameObject go = (GameObject)Instantiate(prefab);
 		go.transform.position = transform.position;
-		// Son de tirs
-		go.GetComponent<Sputum> ().Fire (destX, destY, fireSpeed);
-		anim.SetBool ("Sputum", false);
+        // Son de tirs
+        Audio.Instance.PlaySound(AllSounds.Instance.Llama1);
+        go.GetComponent<Sputum>().Fire(destX, destY, fireSpeed);
+
+        anim.SetBool ("Sputum", false);
 	}
 
 }

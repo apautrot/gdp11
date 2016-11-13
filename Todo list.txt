@@ -1,10 +1,8 @@
-[Alex] - déclencher arme joueur par espace
+﻿[Alex] - déclencher arme joueur par espace
 [Alex] - écran game over quand on est mort
 [Tom]  - il faut mourrir quand on a 0 énergie et pas -1
 
 [Tom]  - chenille : comportement à revoir
-
-[Nico] - créer gameobject item bonus temps (qui rajoute du temps)
 
 [Alex]- gérer porte finale
 	- spawner cadenas devant
@@ -28,7 +26,10 @@
 [Nico]  - lancer play des sons
 [Alex]  - écran splash titre
 [Kévin] - ombres sous sprites à revoir
-[nico]  - chenille : tête trop grosse
+
+[] - Son du cube a revoir (pour le timing)
+[] - Son du Lama a revoir (pour le timing)
+[] - Differents son en fonction des porte (1 seul son pour l'instant)
 
 [****************** DONE *********************]
 [Tom]  - temps à écouler
