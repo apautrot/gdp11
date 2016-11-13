@@ -18,7 +18,6 @@
 	- créer gameobject clef
 	- spawner clef sur mort d'un des monstres
 
-[Nico] - pas d'animation de marche sur les mushrooms ?
 [Nico] - mise en place animation sprite cube
 
 [Tom&Alex]	-> revoir spawn enemis (+ orienter vers le centre au démarrage)
@@ -35,8 +34,11 @@
 [Nico] - Son du cube a revoir (pour le timing)
 [Nico] - Son du Lama a revoir (pour le timing)
 
+[Nico] - Gestion de l'animation de l'attack du champi
 
 [****************** DONE *********************]
+
+[Nico] - pas d'animation de marche sur les mushrooms ?
 [Nico] - pas d'animation de marche sur le lama
 [Nico] - animer cracha lama
 [Nico] - mise en place sprite cube
