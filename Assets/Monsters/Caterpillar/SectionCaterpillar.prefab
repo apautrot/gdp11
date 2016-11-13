@@ -37,10 +37,10 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000010862683128}
-  - 114: {fileID: 114000013515927820}
   - 58: {fileID: 58000011012951130}
-  - 58: {fileID: 58000013897871988}
   - 50: {fileID: 50000010435686652}
+  - 114: {fileID: 114000011670855254}
+  - 232: {fileID: 232000012405340838}
   m_Layer: 0
   m_Name: SectionCaterpillar
   m_TagString: Untagged
@@ -86,7 +86,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -101,25 +101,11 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!58 &58000013897871988
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011952597918}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 30
 --- !u!95 &95000010144504702
 Animator:
   serializedVersion: 3
@@ -137,7 +123,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114000013515927820
+--- !u!114 &114000011670855254
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -148,7 +134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e520c8bb13fc4fd4990d28221bd75ad8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
 --- !u!114 &114000014007693852
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -193,3 +178,21 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!232 &232000012405340838
+DistanceJoint2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011952597918}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_AutoConfigureConnectedAnchor: 0
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 0, y: 0}
+  m_AutoConfigureDistance: 0
+  m_Distance: 50
+  m_MaxDistanceOnly: 0

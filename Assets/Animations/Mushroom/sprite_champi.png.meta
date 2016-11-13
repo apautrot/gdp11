@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 1b431024920f36244805b51c1ac5a2b9
-timeCreated: 1478971473
+guid: 925c17d93a7486a47b5a702893b2bbeb
+timeCreated: 1479037943
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -12,6 +12,14 @@ TextureImporter:
     21300010: sprite_champi_5
     21300012: sprite_champi_6
     21300014: sprite_champi_7
+    21300016: sprite_champi_8
+    21300018: sprite_champi_9
+    21300020: sprite_champi_10
+    21300022: sprite_champi_11
+    21300024: sprite_champi_12
+    21300026: sprite_champi_13
+    21300028: sprite_champi_14
+    21300030: sprite_champi_15
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -64,10 +72,10 @@ TextureImporter:
       name: sprite_champi_0
       rect:
         serializedVersion: 2
-        x: 37
-        y: 259
-        width: 183
-        height: 228
+        x: 36
+        y: 521
+        width: 184
+        height: 222
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -77,10 +85,10 @@ TextureImporter:
       name: sprite_champi_1
       rect:
         serializedVersion: 2
-        x: 300
-        y: 259
-        width: 184
-        height: 228
+        x: 293
+        y: 520
+        width: 183
+        height: 221
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -90,10 +98,10 @@ TextureImporter:
       name: sprite_champi_2
       rect:
         serializedVersion: 2
-        x: 530
-        y: 259
-        width: 189
-        height: 226
+        x: 549
+        y: 521
+        width: 183
+        height: 213
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -103,10 +111,10 @@ TextureImporter:
       name: sprite_champi_3
       rect:
         serializedVersion: 2
-        x: 37
-        y: 3
+        x: 805
+        y: 520
         width: 183
-        height: 228
+        height: 221
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -116,10 +124,10 @@ TextureImporter:
       name: sprite_champi_4
       rect:
         serializedVersion: 2
-        x: 299
-        y: 3
+        x: 1060
+        y: 520
         width: 184
-        height: 228
+        height: 223
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -129,10 +137,10 @@ TextureImporter:
       name: sprite_champi_5
       rect:
         serializedVersion: 2
-        x: 530
-        y: 3
-        width: 187
-        height: 227
+        x: 44
+        y: 265
+        width: 184
+        height: 222
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -142,10 +150,10 @@ TextureImporter:
       name: sprite_champi_6
       rect:
         serializedVersion: 2
-        x: 537
-        y: 73
-        width: 8
-        height: 11
+        x: 300
+        y: 265
+        width: 184
+        height: 215
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,10 +163,114 @@ TextureImporter:
       name: sprite_champi_7
       rect:
         serializedVersion: 2
-        x: 758
-        y: 0
-        width: 10
-        height: 15
+        x: 556
+        y: 265
+        width: 184
+        height: 212
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_champi_8
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 265
+        width: 184
+        height: 215
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_champi_9
+      rect:
+        serializedVersion: 2
+        x: 1067
+        y: 264
+        width: 184
+        height: 223
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_champi_10
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 12
+        width: 189
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_champi_11
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 12
+        width: 189
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_champi_12
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 11
+        width: 189
+        height: 197
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_champi_13
+      rect:
+        serializedVersion: 2
+        x: 787
+        y: 12
+        width: 188
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_champi_14
+      rect:
+        serializedVersion: 2
+        x: 1043
+        y: 12
+        width: 186
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_champi_15
+      rect:
+        serializedVersion: 2
+        x: 1048
+        y: 73
+        width: 8
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

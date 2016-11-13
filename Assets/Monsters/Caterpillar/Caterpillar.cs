@@ -5,11 +5,11 @@ public class Caterpillar : Monster
 {
     public GameObject sectionPrefab;
     
-    public float caterpillarLength = 5;
-    public float targetSpeed, accelerationDuration;
-    Vector3 positionCaterpillar;
+    public float queueLength = 5;
+	public float timeBetweenQueueSectionCreation = 0.25f;
+	Vector3 targetPosition;
 
-    public float speed;
+    public float speed = 100;
 
     float maxHeight;
     float maxWidth;
@@ -19,11 +19,12 @@ public class Caterpillar : Monster
     Animator anim;
     SpriteRenderer sprite;
 
-    new void Start()
+	Vector3 previousPosition;
+
+	new void Start()
     {
 		base.Start ();
 
-        speed = 100;
         countSection = 0;
         maxHeight = GameCamera.Instance.maxHeight;
         maxWidth = GameCamera.Instance.maxWidth;
@@ -31,32 +32,38 @@ public class Caterpillar : Monster
         sprite = gameObject.FindChildByName("Sprite").GetComponent<SpriteRenderer>();
         anim = gameObject.FindChildByName("Sprite").GetComponent<Animator>();
 
-        StartCoroutine(AnimateCoroutine());
-    }
+		previousPosition = transform.position;
 
-    IEnumerator AnimateCoroutine()
+		StartCoroutine ( CreateQueueCoroutine() );
+		StartCoroutine ( AnimateCoroutine() );
+		StartCoroutine ( CheckIfBlocked () );
+	}
+
+	IEnumerator CreateQueueCoroutine ()
+	{
+		GameObject lastSectionInstantiated = gameObject;
+
+		for ( int i = 0; i < queueLength; i++ )
+		{
+			GameObject go = GameObject.Instantiate ( sectionPrefab );
+			go.transform.position = transform.position;
+			go.GetComponent<SectionCaterpillar> ().SetParentSection ( lastSectionInstantiated );
+			lastSectionInstantiated = go;
+
+			// Son de pop des morceaux de la chenille
+
+			yield return new WaitForSeconds ( timeBetweenQueueSectionCreation );
+		}
+	}
+
+	IEnumerator AnimateCoroutine()
     {
-        GameObject lastSectionInstantiated = gameObject;
-        this.NewPosition();
-        while (true)
+        while ( true )
         {
-            if ((int)this.transform.position.x == (int)positionCaterpillar.x && (int)this.transform.position.y == (int)positionCaterpillar.y)
-                this.NewPosition();
+			this.NewPosition();
 
 			if (Player.Instance.EnergyPoints > 0)
-            	body.velocity = (positionCaterpillar - transform.position).normalized * speed;
-
-            if (countSection < caterpillarLength)
-            {
-                GameObject go = GameObject.Instantiate(sectionPrefab);
-                go.transform.position = new Vector3(transform.position.x + 100, transform.position.y + 100, 0);
-                go.GetComponent<SectionCaterpillar>().following = lastSectionInstantiated;
-                lastSectionInstantiated = go;
-
-                // Son de pop des morceaux de la chenille
-
-                countSection++;
-            }
+            	body.velocity = ( targetPosition - transform.position ).normalized * speed;
 
             if (direction == 2)
                 sprite.flipX = true;
@@ -70,9 +77,28 @@ public class Caterpillar : Monster
         }
     }
 
+	IEnumerator CheckIfBlocked ()
+	{
+		while ( true )
+		{
+			yield return new WaitForSeconds ( 0.5f );
+
+			float distanceDone = transform.position.DistanceTo ( previousPosition );
+			// Debug.Log ( "Check si bloqué.. distance done :" + distanceDone );
+
+			if ( distanceDone < 15 )
+			{
+				// Debug.Log ( "Bloqué, change direction" );
+				NewPosition ();
+			}
+
+			previousPosition = transform.position;
+		}
+	}
+
     void NewPosition()
     {
-        positionCaterpillar = new Vector3(Random.Range(-maxHeight, maxHeight), Random.Range(-maxWidth, maxWidth), 0);
+        targetPosition = new Vector3(Random.Range(-maxHeight, maxHeight), Random.Range(-maxWidth, maxWidth), 0);
     }
 
     void OnCollisionEnter2D(Collision2D collision)

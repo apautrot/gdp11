@@ -42,8 +42,8 @@ public class ItemBase : MonoBehaviour
 
 	protected virtual void ApplyEffect ()
 	{
-		Player.Instance.EnergyPoints++;
-	}
+        Audio.Instance.PlaySound(AllSounds.Instance.GetItem);
+    }
 }
 
 public class ItemHeart : ItemBase

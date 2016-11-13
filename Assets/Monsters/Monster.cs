@@ -53,7 +53,8 @@ public class Monster : MonoBehaviour
 			life -= 1;
 			if ( life == 0 )
 			{
-				state = MonsterState.Dying;
+                ApplySound();
+                state = MonsterState.Dying;
 
 				GoTweenChain chain = new GoTweenChain ();
 				chain.insert ( 0,
@@ -80,4 +81,9 @@ public class Monster : MonoBehaviour
 // 			transform.position += splashVector * ( isDying ? 100 : 25 );
 		}
 	}
+
+    protected virtual void ApplySound()
+    {
+        Audio.Instance.PlaySound(AllSounds.Instance.MonsterDies);
+    }
 }

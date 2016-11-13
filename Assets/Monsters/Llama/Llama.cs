@@ -74,4 +74,9 @@ public class Llama : Monster
         anim.SetBool ("Sputum", false);
 	}
 
+    protected override void ApplySound()
+    {
+        Audio.Instance.PlaySound(AllSounds.Instance.LlamaDies1);
+    }
+
 }
