@@ -28,3 +28,6 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+Assets/Game/Game.cs.bak.meta
+Assets/Gate/GatesSetup.cs.bak.meta
+Assets/Player/Player.cs.bak.meta

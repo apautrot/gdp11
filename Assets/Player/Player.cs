@@ -111,8 +111,9 @@ public class Player : SceneSingleton<Player>
 	}
 
 	public bool Movable, Hurtable;
-
-	AudioSource walkAudioInstance;
+    AudioClip[] audioWalkPlayer;
+    AudioClip[] audioDiePlayer;
+    AudioSource walkAudioInstance;
 
 	new void Awake ()
 	{
@@ -134,7 +135,11 @@ public class Player : SceneSingleton<Player>
 
 	void Start ()
 	{
-	}
+		EnergyPoints = EnergyPointsAtStartOfGame;
+        audioWalkPlayer = new AudioClip[]{(AllSounds.Instance.PlayerWalk1), (AllSounds.Instance.PlayerWalk2) };
+        audioDiePlayer = new AudioClip[]{ (AllSounds.Instance.PlayerDies1), (AllSounds.Instance.PlayerDies2) };
+
+    }
 
 	void Update ()
 	{
@@ -233,7 +238,8 @@ public class Player : SceneSingleton<Player>
 		{
                 if (walkAudioInstance == null)
                 {
-                    walkAudioInstance = Audio.Instance.PlaySound(AllSounds.Instance.PlayerWalk1);
+                    walkAudioInstance = Audio.Instance.PlaySound(AllSounds.Instance.PlayThisClip(audioWalkPlayer));
+
                     if (walkAudioInstance != null)
                         walkAudioInstance.loop = true;
                 }
@@ -332,7 +338,7 @@ public class Player : SceneSingleton<Player>
 			rigidbody.velocity = ( transform.position - collision.transform.position ) * 1500f;
 
 			if (Hurtable) {
-                Audio.Instance.PlaySound(AllSounds.Instance.PlayerTakesDamage1);
+                Audio.Instance.PlaySound(AllSounds.Instance.PlayerTakesDamage3);
                 lastDamage = Time.time;
 				Hurtable = false;
 				//GetComponent<SpriteRenderer> ().color.a;
@@ -349,7 +355,7 @@ public class Player : SceneSingleton<Player>
 	public void Die() {
 		animator.SetBool ("Dead", true);
 		animator.Play ("Die");
-        Audio.Instance.PlaySound(AllSounds.Instance.PlayerDies1);
+        Audio.Instance.PlaySound(AllSounds.Instance.PlayThisClip(audioDiePlayer));
         Movable = false;
 		Hurtable = false;
         EnergyPoints = 0;
