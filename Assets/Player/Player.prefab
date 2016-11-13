@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   acceleration: 250
-  maximumSpeed: 250
-  decelerationFactor: 5
+  maximumSpeed: 230
+  decelerationFactor: 28
   invincibilityTime: 1
   WeaponPrefab: {fileID: 1000011334076614, guid: 288cd1df9b2ee6e4a8ad4b977195fb78,
     type: 2}

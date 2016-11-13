@@ -10,6 +10,7 @@ public enum ObjectType
 	EnemyLlama,
     EnemyCaterpillar,
     EnemyJumpingRock
+	// ajouter les nouveaux à la fin, ne pas changer l'ordre de la liste !!
 }
 
 [System.Serializable]
