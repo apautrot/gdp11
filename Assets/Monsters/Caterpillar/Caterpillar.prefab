@@ -21,6 +21,7 @@ GameObject:
   - 4: {fileID: 4000010430347726}
   - 212: {fileID: 212000013482036210}
   - 114: {fileID: 114000013550215026}
+  - 95: {fileID: 95000013063300982}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -39,8 +40,6 @@ GameObject:
   - 114: {fileID: 114000011142099216}
   - 50: {fileID: 50000011427669442}
   - 58: {fileID: 58000012475526256}
-  - 95: {fileID: 95000013753399440}
-  - 212: {fileID: 212000011130267340}
   m_Layer: 0
   m_Name: Caterpillar
   m_TagString: Untagged
@@ -55,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012709156628}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 18, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -68,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013109869938}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 40.67837, y: 79.86032, z: 0}
+  m_LocalPosition: {x: -248, y: 93, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_Children:
@@ -83,10 +82,10 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013109869938}
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -105,17 +104,17 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 50
---- !u!95 &95000013753399440
+  m_Radius: 35
+--- !u!95 &95000013063300982
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013109869938}
+  m_GameObject: {fileID: 1000012709156628}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b0d50b4c5baf0b04b8b2ca120b26f1a1, type: 2}
+  m_Controller: {fileID: 9100000, guid: 115e2b18fd719423698e34e102108c0a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -138,9 +137,7 @@ MonoBehaviour:
   sectionPrefab: {fileID: 1000011952597918, guid: 698c3f3dc02db884fb2d27e0dbe1ef0b,
     type: 2}
   caterpillarLength: 5
-  targetSpeed: 50
-  accelerationDuration: 1
-  speed: 0
+  speed: 250
 --- !u!114 &114000013550215026
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -152,39 +149,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af85efcd723db7a468fd9d8a2eb43e2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!212 &212000011130267340
-SpriteRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013109869938}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 0
-  m_ReflectionProbeUsage: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_SelectedWireframeHidden: 1
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
 --- !u!212 &212000013482036210
 SpriteRenderer:
   m_ObjectHideFlags: 1
