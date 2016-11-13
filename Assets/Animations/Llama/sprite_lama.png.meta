@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 880ad5f856c1e4beb8aca79c600ec5b9
-timeCreated: 1478951856
+guid: 4e6a04786c833de4eaba35326b484b38
+timeCreated: 1479030765
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -10,6 +10,29 @@ TextureImporter:
     21300006: sprite_lama_3
     21300008: sprite_lama_4
     21300010: sprite_lama_5
+    21300012: sprite_lama_6
+    21300014: sprite_lama_7
+    21300016: sprite_lama_8
+    21300018: sprite_lama_9
+    21300020: sprite_lama_10
+    21300022: sprite_lama_11
+    21300024: sprite_lama_12
+    21300026: sprite_lama_13
+    21300028: sprite_lama_14
+    21300030: sprite_lama_15
+    21300032: sprite_lama_16
+    21300034: sprite_lama_17
+    21300036: sprite_lama_18
+    21300038: sprite_lama_19
+    21300040: sprite_lama_20
+    21300042: sprite_lama_21
+    21300044: sprite_lama_22
+    21300046: sprite_lama_23
+    21300048: sprite_lama_24
+    21300050: sprite_lama_25
+    21300052: sprite_lama_26
+    21300054: sprite_lama_27
+    21300056: sprite_lama_28
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -62,10 +85,10 @@ TextureImporter:
       name: sprite_lama_0
       rect:
         serializedVersion: 2
-        x: 61
-        y: 0
-        width: 158
-        height: 212
+        x: 44
+        y: 512
+        width: 174
+        height: 213
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -75,10 +98,10 @@ TextureImporter:
       name: sprite_lama_1
       rect:
         serializedVersion: 2
-        x: 345
-        y: 0
-        width: 157
-        height: 220
+        x: 300
+        y: 512
+        width: 169
+        height: 214
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -88,10 +111,10 @@ TextureImporter:
       name: sprite_lama_2
       rect:
         serializedVersion: 2
-        x: 519
-        y: 0
-        width: 217
-        height: 208
+        x: 471
+        y: 562
+        width: 4
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -101,10 +124,10 @@ TextureImporter:
       name: sprite_lama_3
       rect:
         serializedVersion: 2
-        x: 604
-        y: 207
-        width: 10
-        height: 7
+        x: 556
+        y: 512
+        width: 169
+        height: 218
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -114,10 +137,10 @@ TextureImporter:
       name: sprite_lama_4
       rect:
         serializedVersion: 2
-        x: 863
-        y: 1
-        width: 91
-        height: 215
+        x: 727
+        y: 561
+        width: 4
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,10 +150,309 @@ TextureImporter:
       name: sprite_lama_5
       rect:
         serializedVersion: 2
-        x: 1118
-        y: 1
-        width: 92
+        x: 812
+        y: 512
+        width: 169
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_lama_6
+      rect:
+        serializedVersion: 2
+        x: 983
+        y: 561
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_lama_7
+      rect:
+        serializedVersion: 2
+        x: 1068
+        y: 512
+        width: 169
+        height: 214
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_lama_8
+      rect:
+        serializedVersion: 2
+        x: 1239
+        y: 562
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_lama_9
+      rect:
+        serializedVersion: 2
+        x: 1324
+        y: 512
+        width: 169
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_lama_10
+      rect:
+        serializedVersion: 2
+        x: 1495
+        y: 561
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_lama_11
+      rect:
+        serializedVersion: 2
+        x: 1638
+        y: 512
+        width: 140
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_lama_12
+      rect:
+        serializedVersion: 2
+        x: 1794
+        y: 513
+        width: 207
+        height: 212
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_lama_13
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 258
+        width: 103
+        height: 212
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_lama_14
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 258
+        width: 103
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_lama_15
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 258
+        width: 103
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_lama_16
+      rect:
+        serializedVersion: 2
+        x: 855
+        y: 258
+        width: 103
+        height: 212
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_lama_17
+      rect:
+        serializedVersion: 2
+        x: 1111
+        y: 258
+        width: 103
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_lama_18
+      rect:
+        serializedVersion: 2
+        x: 1367
+        y: 258
+        width: 103
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_lama_19
+      rect:
+        serializedVersion: 2
+        x: 1614
+        y: 257
+        width: 108
+        height: 223
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_lama_20
+      rect:
+        serializedVersion: 2
+        x: 1879
+        y: 258
+        width: 103
+        height: 212
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_lama_21
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 2
+        width: 103
+        height: 212
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_lama_22
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 2
+        width: 103
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_lama_23
+      rect:
+        serializedVersion: 2
+        x: 597
+        y: 2
+        width: 103
+        height: 214
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_lama_24
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 2
+        width: 103
+        height: 212
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_lama_25
+      rect:
+        serializedVersion: 2
+        x: 1110
+        y: 2
+        width: 103
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_lama_26
+      rect:
+        serializedVersion: 2
+        x: 1366
+        y: 2
+        width: 103
         height: 215
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_lama_27
+      rect:
+        serializedVersion: 2
+        x: 1626
+        y: 1
+        width: 108
+        height: 223
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sprite_lama_28
+      rect:
+        serializedVersion: 2
+        x: 1878
+        y: 2
+        width: 103
+        height: 212
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

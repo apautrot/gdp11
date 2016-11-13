@@ -1,11 +1,12 @@
 fileFormatVersion: 2
-guid: 048e8f382c1e16c4d951e17412be3d5a
-timeCreated: 1479029041
+guid: c21f59829a8178444a7a67737a312b04
+timeCreated: 1479029240
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: sprite_cube_0
-    21300002: sprite_cube_1
+    21300000: crachat_0
+    21300002: crachat_1
+    21300004: crachat_2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -55,26 +56,39 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sprite_cube_0
+      name: crachat_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 7
-        width: 235
-        height: 249
+        x: 5
+        y: 108
+        width: 41
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: sprite_cube_1
+      name: crachat_1
       rect:
         serializedVersion: 2
-        x: 267
-        y: 0
-        width: 229
-        height: 255
+        x: 14
+        y: 49
+        width: 17
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: crachat_2
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 2
+        width: 17
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
