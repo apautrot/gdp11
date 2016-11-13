@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SectionCaterpillar : MonoBehaviour {
-
+public class SectionCaterpillar : MonoBehaviour
+{
     public float speed;
     Rigidbody2D body;
 	public GameObject following;

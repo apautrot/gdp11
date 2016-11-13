@@ -17,9 +17,10 @@ public class UmbrellaWeapon : MonoBehaviour, IWeapon
 		for ( int i = 0; i < hits.Length; i++ )
 		{
 			Collider2D collider = hits[i].collider;
-			if ( collider.gameObject.GetComponent<Monster> () != null )
+			Monster monster = collider.gameObject.GetComponent<Monster> ();
+			if ( monster != null )
 			{
-				collider.gameObject.GetComponent<Rigidbody2D> ().AddForce ( new Vector2 ( 0, 50 ), ForceMode.VelocityChange );
+				monster.TakeDamage ();
 				//Son quand il frappe (en fonction du type d'arme)
 			}
 			else

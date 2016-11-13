@@ -134,56 +134,61 @@ public class Player : SceneSingleton<Player>
 
 		Vector2 addedVelocity = Vector2.zero;
 
-		if ( InputConfiguration.Instance.Left.IsDown && Movable)
+		InputConfiguration inputs = InputConfiguration.Instance;
+		if ( inputs != null )
 		{
-			isActivelyMoving = true;
-			addedVelocity += Vector2.left;
-			direction = Direction.Left;
-			if ( animator != null )
-			{
-				animator.SetInteger ( "Direction", 1 );
-				animator.SetBool ( "Walking", true );
-			}
-		
-		}
 
-		if ( InputConfiguration.Instance.Right.IsDown && Movable)
-		{
-			isActivelyMoving = true;
-			addedVelocity += Vector2.right;
-			direction = Direction.Right;
-			if ( animator != null )
+			if ( inputs.Left.IsDown && Movable )
 			{
-				animator.SetInteger ( "Direction", 2 );
-				animator.SetBool ( "Walking", true );
-			}
-		}
+				isActivelyMoving = true;
+				addedVelocity += Vector2.left;
+				direction = Direction.Left;
+				if ( animator != null )
+				{
+					animator.SetInteger ( "Direction", 1 );
+					animator.SetBool ( "Walking", true );
+				}
 
-		if ( InputConfiguration.Instance.Up.IsDown && Movable)
-		{
-			isActivelyMoving = true;
-			addedVelocity += Vector2.up;
-			direction = Direction.Up;
-			if ( animator != null )
+			}
+
+			if ( inputs.Right.IsDown && Movable )
 			{
-				animator.SetInteger ( "Direction", 3 );
-				animator.SetBool ( "Walking", true );
+				isActivelyMoving = true;
+				addedVelocity += Vector2.right;
+				direction = Direction.Right;
+				if ( animator != null )
+				{
+					animator.SetInteger ( "Direction", 2 );
+					animator.SetBool ( "Walking", true );
+				}
 			}
-		}
 
-		if ( InputConfiguration.Instance.Down.IsDown && Movable)
-		{
-			isActivelyMoving = true;
-			addedVelocity += Vector2.down;
-			direction = Direction.Down;
-			if ( animator != null )
+			if ( inputs.Up.IsDown && Movable )
 			{
-				animator.SetInteger ( "Direction", 0 );
-				animator.SetBool ( "Walking", true );
+				isActivelyMoving = true;
+				addedVelocity += Vector2.up;
+				direction = Direction.Up;
+				if ( animator != null )
+				{
+					animator.SetInteger ( "Direction", 3 );
+					animator.SetBool ( "Walking", true );
+				}
 			}
-		}
 
-		rigidbody.velocity += ( addedVelocity.normalized * acceleration );
+			if ( inputs.Down.IsDown && Movable )
+			{
+				isActivelyMoving = true;
+				addedVelocity += Vector2.down;
+				direction = Direction.Down;
+				if ( animator != null )
+				{
+					animator.SetInteger ( "Direction", 0 );
+					animator.SetBool ( "Walking", true );
+				}
+			}
+
+			rigidbody.velocity += ( addedVelocity.normalized * acceleration );
+		}
 
 		// DebugWindow.ClearGroup ( "Player" );
 
@@ -255,17 +260,14 @@ public class Player : SceneSingleton<Player>
 		for ( int i = 0; i < hits.Length; i++ )
 		{
 			RaycastHit2D hit = hits[i];
-			// if ( hit.collider.isTrigger )
+			Gate gate = hit.collider.gameObject.GetComponent<Gate> ();
+			if ( gate != null )
 			{
-				Gate gate = hit.collider.gameObject.GetComponent<Gate> ();
-				if ( gate != null )
-				{
-					if ( nearest == null )
+				if ( nearest == null )
+					nearest = gate;
+				else
+					if ( gate.transform.DistanceTo ( gameObject ) < nearest.transform.DistanceTo ( gameObject ) )
 						nearest = gate;
-					else
-						if ( gate.transform.DistanceTo ( gameObject ) < nearest.transform.DistanceTo ( gameObject ) )
-							nearest = gate;
-				}
 			}
 		}
 
@@ -286,10 +288,11 @@ public class Player : SceneSingleton<Player>
 		Debug.DrawLine ( from.WithXReplacedBy ( to.y ), to, color, duration );
 	}
 
-	void OnCollisionEnter2D (Collision2D collision) {
+	void OnCollisionEnter2D (Collision2D collision)
+	{
 		if (collision.gameObject.GetComponent<Monster>())
 		{
-			rigidbody.velocity = (transform.position - collision.transform.position) * collision.gameObject.GetComponent<Monster>().damage * 300f;
+			rigidbody.velocity = ( transform.position - collision.transform.position ) * 1500f;
 
 			if (Hurtable) {
 				lastDamage = Time.time;

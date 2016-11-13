@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Cube : MonoBehaviour
+public class Cube : Monster
 {
-    Rigidbody2D body;
     GameObject sprite;
 
     [Header("Normal jump")]
@@ -26,9 +25,10 @@ public class Cube : MonoBehaviour
     GoTween tween;
     AbstractGoTween spriteTween;
 
-    void Start()
+    new void Start()
     {
-        body = GetComponent<Rigidbody2D>();
+		base.Start ();
+
         sprite = gameObject.FindChildByName("Sprite");
 
         StartCoroutine(AnimateCoroutine());

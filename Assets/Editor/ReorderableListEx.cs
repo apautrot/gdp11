@@ -9,7 +9,7 @@ class ReorderableListEx : ReorderableList
 	protected Color selectedColor = Color.Lerp ( Color.white, Color.yellow, 0.20f );
 
 	public delegate void NewElement ( SerializedProperty newElement );
-	public NewElement onNewElement;
+	public NewElement onNewElement = null;
 
 	public delegate void AddElementFromSelection ( GameObject gameObject, SerializedProperty newElement );
 	private AddElementFromSelection _onAddElementFromSelection;

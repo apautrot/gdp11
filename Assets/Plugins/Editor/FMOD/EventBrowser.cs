@@ -494,7 +494,7 @@ namespace FMODUnity
         }
 
         Rect previewCustomRect;
-        Rect previewPathRect;
+        // Rect previewPathRect;
 
         private void PreviewEvent(Rect previewRect, EditorEventRef selectedEvent)
         {
