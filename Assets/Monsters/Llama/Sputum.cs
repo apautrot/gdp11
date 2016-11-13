@@ -24,8 +24,9 @@ public class Sputum : MonoBehaviour {
 		transform.Translate (direction / 5);
 
 		//Debug.Log(Input.mousePosition + " && " + new Vector3(x, y, 10000));
-		Vector3 point = Camera.main.ScreenToWorldPoint(new Vector3 (x, y, 10000));
-		transform.rotation = Quaternion.LookRotation(Vector3.forward, point - transform.position);
+		float angle = Mathf.Atan2(-direction.x, direction.y) * Mathf.Rad2Deg;
+		Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+		transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * 100);
 
         //Debug.Log ("Fired");
     }

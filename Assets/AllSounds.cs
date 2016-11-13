@@ -4,12 +4,12 @@ using System.Collections.Generic;
 
 public class AllSounds : SceneSingleton<AllSounds>
 {
-	public AudioClip PlayerWalk1;
-	public AudioClip PlayerWalk2;
+    public AudioClip PlayerWalk1;
+    public AudioClip PlayerWalk2;
 
     public AudioClip Shield;
 
-	public AudioClip GetItem;
+    public AudioClip GetItem;
     public AudioClip Heart;
     public AudioClip MoreTime;
     public AudioClip GetKey;
@@ -28,7 +28,7 @@ public class AllSounds : SceneSingleton<AllSounds>
     public AudioClip FinalDoor;
 
     public AudioClip Fire;
-    
+
     public AudioClip Llama1;
     public AudioClip Llama2;
     public AudioClip Llama3;
@@ -52,8 +52,8 @@ public class AllSounds : SceneSingleton<AllSounds>
     public AudioClip WallCollision2;
     public AudioClip WallCollision3;
 
-	public AudioClip PorteBasique;
-	public AudioClip PorteBleue;
+    public AudioClip PorteBasique;
+    public AudioClip PorteBleue;
     public AudioClip Cassée;
     public AudioClip Cloche;
     public AudioClip Colonne;
@@ -72,4 +72,11 @@ public class AllSounds : SceneSingleton<AllSounds>
     public AudioClip UmbrellaTouch3;
 
     public AudioClip UmbrellaDontTouch;
+
+    public AudioClip PlayThisClip(AudioClip[] audioList)
+    {
+        var randomSound = Random.Range(0, audioList.Length);
+     
+        return audioList[randomSound]; 
+    }
 }

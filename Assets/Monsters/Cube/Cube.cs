@@ -21,16 +21,18 @@ public class Cube : Monster
     public float crushJumpHeight = 100;
     public GoEaseType crushJumpMoveEase = GoEaseType.QuadInOut;
     public GoEaseType crushJumpSpriteEase = GoEaseType.QuadInOut;
-
+    public bool crushJumpBool;
     GoTween tween;
     AbstractGoTween spriteTween;
+
+    Animator anim;
 
     new void Start()
     {
 		base.Start ();
 
         sprite = gameObject.FindChildByName("Sprite");
-
+        anim = gameObject.FindChildByName("SpriteFumee").GetComponent<Animator>();
         StartCoroutine(AnimateCoroutine());
     }
 
@@ -50,26 +52,28 @@ public class Cube : Monster
         while (true)
         {
             float duration = 0;
-            if ((Player.Instance.transform.position - transform.position).magnitude < crushJumpDistanceThreshold)
+            if ((Player.Instance.transform.position - transform.position).magnitude < crushJumpDistanceThreshold && !crushJumpBool)
                 duration = CrushJump() + 2; 
             else
                 duration = NormalJump();
 
             yield return new WaitForSeconds(duration);
 
-            if(duration != 2)
+            if(crushJumpBool)
             {
                 if ((Player.Instance.transform.position - transform.position).magnitude < crushJumpDistanceThreshold)
                 {
 					if (Player.Instance.EnergyPoints > 0)
 						Player.Instance.GetComponent<Rigidbody2D>().AddForce(Vector2.up, ForceMode.Force); 
-                }   
+                }
+                anim.SetBool("Ecrasement", false);
             }
         }
     }
 
     float CrushJump()
     {
+        crushJumpBool = true;
         Vector3 velocity = (Player.Instance.transform.position - transform.position).normalized * crushJumpDistance;
 
         tween = transform.positionTo(crushJumpDuration, velocity, true)
@@ -82,11 +86,13 @@ public class Cube : Monster
         // Son d'écrasement des ennemis
         Audio.Instance.PlaySound(AllSounds.Instance.CubeBigHit);
 
+        anim.SetBool("Ecrasement", true);
         return tween.totalDuration + spriteTween.totalDuration;
     }
 
     float NormalJump()
     {
+        crushJumpBool = false;
         Vector3 velocity = (Player.Instance.transform.position - transform.position).normalized * jumpDistance;
 
          tween = transform.positionTo(jumpDuration, velocity, true)
@@ -98,6 +104,7 @@ public class Cube : Monster
 
         Audio.Instance.PlaySound(AllSounds.Instance.Cube);
 
+        anim.SetBool("Ecrasement", false);
         return tween.totalDuration + spriteTween.totalDuration;
     }
 }
