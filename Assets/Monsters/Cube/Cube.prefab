@@ -116,7 +116,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be818d9af2afc455980d80eb2aa7625a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
   life: 3
 --- !u!114 &114000012446606320
 MonoBehaviour:
@@ -140,6 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49145658dabc6cc4cb5794b7e4a8877f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  life: 3
   jumpDistance: 100
   jumpDuration: 1
   jumpHeight: 50

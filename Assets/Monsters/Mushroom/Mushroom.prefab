@@ -134,7 +134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be818d9af2afc455980d80eb2aa7625a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
   life: 1
 --- !u!114 &114000010852513798
 MonoBehaviour:
@@ -147,6 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72b14c3a96c5245fabdb5c1ccb4da438, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  life: 3
   targetSpeed: 100
   accelerationDuration: 1
 --- !u!114 &114000013742747958
