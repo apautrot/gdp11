@@ -42,6 +42,13 @@ public class Mushroom : Monster
 				body.velocity = ( new Vector3 ( destX, destY, 0 ) - transform.position ).normalized * speed;
 
 			anim.SetInteger ( "Direction", direction );
+
+			if (Vector3.Distance (Player.Instance.transform.position, transform.position) < 100) {
+				anim.SetBool ("Attack", true);
+			} else {
+				anim.SetBool ("Attack", false);
+			}
+
 		}
     }
 }
