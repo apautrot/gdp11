@@ -303,7 +303,7 @@ Prefab:
     - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
         type: 2}
       propertyPath: SpawnLists.Array.size
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
         type: 2}
@@ -359,6 +359,11 @@ Prefab:
         type: 2}
       propertyPath: SpawnLists.Array.data[10].Items.Array.size
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
+        type: 2}
+      propertyPath: SpawnLists.Array.data[11].Items.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4000013579806756, guid: c5fbece0bf9c30f409e58a0f2d288619, type: 2}
       propertyPath: m_LocalPosition.x
@@ -740,7 +745,7 @@ Prefab:
     - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
         type: 2}
       propertyPath: SpawnLists.Array.data[4].Items.Array.data[0].Chance
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
         type: 2}
@@ -785,7 +790,7 @@ Prefab:
     - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
         type: 2}
       propertyPath: SpawnLists.Array.data[9].Items.Array.data[0].Chance
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
         type: 2}
@@ -795,7 +800,7 @@ Prefab:
     - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
         type: 2}
       propertyPath: SpawnLists.Array.data[9].Items.Array.data[1].Chance
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
         type: 2}
@@ -805,7 +810,7 @@ Prefab:
     - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
         type: 2}
       propertyPath: SpawnLists.Array.data[9].Items.Array.data[2].Chance
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
         type: 2}
@@ -860,7 +865,7 @@ Prefab:
     - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
         type: 2}
       propertyPath: SpawnLists.Array.data[9].Items.Array.data[3].Chance
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
         type: 2}
@@ -870,7 +875,7 @@ Prefab:
     - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
         type: 2}
       propertyPath: SpawnLists.Array.data[9].Items.Array.data[4].Chance
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
         type: 2}
@@ -880,7 +885,7 @@ Prefab:
     - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
         type: 2}
       propertyPath: SpawnLists.Array.data[9].Items.Array.data[5].Chance
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
         type: 2}
@@ -945,7 +950,7 @@ Prefab:
     - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
         type: 2}
       propertyPath: SpawnLists.Array.data[10].Items.Array.data[0].Chance
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
         type: 2}
@@ -955,7 +960,7 @@ Prefab:
     - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
         type: 2}
       propertyPath: SpawnLists.Array.data[10].Items.Array.data[1].Chance
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
         type: 2}
@@ -965,7 +970,7 @@ Prefab:
     - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
         type: 2}
       propertyPath: SpawnLists.Array.data[10].Items.Array.data[2].Chance
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
         type: 2}
@@ -975,7 +980,7 @@ Prefab:
     - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
         type: 2}
       propertyPath: SpawnLists.Array.data[10].Items.Array.data[3].Chance
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
         type: 2}
@@ -985,7 +990,7 @@ Prefab:
     - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
         type: 2}
       propertyPath: SpawnLists.Array.data[10].Items.Array.data[4].Chance
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
         type: 2}
@@ -995,7 +1000,7 @@ Prefab:
     - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
         type: 2}
       propertyPath: SpawnLists.Array.data[10].Items.Array.data[5].Chance
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
         type: 2}
@@ -1005,7 +1010,7 @@ Prefab:
     - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
         type: 2}
       propertyPath: SpawnLists.Array.data[10].Items.Array.data[6].Chance
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
         type: 2}
@@ -1015,7 +1020,7 @@ Prefab:
     - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
         type: 2}
       propertyPath: SpawnLists.Array.data[10].Items.Array.data[7].Chance
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
         type: 2}
@@ -1025,7 +1030,7 @@ Prefab:
     - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
         type: 2}
       propertyPath: SpawnLists.Array.data[10].Items.Array.data[8].Chance
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
         type: 2}
@@ -1035,7 +1040,7 @@ Prefab:
     - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
         type: 2}
       propertyPath: SpawnLists.Array.data[10].Items.Array.data[9].Chance
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
         type: 2}
@@ -1045,7 +1050,7 @@ Prefab:
     - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
         type: 2}
       propertyPath: SpawnLists.Array.data[10].Items.Array.data[10].Chance
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
         type: 2}
@@ -1055,11 +1060,136 @@ Prefab:
     - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
         type: 2}
       propertyPath: SpawnLists.Array.data[10].Items.Array.data[11].Chance
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
         type: 2}
       propertyPath: SpawnLists.Array.data[10].Items.Array.data[11].ObjectType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
+        type: 2}
+      propertyPath: SpawnLists.Array.data[11].Name
+      value: Liberation
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
+        type: 2}
+      propertyPath: SpawnLists.Array.data[11].Items.Array.data[0].Chance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
+        type: 2}
+      propertyPath: SpawnLists.Array.data[11].Items.Array.data[0].ObjectType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
+        type: 2}
+      propertyPath: SpawnLists.Array.data[11].Items.Array.data[1].Chance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
+        type: 2}
+      propertyPath: SpawnLists.Array.data[11].Items.Array.data[1].ObjectType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
+        type: 2}
+      propertyPath: SpawnLists.Array.data[11].Items.Array.data[2].Chance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
+        type: 2}
+      propertyPath: SpawnLists.Array.data[11].Items.Array.data[2].ObjectType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
+        type: 2}
+      propertyPath: SpawnLists.Array.data[11].Items.Array.data[3].Chance
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
+        type: 2}
+      propertyPath: SpawnLists.Array.data[11].Items.Array.data[3].ObjectType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
+        type: 2}
+      propertyPath: SpawnLists.Array.data[11].Items.Array.data[4].Chance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
+        type: 2}
+      propertyPath: SpawnLists.Array.data[11].Items.Array.data[4].ObjectType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
+        type: 2}
+      propertyPath: SpawnLists.Array.data[11].Items.Array.data[5].Chance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
+        type: 2}
+      propertyPath: SpawnLists.Array.data[11].Items.Array.data[5].ObjectType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
+        type: 2}
+      propertyPath: SpawnLists.Array.data[11].Items.Array.data[6].Chance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
+        type: 2}
+      propertyPath: SpawnLists.Array.data[11].Items.Array.data[6].ObjectType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
+        type: 2}
+      propertyPath: SpawnLists.Array.data[11].Items.Array.data[7].Chance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
+        type: 2}
+      propertyPath: SpawnLists.Array.data[11].Items.Array.data[7].ObjectType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
+        type: 2}
+      propertyPath: SpawnLists.Array.data[11].Items.Array.data[8].Chance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
+        type: 2}
+      propertyPath: SpawnLists.Array.data[11].Items.Array.data[8].ObjectType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
+        type: 2}
+      propertyPath: SpawnLists.Array.data[11].Items.Array.data[9].Chance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
+        type: 2}
+      propertyPath: SpawnLists.Array.data[11].Items.Array.data[9].ObjectType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
+        type: 2}
+      propertyPath: SpawnLists.Array.data[11].Items.Array.data[10].Chance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
+        type: 2}
+      propertyPath: SpawnLists.Array.data[11].Items.Array.data[10].ObjectType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
+        type: 2}
+      propertyPath: SpawnLists.Array.data[11].Items.Array.data[11].Chance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011851348030, guid: c5fbece0bf9c30f409e58a0f2d288619,
+        type: 2}
+      propertyPath: SpawnLists.Array.data[11].Items.Array.data[11].ObjectType
       value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
