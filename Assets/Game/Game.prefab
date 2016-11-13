@@ -397,6 +397,8 @@ MonoBehaviour:
       type: 2}
     HeartItemPrefab: {fileID: 1000012677727050, guid: 17a3ddf2695bf60469b48fbb140c9ca0,
       type: 2}
+    KeyItemPrefab: {fileID: 1000010215347992, guid: 1b3be34df0858654b89c5170cc73aac4,
+      type: 2}
   time: 60
 --- !u!114 &114000013700233550
 MonoBehaviour:

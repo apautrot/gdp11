@@ -15,6 +15,7 @@ public class Game : Singleton<Game>
 		public GameObject CaterpillarPrefab;
         public GameObject ClockItemPrefab;
 		public GameObject HeartItemPrefab;
+		public GameObject KeyItemPrefab;
 	}
 
 	public Prefabs prefabs;
@@ -29,7 +30,8 @@ public class Game : Singleton<Game>
 			case ObjectType.EnemyCaterpillar: return prefabs.CaterpillarPrefab;
 			case ObjectType.ItemHeart: return prefabs.HeartItemPrefab;
             case ObjectType.ItemClock: return prefabs.ClockItemPrefab;
-            default: return null;
+			case ObjectType.ItemKey: return prefabs.KeyItemPrefab;
+			default: return null;
 		}
 	}
 

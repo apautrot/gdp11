@@ -9,7 +9,8 @@ public enum ObjectType
 	EnemyMushroom,
 	EnemyLlama,
     EnemyCaterpillar,
-    EnemyJumpingRock
+    EnemyJumpingRock,
+	ItemKey
 	// ajouter les nouveaux à la fin, ne pas changer l'ordre de la liste !!
 }
 
