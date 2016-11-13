@@ -14,6 +14,8 @@ public class UmbrellaWeapon : MonoBehaviour, IWeapon
 	public float shootDistance = 100;
 	public GoEaseType shootEase = GoEaseType.QuadOut;
 
+	public float timeBetweenWeapons= 0.35f;
+
 	System.Action onEnd;
 	public System.Action OnEnd { get { return onEnd; } set { onEnd = value; } }
 
@@ -43,7 +45,7 @@ public class UmbrellaWeapon : MonoBehaviour, IWeapon
 		tween.insert ( 0, transform.localPositionTo ( shootDuration, localMoveVector, true ).eases ( shootEase ) );
 		tween.insert ( 0, transform.scaleTo ( 0.125f, 1 ).eases ( GoEaseType.QuartIn ) );
 		tween.insert ( 0.25f, transform.scaleTo ( 0.5f, 0 ).eases ( GoEaseType.QuadOut ) );
-		tween.insertAction ( 0.5f, () => { if ( onEnd != null ) onEnd (); } );
+		tween.insertAction ( timeBetweenWeapons, () => { if ( onEnd != null ) onEnd (); } );
 		tween.Start ();
 		tween.setOnCompleteHandler ( c => gameObject.DestroySelf () );
 	}
