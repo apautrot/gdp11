@@ -52,13 +52,14 @@ public class Llama : Monster
 				anim.SetBool ("Sputum", true);
 				timeBefore = Time.time;
                 
-                this.WaitAndDo (1.5f, Shoot);
+                this.WaitAndDo (0.85f, Shoot);
 
             }
 		}
 		anim.SetInteger ("Direction", direction);
 		//Debug.Log (anim.GetBool("Sputum"));
 		//Debug.Log (anim.GetInteger("Direction"));
+		//Debug.Log(anim.GetBool("Sputum"));
 	}
 
 	void Shoot ()
