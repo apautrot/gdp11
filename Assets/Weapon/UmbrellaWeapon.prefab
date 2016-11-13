@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootDuration: 0.5
-  shootDistance: 50
+  shootDistance: 150
   shootEase: 5
   timeBetweenWeapons: 0.35
 --- !u!212 &212000011677999210

@@ -117,7 +117,8 @@ public class Gate : MonoBehaviour
 		GameObject go = Game.Instance.gameObject.InstantiateSibling ( prefab );
 		// go.transform.position = spawnArea.transform.position;
 
-		go.transform.position = transform.position;
+		// go.transform.position = transform.position;
+		go.transform.position = ( frontPosition.transform.position + transform.position ) / 2;
 	}
 
 	float AnimateOpening ()

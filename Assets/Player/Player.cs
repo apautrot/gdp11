@@ -69,6 +69,9 @@ public class Player : SceneSingleton<Player>
 				_energyPoints = value;
 				if ( OnEnergyPointChanged != null )
 					OnEnergyPointChanged ( previousValue, _energyPoints );
+
+				if ( Music.InstanceCreated )
+					Music.Instance.LifePercent = ( (float)_energyPoints / (float)MaximumEnergyPoints ) * 100;
 			}
 		}
 	}

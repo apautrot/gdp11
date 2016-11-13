@@ -54,8 +54,8 @@ public class Music : SceneSingleton<Music>
 		}
 	}
 
-	internal int _lifePercent;
-	internal int LifePercent
+	internal float _lifePercent;
+	internal float LifePercent
 	{
 		get { return _lifePercent; }
 		set
