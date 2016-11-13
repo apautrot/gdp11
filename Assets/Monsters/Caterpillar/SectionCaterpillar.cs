@@ -5,7 +5,7 @@ public class SectionCaterpillar : MonoBehaviour {
 
     public float speed;
     Rigidbody2D body;
-    internal GameObject following;
+	public GameObject following;
 
     void Awake()
     {

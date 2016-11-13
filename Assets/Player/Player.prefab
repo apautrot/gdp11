@@ -47,7 +47,8 @@ MonoBehaviour:
   maximumSpeed: 250
   decelerationFactor: 5
   invincibilityTime: 1
-  WeaponPrefab: {fileID: 0}
+  WeaponPrefab: {fileID: 1000011334076614, guid: 288cd1df9b2ee6e4a8ad4b977195fb78,
+    type: 2}
   Movable: 0
   Hurtable: 0
 --- !u!1001 &100100000

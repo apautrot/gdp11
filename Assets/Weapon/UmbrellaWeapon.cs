@@ -30,10 +30,13 @@ public class UmbrellaWeapon : MonoBehaviour, IWeapon
 			//			Debug.Log ( "Hits[" + i + "] => " + hits[i].collider.name );
 		}
 
-		// 		transform.localEulerAngles = new Vector3 ( 0, 0, 90 );
-		// 		transform.localEularAnglesTo ( 0.25f, new Vector3 ( 0, 0, -90 ) );
+		transform.SetScale ( 0.25f );
 
-		gameObject.DestroySelf ();
+		GoTweenChain chain = new GoTweenChain ();
+		chain.insert ( 0, transform.scaleTo ( 0.25f, 1 ).eases ( GoEaseType.QuartIn ) );
+		chain.insert ( 0.25f, transform.scaleTo ( 0.5f, 0 ).eases ( GoEaseType.BounceOut ) );
+		chain.Start ();
+		chain.setOnCompleteHandler ( c => gameObject.DestroySelf () );
 
 		if ( onEnd != null )
 			onEnd ();
