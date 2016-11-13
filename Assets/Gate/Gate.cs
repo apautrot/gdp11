@@ -23,11 +23,15 @@ public enum GateName
 public class Gate : MonoBehaviour
 {
 	internal int SpawnListIndex = -1;
+	internal bool IsExit;
+
 	bool isOpened;
 
 	GameObject sprite;
 	GameObject spriteA;
 	GameObject spriteB;
+
+	GameObject frontPosition;
 
 	public GateName gateName = GateName.Basique;
 
@@ -35,6 +39,7 @@ public class Gate : MonoBehaviour
 
 	void Awake ()
 	{
+		frontPosition = gameObject.FindChildByName ( "Front Position" );
 		sprite = gameObject.FindChildByName ( "Sprite", false );
 		spriteA = gameObject.FindChildByName ( "Sprite A", false );
 		spriteB = gameObject.FindChildByName ( "Sprite B", false );
@@ -93,6 +98,8 @@ public class Gate : MonoBehaviour
         }
 
 		yield return new WaitForSeconds ( duration );
+
+		Game.Instance.DoorOpened++;
 
 		if ( SpawnListIndex == -1 )
 			Debug.LogError ( "This gate ( " + name + " has an invalid setup index ! Find GatesSetup game object and setup it." );
@@ -204,5 +211,14 @@ public class Gate : MonoBehaviour
 		}
 
 		return tween.totalDuration;
+	}
+
+	internal void OnEndOfSpawn ()
+	{
+		if ( IsExit )
+		{
+			GameObject lockGO = GatesSetup.Instance.gameObject.InstantiateSibling ( Game.Instance.prefabs.LockPrefab );
+			lockGO.transform.position = frontPosition.transform.position;
+		}
 	}
 }
