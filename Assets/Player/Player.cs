@@ -121,7 +121,7 @@ public class Player : SceneSingleton<Player>
 
 	void Update ()
 	{
-		if ( InputConfiguration.Instance.ActionB.IsJustDown )
+		if ( InputConfiguration.Instance.ActionA.IsJustDown )
 			UseWeapon ();
 
 		if ( InputConfiguration.Instance.ActionB.IsJustDown )
@@ -134,56 +134,61 @@ public class Player : SceneSingleton<Player>
 
 		Vector2 addedVelocity = Vector2.zero;
 
-		if ( InputConfiguration.Instance.Left.IsDown && Movable)
+		InputConfiguration inputs = InputConfiguration.Instance;
+		if ( inputs != null )
 		{
-			isActivelyMoving = true;
-			addedVelocity += Vector2.left;
-			direction = Direction.Left;
-			if ( animator != null )
-			{
-				animator.SetInteger ( "Direction", 1 );
-				animator.SetBool ( "Walking", true );
-			}
-		
-		}
 
-		if ( InputConfiguration.Instance.Right.IsDown && Movable)
-		{
-			isActivelyMoving = true;
-			addedVelocity += Vector2.right;
-			direction = Direction.Right;
-			if ( animator != null )
+			if ( inputs.Left.IsDown && Movable )
 			{
-				animator.SetInteger ( "Direction", 2 );
-				animator.SetBool ( "Walking", true );
-			}
-		}
+				isActivelyMoving = true;
+				addedVelocity += Vector2.left;
+				direction = Direction.Left;
+				if ( animator != null )
+				{
+					animator.SetInteger ( "Direction", 1 );
+					animator.SetBool ( "Walking", true );
+				}
 
-		if ( InputConfiguration.Instance.Up.IsDown && Movable)
-		{
-			isActivelyMoving = true;
-			addedVelocity += Vector2.up;
-			direction = Direction.Up;
-			if ( animator != null )
+			}
+
+			if ( inputs.Right.IsDown && Movable )
 			{
-				animator.SetInteger ( "Direction", 3 );
-				animator.SetBool ( "Walking", true );
+				isActivelyMoving = true;
+				addedVelocity += Vector2.right;
+				direction = Direction.Right;
+				if ( animator != null )
+				{
+					animator.SetInteger ( "Direction", 2 );
+					animator.SetBool ( "Walking", true );
+				}
 			}
-		}
 
-		if ( InputConfiguration.Instance.Down.IsDown && Movable)
-		{
-			isActivelyMoving = true;
-			addedVelocity += Vector2.down;
-			direction = Direction.Down;
-			if ( animator != null )
+			if ( inputs.Up.IsDown && Movable )
 			{
-				animator.SetInteger ( "Direction", 0 );
-				animator.SetBool ( "Walking", true );
+				isActivelyMoving = true;
+				addedVelocity += Vector2.up;
+				direction = Direction.Up;
+				if ( animator != null )
+				{
+					animator.SetInteger ( "Direction", 3 );
+					animator.SetBool ( "Walking", true );
+				}
 			}
-		}
 
-		rigidbody.velocity += ( addedVelocity.normalized * acceleration );
+			if ( inputs.Down.IsDown && Movable )
+			{
+				isActivelyMoving = true;
+				addedVelocity += Vector2.down;
+				direction = Direction.Down;
+				if ( animator != null )
+				{
+					animator.SetInteger ( "Direction", 0 );
+					animator.SetBool ( "Walking", true );
+				}
+			}
+
+			rigidbody.velocity += ( addedVelocity.normalized * acceleration );
+		}
 
 		// DebugWindow.ClearGroup ( "Player" );
 
@@ -206,19 +211,19 @@ public class Player : SceneSingleton<Player>
 
 		if ((rigidbody.velocity.x > 1 || rigidbody.velocity.x < -1) || (rigidbody.velocity.y > 1 || rigidbody.velocity.y < -1))
 		{
-			walkAudioInstance = Audio.Instance.PlaySound ( AllSounds.Instance.PlayerWalk1 );
-			if ( walkAudioInstance != null )
-				walkAudioInstance.loop = true;
+   //         walkAudioInstance = Audio.Instance.PlaySound ( AllSounds.Instance.PlayerWalk1 );
+			//if ( walkAudioInstance != null )
+			//	walkAudioInstance.loop = true;
 
 			animator.SetBool ("Walking", true);
 		}
 		else
 		{
-			if ( walkAudioInstance != null )
-			{
-				walkAudioInstance.Stop ();
-				walkAudioInstance = null;
-			}
+			//if ( walkAudioInstance != null )
+			//{
+			//	walkAudioInstance.Stop ();
+			//	walkAudioInstance = null;
+			//}
 
 			animator.SetBool ("Walking", false);
 		}
@@ -236,11 +241,12 @@ public class Player : SceneSingleton<Player>
 		{
 			if ( WeaponPrefab != null )
 			{
-				GameObject weaponGO = gameObject.InstantiateChild ( WeaponPrefab );
-				weaponGO.transform.localPosition = new Vector3 ( 0, 32, 0 );
+				GameObject weaponGO = gameObject.InstantiateSibling ( WeaponPrefab );
+				weaponGO.transform.position = gameObject.transform.position + (Vector3) ( direction.ToVector2() * 64 );
 
 				currentWeapon = weaponGO.GetComponentAs<IWeapon> ();
 				currentWeapon.OnEnd += OnWeaponEffectEnd;
+				currentWeapon.Throw ( direction );
 			}
 		}
 	}
@@ -254,17 +260,14 @@ public class Player : SceneSingleton<Player>
 		for ( int i = 0; i < hits.Length; i++ )
 		{
 			RaycastHit2D hit = hits[i];
-			// if ( hit.collider.isTrigger )
+			Gate gate = hit.collider.gameObject.GetComponent<Gate> ();
+			if ( gate != null )
 			{
-				Gate gate = hit.collider.gameObject.GetComponent<Gate> ();
-				if ( gate != null )
-				{
-					if ( nearest == null )
+				if ( nearest == null )
+					nearest = gate;
+				else
+					if ( gate.transform.DistanceTo ( gameObject ) < nearest.transform.DistanceTo ( gameObject ) )
 						nearest = gate;
-					else
-						if ( gate.transform.DistanceTo ( gameObject ) < nearest.transform.DistanceTo ( gameObject ) )
-							nearest = gate;
-				}
 			}
 		}
 
@@ -285,17 +288,19 @@ public class Player : SceneSingleton<Player>
 		Debug.DrawLine ( from.WithXReplacedBy ( to.y ), to, color, duration );
 	}
 
-	void OnCollisionEnter2D (Collision2D collision) {
+	void OnCollisionEnter2D (Collision2D collision)
+	{
 		if (collision.gameObject.GetComponent<Monster>())
 		{
-			rigidbody.velocity = (transform.position - collision.transform.position) * collision.gameObject.GetComponent<Monster>().damage * 300f;
+			rigidbody.velocity = ( transform.position - collision.transform.position ) * 1500f;
 
 			if (Hurtable) {
-				lastDamage = Time.time;
+                Audio.Instance.PlaySound(AllSounds.Instance.PlayerTakesDamage1);
+                lastDamage = Time.time;
 				Hurtable = false;
 				//GetComponent<SpriteRenderer> ().color.a;
 				if (EnergyPoints <= 0) {
-					Die ();
+					Die();
 				} else {
 					EnergyPoints--;
 				}
@@ -307,8 +312,10 @@ public class Player : SceneSingleton<Player>
 	public void Die() {
 		animator.SetBool ("Dead", true);
 		animator.Play ("Die");
-		Movable = false;
-		GetComponent<CircleCollider2D> ().enabled = false;
+        Audio.Instance.PlaySound(AllSounds.Instance.PlayerDies1);
+        Movable = false;
+        EnergyPoints = 0;
+        GetComponent<CircleCollider2D> ().enabled = false;
 	}
 }
 

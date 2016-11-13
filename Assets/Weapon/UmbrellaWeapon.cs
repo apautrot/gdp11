@@ -3,56 +3,63 @@ using System.Collections;
 
 interface IWeapon
 {
+	void Throw ( Direction direction );
+
 	System.Action OnEnd { get; set; }
 }
 
 public class UmbrellaWeapon : MonoBehaviour, IWeapon
 {
+	public float shootDuration = 0.35f;
+	public float shootDistance = 100;
+	public GoEaseType shootEase = GoEaseType.QuadOut;
+
 	System.Action onEnd;
 	public System.Action OnEnd { get { return onEnd; } set { onEnd = value; } }
 
-	void Start ()
-	{
-		RaycastHit2D[] hits = Physics2D.BoxCastAll ( (Vector2)transform.position + new Vector2 ( 0, 32 ), new Vector2 ( 64, 64 ), 0, Vector2.up, 0 );
-		for ( int i = 0; i < hits.Length; i++ )
-		{
-			Collider2D collider = hits[i].collider;
-			if ( collider.gameObject.GetComponent<Monster> () != null )
-			{
-				collider.gameObject.GetComponent<Rigidbody2D> ().AddForce ( new Vector2 ( 0, 50 ), ForceMode.VelocityChange );
-				//Son quand il frappe (en fonction du type d'arme)
-			}
-			else
-			{
-				// Son quand il frappe et qu'il touche ne touche rien
-			}
+	GoTweenChain tween;
 
-			//			Debug.Log ( "Hits[" + i + "] => " + hits[i].collider.name );
+	void OnDestroy ()
+	{
+		if ( tween != null )
+			tween.destroy ();
+	}
+
+	public void Throw ( Direction direction )
+	{
+		transform.SetScale ( 0.25f );
+
+		transform.localEulerAngles = new Vector3 ( 0, 0, direction.ToRotationAngle () );
+
+		Vector2 localMoveVector = direction.ToVector2 () * shootDistance;
+
+		if ( tween != null )
+		{
+			Debug.LogError ( "Tween is already running" );
+			gameObject.DestroySelf ();
 		}
 
-		// 		transform.localEulerAngles = new Vector3 ( 0, 0, 90 );
-		// 		transform.localEularAnglesTo ( 0.25f, new Vector3 ( 0, 0, -90 ) );
-
-		gameObject.DestroySelf ();
-
-		if ( onEnd != null )
-			onEnd ();
+		tween = new GoTweenChain ();
+		tween.insert ( 0, transform.localPositionTo ( shootDuration, localMoveVector, true ).eases ( shootEase ) );
+		tween.insert ( 0, transform.scaleTo ( 0.125f, 1 ).eases ( GoEaseType.QuartIn ) );
+		tween.insert ( 0.25f, transform.scaleTo ( 0.5f, 0 ).eases ( GoEaseType.QuadOut ) );
+		tween.insertAction ( 0.5f, () => { if ( onEnd != null ) onEnd (); } );
+		tween.Start ();
+		tween.setOnCompleteHandler ( c => gameObject.DestroySelf () );
 	}
-	
 
-// 	void Update ()
-// 	{
-// 		DebugWindow.ClearGroup ( "Umbrella" );
-// 		RaycastHit2D[] hits = Physics2D.BoxCastAll ( (Vector2) transform.position + new Vector2 ( 0, 32 ), new Vector2 ( 32, 64 ), 0, Vector2.up, 0 );
-// 		for ( int i = 0; i < hits.Length; i++ )
-// 		{
-// 			DebugWindow.Log ( "Umbrella", "Hits[" + i + "]", hits[i].collider.name );
-// 		}
-// 	}
-
-// 	IEnumerator AnimateCoroutine ()
-// 	{
-// 		
-// 	}
-
+	void OnCollisionEnter2D ( Collision2D collision )
+	{
+		Collider2D collider = collision.collider;
+		Monster monster = collider.gameObject.GetComponent<Monster> ();
+		if ( monster != null )
+		{
+			monster.TakeDamage ();
+			//Son quand il frappe (en fonction du type d'arme)
+		}
+		else
+		{
+			// Son quand il frappe et qu'il touche ne touche rien
+		}
+	}
 }

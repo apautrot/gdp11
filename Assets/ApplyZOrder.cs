@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ApplyZOrder : MonoBehaviour
 {
-	void FixedUpdate ()
+	void Update ()
 	{
 		transform.position = transform.position.WithZReplacedBy ( transform.position.y );
 	}

@@ -53,7 +53,7 @@ public class HUD : SceneSingleton<HUD>
 	}
 
 	void SetRoom(string room) {
-		this.roomLabel.text = room;
+		this.roomLabel.text = "Room " + room;
 	}
 
 	private void ShowHeart ( GameObject heart, float delay = 0 )

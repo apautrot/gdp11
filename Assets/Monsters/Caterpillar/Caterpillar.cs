@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Caterpillar : MonoBehaviour {
-
-    Rigidbody2D body;
+public class Caterpillar : Monster
+{
     public GameObject sectionPrefab;
     
     public float caterpillarLength = 5;
@@ -20,38 +19,12 @@ public class Caterpillar : MonoBehaviour {
     Animator anim;
     SpriteRenderer sprite;
 
-    int direction
+    new void Start()
     {
-        get
-        {
-            if ((body.velocity.x > 0 && body.velocity.x > body.velocity.y) || (body.velocity.x < 0 && body.velocity.x < body.velocity.y))
-            {
-                if (body.velocity.x > 0)
-                    return 2;
-                if (body.velocity.x < 0)
-                    return 1;
-            }
-            else
-            {
-                if (body.velocity.y > 0)
-                    return 3;
-                if (body.velocity.y < 0)
-                    return 0;
-            }
-            return 0;
-        }
+		base.Start ();
 
-        set
-        {
-            direction = value;
-        }
-    }
-
-    void Start()
-    {
         speed = 100;
         countSection = 0;
-        body = GetComponent<Rigidbody2D>();
         maxHeight = GameCamera.Instance.maxHeight;
         maxWidth = GameCamera.Instance.maxWidth;
 

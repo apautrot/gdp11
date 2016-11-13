@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Cube : MonoBehaviour
+public class Cube : Monster
 {
-    Rigidbody2D body;
     GameObject sprite;
 
     [Header("Normal jump")]
@@ -26,9 +25,10 @@ public class Cube : MonoBehaviour
     GoTween tween;
     AbstractGoTween spriteTween;
 
-    void Start()
+    new void Start()
     {
-        body = GetComponent<Rigidbody2D>();
+		base.Start ();
+
         sprite = gameObject.FindChildByName("Sprite");
 
         StartCoroutine(AnimateCoroutine());
@@ -55,16 +55,13 @@ public class Cube : MonoBehaviour
 
             yield return new WaitForSeconds(duration);
 
-            if(duration != 1)
+            if(duration != 2)
             {
-
                 if ((Player.Instance.transform.position - transform.position).magnitude < crushJumpDistanceThreshold)
                 {
 					if (Player.Instance.EnergyPoints > 0)
-						Player.Instance.GetComponent<Rigidbody2D>().AddForce(Vector2.up, ForceMode.Force);
-
-                    // Son d'écrasement des ennemis
-                }
+						Player.Instance.GetComponent<Rigidbody2D>().AddForce(Vector2.up, ForceMode.Force); 
+                }   
             }
         }
     }
@@ -80,6 +77,9 @@ public class Cube : MonoBehaviour
             .eases(crushJumpSpriteEase)
             .loops(2, GoLoopType.PingPong);
 
+        // Son d'écrasement des ennemis
+        Audio.Instance.PlaySound(AllSounds.Instance.CubeBigHit);
+
         return tween.totalDuration + spriteTween.totalDuration;
     }
 
@@ -93,6 +93,8 @@ public class Cube : MonoBehaviour
         spriteTween = sprite.transform.localPositionTo(jumpDuration / 2, new Vector3(0, jumpHeight, 0), true)
             .eases(jumpSpriteEase)
             .loops(2, GoLoopType.PingPong);
+
+        Audio.Instance.PlaySound(AllSounds.Instance.Cube);
 
         return tween.totalDuration + spriteTween.totalDuration;
     }
