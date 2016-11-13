@@ -4,7 +4,11 @@ using System.Collections;
 public class Llama : Monster
 {
 	public GameObject prefab;
-	public float targetSpeed, accelerationDuration, fireRate, fireSpeed, noFireArea;
+	public float targetSpeed = 50;
+	public float accelerationDuration = 1;
+	public float fireRate = 2;
+	public float fireSpeed = 2;
+	public float noFireArea;
 	Animator anim;
 	SpriteRenderer sprite;
 	float destX, destY;
