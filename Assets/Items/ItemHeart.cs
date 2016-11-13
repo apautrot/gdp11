@@ -42,15 +42,15 @@ public class ItemBase : MonoBehaviour
 
 	protected virtual void ApplyEffect ()
 	{
-		Player.Instance.EnergyPoints++;
-	}
+        Audio.Instance.PlaySound(AllSounds.Instance.GetItem);
+    }
 }
 
 public class ItemHeart : ItemBase
 {
 	protected override void ApplyEffect ()
 	{
-		Audio.Instance.PlaySound ( AllSounds.Instance.GetItem );
+		Audio.Instance.PlaySound ( AllSounds.Instance.Heart );
 		Player.Instance.EnergyPoints++;
 	}
 }

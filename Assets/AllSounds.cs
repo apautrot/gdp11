@@ -7,7 +7,11 @@ public class AllSounds : SceneSingleton<AllSounds>
 	public AudioClip PlayerWalk1;
 	public AudioClip PlayerWalk2;
 
+    public AudioClip Shield;
+
 	public AudioClip GetItem;
+    public AudioClip Heart;
+    public AudioClip MoreTime;
     public AudioClip GetKey;
 
     public AudioClip CaterpillarPop1;
@@ -20,6 +24,8 @@ public class AllSounds : SceneSingleton<AllSounds>
     public AudioClip Door1;
     public AudioClip Door2;
     public AudioClip Door3;
+
+    public AudioClip FinalDoor;
 
     public AudioClip Fire;
     
@@ -36,11 +42,6 @@ public class AllSounds : SceneSingleton<AllSounds>
     public AudioClip PlayerDies2;
     public AudioClip PlayerDies3;
 
-    public AudioClip PlayerSound1;
-    public AudioClip PlayerSound2;
-    public AudioClip PlayerSound3;
-    public AudioClip PlayerSound4;
-
     public AudioClip PlayerTakesDamage1;
     public AudioClip PlayerTakesDamage2;
     public AudioClip PlayerTakesDamage3;
@@ -53,4 +54,22 @@ public class AllSounds : SceneSingleton<AllSounds>
 
 	public AudioClip PorteBasique;
 	public AudioClip PorteBleue;
+    public AudioClip Cassée;
+    public AudioClip Cloche;
+    public AudioClip Colonne;
+    public AudioClip Herbe;
+    public AudioClip Jaune;
+    public AudioClip Oeil;
+    public AudioClip Orange;
+    public AudioClip Orientale;
+    public AudioClip Rouge;
+    public AudioClip TriangleDroite;
+    public AudioClip TriangleGauche;
+    public AudioClip Verte;
+
+    public AudioClip UmbrellaTouch1;
+    public AudioClip UmbrellaTouch2;
+    public AudioClip UmbrellaTouch3;
+
+    public AudioClip UmbrellaDontTouch;
 }

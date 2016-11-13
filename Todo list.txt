@@ -9,8 +9,7 @@
 [Kévin] - peut-il revoir le sprite de la box
 [Alex]  - porte la plus haut/droite s'anime à l'envers
 [Justin] - le joueur glisse un peu sur le sol, revoir paramétrage
-[Nico] - mise en place sprite cube
-[Nico] - sprite cracha est encore un placeholder
+
 [Alex] - écran game over quand on est mort
 [Tom]  - il faut mourrir quand on a 0 énergie et pas -1
 [Alex]- gérer porte finale
@@ -18,9 +17,8 @@
 	- gérer déverouillage cadenas avec clef
 	- créer gameobject clef
 	- spawner clef sur mort d'un des monstres
-[Nico] - animer cracha lama
+
 [Nico] - pas d'animation de marche sur les mushrooms ?
-[Nico] - pas d'animation de marche sur le lama
 [Nico] - mise en place animation sprite cube
 
 [Tom&Alex]	-> revoir spawn enemis (+ orienter vers le centre au démarrage)
@@ -36,6 +34,11 @@
 
 [Nico] - Son du cube a revoir (pour le timing)
 [Nico] - Son du Lama a revoir (pour le timing)
-[Nico] - Differents son en fonction des porte (1 seul son pour l'instant)
+
 
 [****************** DONE *********************]
+[Nico] - pas d'animation de marche sur le lama
+[Nico] - animer cracha lama
+[Nico] - mise en place sprite cube
+[Nico] - sprite cracha est encore un placeholder
+[Nico] - Differents son en fonction des porte (1 seul son pour l'instant)

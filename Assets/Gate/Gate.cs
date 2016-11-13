@@ -64,7 +64,33 @@ public class Gate : MonoBehaviour
 				Audio.Instance.PlaySound ( AllSounds.Instance.PorteBasique ); break;
 			case GateName.Bleue:
 				Audio.Instance.PlaySound ( AllSounds.Instance.PorteBleue ); break;
-		}
+            case GateName.Cassée:
+                Audio.Instance.PlaySound(AllSounds.Instance.Cassée); break;
+            case GateName.Cloche:
+                Audio.Instance.PlaySound(AllSounds.Instance.Cloche); break;
+            case GateName.Colonne:
+                Audio.Instance.PlaySound(AllSounds.Instance.Colonne); break;
+            case GateName.Herbe:
+                Audio.Instance.PlaySound(AllSounds.Instance.Herbe); break;
+            case GateName.Jaune:
+                Audio.Instance.PlaySound(AllSounds.Instance.Jaune); break;
+            case GateName.Oeil:
+                Audio.Instance.PlaySound(AllSounds.Instance.Oeil); break;
+            case GateName.Orange:
+                Audio.Instance.PlaySound(AllSounds.Instance.Orange); break;
+            case GateName.Orientale:
+                Audio.Instance.PlaySound(AllSounds.Instance.Orientale); break;
+            case GateName.Rouge:
+                Audio.Instance.PlaySound(AllSounds.Instance.Rouge); break;
+            case GateName.TriangleDroite:
+                Audio.Instance.PlaySound(AllSounds.Instance.TriangleDroite); break;
+            case GateName.TriangleGauche:
+                Audio.Instance.PlaySound(AllSounds.Instance.TriangleGauche); break;
+            case GateName.Verte:
+                Audio.Instance.PlaySound(AllSounds.Instance.Verte); break;
+
+	
+        }
 
 		yield return new WaitForSeconds ( duration );
 
