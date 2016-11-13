@@ -55,12 +55,13 @@ public class UmbrellaWeapon : MonoBehaviour, IWeapon
 		Monster monster = collider.gameObject.GetComponent<Monster> ();
 		if ( monster != null )
 		{
-			monster.TakeDamage ();
-			//Son quand il frappe (en fonction du type d'arme)
-		}
+            Audio.Instance.PlaySound(AllSounds.Instance.UmbrellaTouch1);
+            monster.TakeDamage ();        
+        }
 		else
 		{
-			// Son quand il frappe et qu'il touche ne touche rien
-		}
+            // Son quand il frappe et qu'il touche ne touche rien
+            Audio.Instance.PlaySound(AllSounds.Instance.UmbrellaDontTouch);
+        }
 	}
 }
