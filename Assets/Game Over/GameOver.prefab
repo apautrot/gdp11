@@ -73,12 +73,12 @@ GameObject:
   - 4: {fileID: 4000011847505982}
   - 212: {fileID: 212000010318256902}
   m_Layer: 0
-  m_Name: black fade over screen
+  m_Name: Black Fade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1000012772851932
 GameObject:
   m_ObjectHideFlags: 0
@@ -379,7 +379,7 @@ SpriteRenderer:
   m_SortingLayerID: -726236011
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 158abce859ecd8d47b50aa4833a6c830, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!212 &212000010952151158

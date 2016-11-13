@@ -352,7 +352,8 @@ public class Player : SceneSingleton<Player>
 		}
 	}
 
-	public void Die() {
+	public void Die()
+	{
 		animator.SetBool ("Dead", true);
 		animator.Play ("Die");
         Audio.Instance.PlaySound(AllSounds.Instance.PlayThisClip(audioDiePlayer));
@@ -360,6 +361,11 @@ public class Player : SceneSingleton<Player>
 		Hurtable = false;
         EnergyPoints = 0;
         GetComponent<CircleCollider2D> ().enabled = false;
+
+		this.WaitAndDo ( 2,
+			() => {
+				Game.Instance.gameObject.InstantiateSibling ( Game.Instance.prefabs.GameOverOverlay, Vector3.zero, PositionSpace.World );
+				} );
 	}
 }
 

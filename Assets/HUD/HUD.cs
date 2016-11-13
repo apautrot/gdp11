@@ -10,7 +10,7 @@ public class HUD : SceneSingleton<HUD>
 	public GoEaseType heartScaleInEase = GoEaseType.BounceIn;
 	public GoEaseType heartScaleOutEase = GoEaseType.BounceOut;
 
-	TextMesh timeLabel;
+	TextMeshEx timeLabel;
 	List<GameObject> hearts;
 	Player player;
 	GameObject key;
@@ -22,7 +22,7 @@ public class HUD : SceneSingleton<HUD>
 		player = Player.Instance;
 		player.OnEnergyPointChanged += OnEnergyPointChanged;
 		player.OnIsHavingKeyChanged += OnIsHavingKeyChanged; 
-		timeLabel = gameObject.FindChildByName ( "TimeLabel").GetComponent<TextMesh> ();
+		timeLabel = gameObject.FindChildByName ( "TimeLabel").GetComponent<TextMeshEx> ();
 		hearts = new List<GameObject> ();
 		hearts.Add( gameObject.FindChildByName ( "Heart 1"));
 		hearts.Add( gameObject.FindChildByName ( "Heart 2"));
@@ -55,10 +55,10 @@ public class HUD : SceneSingleton<HUD>
 			secs = "0" + (time % 60);
 		if (time / 60 < 10)
 			mins = "0" + time / 60;
-		this.timeLabel.text = mins + ":" + secs;
+		this.timeLabel.Text = mins + ":" + secs;
 
 		if (time <= 5) {
-			timeLabel.color = new Color (255, 0, 0);
+			timeLabel.Color = new Color (255, 0, 0);
 			timeLabel.transform.SetScale (0.7f);
 			timeLabel.transform.scaleTo( heartScaleInDuration, 1 ).eases(heartScaleInEase);
 		}

@@ -16,6 +16,8 @@ public class Game : Singleton<Game>
         public GameObject ClockItemPrefab;
 		public GameObject HeartItemPrefab;
 		public GameObject KeyItemPrefab;
+
+		public GameObject GameOverOverlay;
 	}
 
 	public Prefabs prefabs;

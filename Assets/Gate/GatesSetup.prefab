@@ -182,7 +182,5 @@ MonoBehaviour:
       ObjectType: 4
     - Chance: 2
       ObjectType: 4
-  - Name: Liberation
-    Items:
     - Chance: 0
-      ObjectType: 0
+      ObjectType: 6

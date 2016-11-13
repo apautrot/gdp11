@@ -399,7 +399,9 @@ MonoBehaviour:
       type: 2}
     KeyItemPrefab: {fileID: 1000010215347992, guid: 1b3be34df0858654b89c5170cc73aac4,
       type: 2}
-  time: 60
+    GameOverOverlay: {fileID: 1000013874509060, guid: 835235609ed5cbf4fba9dd58f536cd6b,
+      type: 2}
+  time: 120
 --- !u!114 &114000013700233550
 MonoBehaviour:
   m_ObjectHideFlags: 1

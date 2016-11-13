@@ -23,7 +23,7 @@ public class GameOver : MonoBehaviour
 		{
 			blackFade.SetActive ( true );
 			blackFade.SetAlpha ( 0 );
-			blackFade.FadeIn ( 1 ).setOnCompleteHandler ( c => SceneManager.LoadScene ( "Test Scene Alexis" ) );
+			blackFade.FadeIn ( 1 ).setOnCompleteHandler ( c => SceneManager.LoadScene ( "Title" ) );
 		}
 	}
 }
