@@ -12,10 +12,10 @@
 	- créer gameobject clef
 	- spawner clef sur mort d'un des monstres
 
-[Kévin] - peut-il revoir le sprite de la box
-[Kévin] - pas d'animation de marche sur les mushrooms ?
-[Kévin] - pas d'animation de marche sur le lama
-[Kévin] - sprite cracha est encore un placeholder
+[Nico] - pas d'animation de marche sur les mushrooms ?
+[Nico] - pas d'animation de marche sur le lama
+[Nico] - sprite cracha est encore un placeholder
+[Nico] - mise en place sprite cube
 
 [Tom]   - quand enemi spawn il est orienté dans mauvaise direction
 [Tom&Alex]	-> revoir spawn enemis (+ orienter vers le centre au démarrage)
@@ -36,3 +36,4 @@
 [Tom]  - brancher mort sur timer à zéro
 [Tom]   - désactiver collider / prise de collision quand on est mort
 [Tom]  - ne plus tirer sur le joueur quand il est mort
+[Kévin] - peut-il revoir le sprite de la box

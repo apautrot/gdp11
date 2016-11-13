@@ -278,8 +278,9 @@ public class Player : SceneSingleton<Player>
 			if (Hurtable) {
 				lastDamage = Time.time;
 				Hurtable = false;
+				//GetComponent<SpriteRenderer> ().color.a;
 				if (EnergyPoints <= 0) {
-					
+					Die ();
 				} else {
 					EnergyPoints--;
 				}
