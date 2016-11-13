@@ -33,7 +33,8 @@ public class ItemClock : MonoBehaviour {
     {
         if (collider.GetComponent<Player>() != null)
         {
-            //Lui fait gagné du temps
-        }
+			Audio.Instance.PlaySound ( AllSounds.Instance.GetItem );
+			//Lui fait gagné du temps
+		}
     }
 }

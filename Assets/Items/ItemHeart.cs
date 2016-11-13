@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ItemHeart : MonoBehaviour
+
+public class ItemBase : MonoBehaviour
 {
 	public float jumpDuration = 0.5f;
 	public float jumpHeight = 10;
@@ -33,8 +34,23 @@ public class ItemHeart : MonoBehaviour
 	{
 		if ( collider.GetComponent<Player> () != null )
 		{
-			Player.Instance.EnergyPoints++;
 			gameObject.DestroySelf ();
+
+			ApplyEffect ();
 		}
+	}
+
+	protected virtual void ApplyEffect ()
+	{
+		Player.Instance.EnergyPoints++;
+	}
+}
+
+public class ItemHeart : ItemBase
+{
+	protected override void ApplyEffect ()
+	{
+		Audio.Instance.PlaySound ( AllSounds.Instance.GetItem );
+		Player.Instance.EnergyPoints++;
 	}
 }

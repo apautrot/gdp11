@@ -96,6 +96,8 @@ public class Player : SceneSingleton<Player>
 
 	public bool Movable, Hurtable;
 
+	AudioSource walkAudioInstance;
+
 	new void Awake ()
 	{
 		base.Awake ();
@@ -202,9 +204,22 @@ public class Player : SceneSingleton<Player>
 		// DebugWindow.Log ( "Player", "addedVelocity", addedVelocity.ToStringEx () );
 		// DebugWindow.Log ( "Player", "rigidbody.velocity", rigidbody.velocity.ToStringEx () );
 
-		if ((rigidbody.velocity.x > 1 || rigidbody.velocity.x < -1) || (rigidbody.velocity.y > 1 || rigidbody.velocity.y < -1)) {
+		if ((rigidbody.velocity.x > 1 || rigidbody.velocity.x < -1) || (rigidbody.velocity.y > 1 || rigidbody.velocity.y < -1))
+		{
+			walkAudioInstance = Audio.Instance.PlaySound ( AllSounds.Instance.PlayerWalk1 );
+			if ( walkAudioInstance != null )
+				walkAudioInstance.loop = true;
+
 			animator.SetBool ("Walking", true);
-		} else {
+		}
+		else
+		{
+			if ( walkAudioInstance != null )
+			{
+				walkAudioInstance.Stop ();
+				walkAudioInstance = null;
+			}
+
 			animator.SetBool ("Walking", false);
 		}
 
