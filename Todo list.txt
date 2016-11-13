@@ -18,7 +18,7 @@
 	- créer gameobject clef
 	- spawner clef sur mort d'un des monstres
 
-[Nico] - mise en place animation sprite cube
+
 
 [Tom&Alex]	-> revoir spawn enemis (+ orienter vers le centre au démarrage)
 	[Tom]   - quand enemi spawn il est orienté dans mauvaise direction
@@ -26,8 +26,7 @@
 
 [Justin] - régler caterpillar
 
-[Nico]  - lancer play des sons
-[Nico]  - random de certains sons
+
 [Alex]  - écran splash titre
 [Kévin] - ombres sous sprites à revoir
 
@@ -37,7 +36,9 @@
 [Nico] - Gestion de l'animation de l'attack du champi
 
 [****************** DONE *********************]
-
+[Nico]  - lancer play des sons
+[Nico]  - random de certains sons
+[Nico] - mise en place animation sprite cube
 [Nico] - pas d'animation de marche sur les mushrooms ?
 [Nico] - pas d'animation de marche sur le lama
 [Nico] - animer cracha lama

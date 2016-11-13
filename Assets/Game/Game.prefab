@@ -354,6 +354,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabs:
+    LockPrefab: {fileID: 1000013190848114, guid: a1d8dbd3a208dc842a0ab245f115a788,
+      type: 2}
     MushroomPrefab: {fileID: 1000013952024584, guid: 3f439e007ac7545edb7b6b8d89477040,
       type: 2}
     LlamaPrefab: {fileID: 1000012783331622, guid: b3221e021487b441f84c030b06f3d4e8,
@@ -366,25 +368,34 @@ MonoBehaviour:
       type: 2}
     HeartItemPrefab: {fileID: 1000012677727050, guid: 17a3ddf2695bf60469b48fbb140c9ca0,
       type: 2}
+  time: 60
 --- !u!114 &114000011239490254
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012959605502}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: event:/Music/MusicFirstRoom
+  Event: event:/MusicFirstRoom
   PlayEvent: 1
   StopEvent: 0
   CollisionTag: 
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
-  Params: []
+  Params:
+  - Name: EnemiesOnScreen
+    Value: 19.6
+  - Name: Life
+    Value: 100
+  - Name: FinalDoorUnlocked
+    Value: 0.739
+  - Name: DoorsOpened
+    Value: 10.5
   OverrideAttenuation: 0
   OverrideMinDistance: 0
   OverrideMaxDistance: 0

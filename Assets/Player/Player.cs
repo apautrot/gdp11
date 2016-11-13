@@ -74,6 +74,22 @@ public class Player : SceneSingleton<Player>
 	}
 	internal System.Action<int, int> OnEnergyPointChanged;
 
+	bool _isHavingKey;
+	internal bool IsHavingKey
+	{
+		get { return _isHavingKey; }
+		set
+		{
+			if ( _isHavingKey != value )
+			{
+				_isHavingKey = value;
+				if ( OnIsHavingKeyChanged != null )
+					OnIsHavingKeyChanged ();
+			}
+		}
+	}
+	internal System.Action OnIsHavingKeyChanged;
+
 	new Rigidbody2D rigidbody;
 	IWeapon currentWeapon;
 
@@ -95,8 +111,9 @@ public class Player : SceneSingleton<Player>
 	}
 
 	public bool Movable, Hurtable;
-
-	AudioSource walkAudioInstance;
+    AudioClip[] audioWalkPlayer;
+    AudioClip[] audioDiePlayer;
+    AudioSource walkAudioInstance;
 
 	new void Awake ()
 	{
@@ -107,6 +124,8 @@ public class Player : SceneSingleton<Player>
 		Movable = true;
 		Hurtable = true;
 		lastDamage = Time.time;
+
+		EnergyPoints = EnergyPointsAtStartOfGame;
 	}
 
 	void Reawake ()
@@ -117,15 +136,21 @@ public class Player : SceneSingleton<Player>
 	void Start ()
 	{
 		EnergyPoints = EnergyPointsAtStartOfGame;
-	}
+        audioWalkPlayer = new AudioClip[]{(AllSounds.Instance.PlayerWalk1), (AllSounds.Instance.PlayerWalk2) };
+        audioDiePlayer = new AudioClip[]{ (AllSounds.Instance.PlayerDies1), (AllSounds.Instance.PlayerDies2) };
+
+    }
 
 	void Update ()
 	{
-		if ( InputConfiguration.Instance.ActionA.IsJustDown )
-			UseWeapon ();
+		if ( EnergyPoints > 0 )
+		{
+			if ( InputConfiguration.Instance.ActionA.IsJustDown )
+				UseWeapon ();
 
-		if ( InputConfiguration.Instance.ActionB.IsJustDown )
-			OpenGate ();
+			if ( InputConfiguration.Instance.ActionB.IsJustDown )
+				OpenGate ();
+		}
 	}
 
 	void FixedUpdate()
@@ -213,7 +238,8 @@ public class Player : SceneSingleton<Player>
 		{
                 if (walkAudioInstance == null)
                 {
-                    walkAudioInstance = Audio.Instance.PlaySound(AllSounds.Instance.PlayerWalk1);
+                    walkAudioInstance = Audio.Instance.PlaySound(AllSounds.Instance.PlayThisClip(audioWalkPlayer));
+
                     if (walkAudioInstance != null)
                         walkAudioInstance.loop = true;
                 }
@@ -264,14 +290,27 @@ public class Player : SceneSingleton<Player>
 		for ( int i = 0; i < hits.Length; i++ )
 		{
 			RaycastHit2D hit = hits[i];
-			Gate gate = hit.collider.gameObject.GetComponent<Gate> ();
-			if ( gate != null )
+
+			Lock lockGO = hit.collider.gameObject.GetComponent<Lock> ();
+			if ( lockGO != null )
 			{
-				if ( nearest == null )
-					nearest = gate;
-				else
-					if ( gate.transform.DistanceTo ( gameObject ) < nearest.transform.DistanceTo ( gameObject ) )
+				if ( IsHavingKey )
+				{
+					Debug.Log ( "Fin du jeu !!!" );
+					return;
+				}
+			}
+			else
+			{
+				Gate gate = hit.collider.gameObject.GetComponent<Gate> ();
+				if ( gate != null )
+				{
+					if ( nearest == null )
 						nearest = gate;
+					else
+						if ( gate.transform.DistanceTo ( gameObject ) < nearest.transform.DistanceTo ( gameObject ) )
+						nearest = gate;
+				}
 			}
 		}
 
@@ -299,7 +338,7 @@ public class Player : SceneSingleton<Player>
 			rigidbody.velocity = ( transform.position - collision.transform.position ) * 1500f;
 
 			if (Hurtable) {
-                Audio.Instance.PlaySound(AllSounds.Instance.PlayerTakesDamage1);
+                Audio.Instance.PlaySound(AllSounds.Instance.PlayerTakesDamage3);
                 lastDamage = Time.time;
 				Hurtable = false;
 				//GetComponent<SpriteRenderer> ().color.a;
@@ -316,7 +355,7 @@ public class Player : SceneSingleton<Player>
 	public void Die() {
 		animator.SetBool ("Dead", true);
 		animator.Play ("Die");
-        Audio.Instance.PlaySound(AllSounds.Instance.PlayerDies1);
+        Audio.Instance.PlaySound(AllSounds.Instance.PlayThisClip(audioDiePlayer));
         Movable = false;
 		Hurtable = false;
         EnergyPoints = 0;

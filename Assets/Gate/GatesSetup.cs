@@ -113,5 +113,7 @@ public class GatesSetup : SceneSingleton<GatesSetup>
 			gate.SpawnItem ( objectsToSpawn[i] );
 			yield return new WaitForSeconds ( 1 );
 		}
+
+		gate.OnEndOfSpawn ();
 	}
 }

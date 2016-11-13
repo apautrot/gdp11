@@ -13,18 +13,22 @@ public class HUD : SceneSingleton<HUD>
 	TextMesh timeLabel;
 	List<GameObject> hearts;
 	Player player;
+	GameObject key;
+
+	AbstractGoTween keyTween;
 
 	void Start ()
 	{
 		player = Player.Instance;
 		player.OnEnergyPointChanged += OnEnergyPointChanged;
-		timeLabel = GameObject.Find ("TimeLabel").GetComponent<TextMesh> ();
+		player.OnIsHavingKeyChanged += OnIsHavingKeyChanged; 
+		timeLabel = gameObject.FindChildByName ( "TimeLabel").GetComponent<TextMesh> ();
 		hearts = new List<GameObject> ();
-		hearts.Add(GameObject.Find ("Heart 1"));
-		hearts.Add(GameObject.Find ("Heart 2"));
-		hearts.Add(GameObject.Find ("Heart 3"));
-		hearts.Add(GameObject.Find ("Heart 4"));
-		hearts.Add(GameObject.Find ("Heart 5"));
+		hearts.Add( gameObject.FindChildByName ( "Heart 1"));
+		hearts.Add( gameObject.FindChildByName ( "Heart 2"));
+		hearts.Add( gameObject.FindChildByName ( "Heart 3"));
+		hearts.Add( gameObject.FindChildByName ( "Heart 4"));
+		hearts.Add( gameObject.FindChildByName ( "Heart 5"));
 		for ( int i = 0; i < hearts.Count; i++ )
 		{
 			hearts[i].SetActive ( false );
@@ -32,6 +36,17 @@ public class HUD : SceneSingleton<HUD>
 		}
 
 		SetLifes ( Player.Instance.EnergyPoints );
+
+		key = gameObject.FindChildByName ( "Key" );
+		key.SetActive ( false );
+	}
+
+	new void OnDestroy ()
+	{
+		base.OnDestroy ();
+
+		if ( keyTween != null )
+			keyTween.destroy ();
 	}
 
 	public void SetTime(int time) {
@@ -47,7 +62,6 @@ public class HUD : SceneSingleton<HUD>
 			timeLabel.transform.SetScale (0.7f);
 			timeLabel.transform.scaleTo( heartScaleInDuration, 1 ).eases(heartScaleInEase);
 		}
-			
 	}
 
 	private void ShowHeart ( GameObject heart, float delay = 0 )
@@ -84,6 +98,12 @@ public class HUD : SceneSingleton<HUD>
 	void OnEnergyPointChanged ( int previous, int current )
 	{
 		SetLifes (current);
+	}
+
+	void OnIsHavingKeyChanged ()
+	{
+		key.SetActive ( Player.Instance.IsHavingKey );
+		keyTween = key.transform.scaleTo ( 1, 0.5f, true ).loopsInfinitely ( GoLoopType.PingPong );
 	}
 
 }
