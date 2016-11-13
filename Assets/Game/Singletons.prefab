@@ -79,7 +79,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerWalk1: {fileID: 8300000, guid: b022fc872531dc64bad7c5151313721e, type: 3}
   PlayerWalk2: {fileID: 8300000, guid: ae45fb096a007114b888201b35c59421, type: 3}
+  Shield: {fileID: 8300000, guid: 3aa9e958f2bc5d54ebaa2b6fa56b1360, type: 3}
   GetItem: {fileID: 8300000, guid: 72c59f1fd69988d4fa74140daac99d45, type: 3}
+  Heart: {fileID: 8300000, guid: 375027d0bbc7a9b479830a5a457042fb, type: 3}
+  MoreTime: {fileID: 8300000, guid: d8d36d37e0304cd4780f646944774bdf, type: 3}
   GetKey: {fileID: 8300000, guid: a474c6f65e48f50489a48f648683d0f0, type: 3}
   CaterpillarPop1: {fileID: 8300000, guid: 9eacdcccf5ec1844e940d7d3b6035151, type: 3}
   CaterpillarPop2: {fileID: 8300000, guid: 67e5452a69c83ae4e9a4f048a6e12182, type: 3}
@@ -89,6 +92,7 @@ MonoBehaviour:
   Door1: {fileID: 8300000, guid: 6c537662db0ac8f4da4403e315e29bb5, type: 3}
   Door2: {fileID: 8300000, guid: d608e2c9bc1f50c49bc7610840063e44, type: 3}
   Door3: {fileID: 8300000, guid: d59e9134b4fef2347b33e9c49de5d84a, type: 3}
+  FinalDoor: {fileID: 8300000, guid: fbde6ef0c7a2c1142b65420b76cb252f, type: 3}
   Fire: {fileID: 8300000, guid: a56f5760daf541b4ebe2ea4794ed3ab3, type: 3}
   Llama1: {fileID: 8300000, guid: 6d63cc815f6972b4b91b4b23f24e7460, type: 3}
   Llama2: {fileID: 8300000, guid: 78c5d2257b3836847be8eef5de00e266, type: 3}
@@ -99,10 +103,6 @@ MonoBehaviour:
   PlayerDies1: {fileID: 8300000, guid: bc2654858386d6444888c41bac08e7e7, type: 3}
   PlayerDies2: {fileID: 8300000, guid: 4fb3d520aa8f4a34f8492b1232e09e26, type: 3}
   PlayerDies3: {fileID: 8300000, guid: fccae99a9d427904798fb72159729c77, type: 3}
-  PlayerSound1: {fileID: 8300000, guid: 12596fc7737004140a4816911e88aa57, type: 3}
-  PlayerSound2: {fileID: 8300000, guid: d8633bb644b5a054dbaac5337314a257, type: 3}
-  PlayerSound3: {fileID: 8300000, guid: 379b11561f729c141b51b136b3ff51ee, type: 3}
-  PlayerSound4: {fileID: 8300000, guid: 8358a483711b5df438b37d7427fd9b68, type: 3}
   PlayerTakesDamage1: {fileID: 8300000, guid: 1ce603464e3110b4686f3a68ed3cc821, type: 3}
   PlayerTakesDamage2: {fileID: 8300000, guid: d9fc0ce51bbbf0940ba049a4ff0025ed, type: 3}
   PlayerTakesDamage3: {fileID: 8300000, guid: 3f68246b1ada68045b01fc60f8dc5a90, type: 3}
@@ -110,6 +110,24 @@ MonoBehaviour:
   WallCollision1: {fileID: 8300000, guid: 80d7215477c7bb246a72d3a47298fa5c, type: 3}
   WallCollision2: {fileID: 8300000, guid: a529197c44aca4e4290f3679287a3114, type: 3}
   WallCollision3: {fileID: 8300000, guid: ea5b7444bcb364d43a3362f33847bf0d, type: 3}
+  PorteBasique: {fileID: 8300000, guid: 6c537662db0ac8f4da4403e315e29bb5, type: 3}
+  PorteBleue: {fileID: 0}
+  "Cass\xE9e": {fileID: 0}
+  Cloche: {fileID: 0}
+  Colonne: {fileID: 0}
+  Herbe: {fileID: 0}
+  Jaune: {fileID: 0}
+  Oeil: {fileID: 0}
+  Orange: {fileID: 0}
+  Orientale: {fileID: 0}
+  Rouge: {fileID: 0}
+  TriangleDroite: {fileID: 0}
+  TriangleGauche: {fileID: 0}
+  Verte: {fileID: 0}
+  UmbrellaTouch1: {fileID: 8300000, guid: 2477dd950a1b20c4ab84c58d2c7ef5e7, type: 3}
+  UmbrellaTouch2: {fileID: 8300000, guid: 9b2c207c920840842b23bac6c86a86fb, type: 3}
+  UmbrellaTouch3: {fileID: 8300000, guid: 06b3b3906004140409f15113e235483b, type: 3}
+  UmbrellaDontTouch: {fileID: 8300000, guid: 13d37fe5295a2c84a844993eb73580e1, type: 3}
 --- !u!114 &114000012135210584
 MonoBehaviour:
   m_ObjectHideFlags: 1
