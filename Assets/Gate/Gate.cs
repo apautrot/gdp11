@@ -113,7 +113,7 @@ public class Gate : MonoBehaviour
 				{
 					GoTweenChain chain = new GoTweenChain ();
 					chain.insert ( 0, sprite.transform.localPositionTo ( 0.5f, new Vector3 ( 5, -5, 0 ) ) );
-					chain.insert ( 0.5f, sprite.transform.localPositionTo ( 1.0f, new Vector3 ( -30, -55, 0 ) ) );
+					chain.insert ( 0.5f, sprite.transform.localPositionTo ( 1.0f, new Vector3 ( -30, 55, 0 ) ) );
 					chain.Start ();
 					tween = chain;
 				}
