@@ -243,10 +243,10 @@ public class Player : SceneSingleton<Player>
 			{
 				GameObject weaponGO = gameObject.InstantiateSibling ( WeaponPrefab );
 				weaponGO.transform.position = gameObject.transform.position + (Vector3) ( direction.ToVector2() * 64 );
-				weaponGO.transform.localEulerAngles = new Vector3 ( 0, 0, direction.ToRotationAngle () );
 
 				currentWeapon = weaponGO.GetComponentAs<IWeapon> ();
 				currentWeapon.OnEnd += OnWeaponEffectEnd;
+				currentWeapon.Throw ( direction );
 			}
 		}
 	}
