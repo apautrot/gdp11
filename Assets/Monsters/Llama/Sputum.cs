@@ -23,8 +23,8 @@ public class Sputum : MonoBehaviour {
 		//On décale le crachat en direction du joueur pour qu'il ne rentre pas dans le lama
 		transform.Translate (direction / 5);
 
-		Debug.Log(Input.mousePosition + " && " + new Vector3(x, y, 10000));
-		Vector3 point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		//Debug.Log(Input.mousePosition + " && " + new Vector3(x, y, 10000));
+		Vector3 point = Camera.main.ScreenToWorldPoint(new Vector3 (x, y, 10000));
 		transform.rotation = Quaternion.LookRotation(Vector3.forward, point - transform.position);
 
         //Debug.Log ("Fired");
