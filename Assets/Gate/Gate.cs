@@ -57,13 +57,16 @@ public class Gate : MonoBehaviour
 		if ( collider != null )
 			collider.enabled = false;
 
-        //o Son d'une porte qui s'ouvre (nombre de son en fonction du nombre de porte
-        Audio.Instance.PlaySound(AllSounds.Instance.Door1);
+		//o Son d'une porte qui s'ouvre (nombre de son en fonction du nombre de porte
+		switch ( gateName )
+		{
+			case GateName.Basique:
+				Audio.Instance.PlaySound ( AllSounds.Instance.PorteBasique ); break;
+			case GateName.Bleue:
+				Audio.Instance.PlaySound ( AllSounds.Instance.PorteBleue ); break;
+		}
 
-        //Audio.Instance.PlaySound(AllSounds.Instance.Door2);
-        //Audio.Instance.PlaySound(AllSounds.Instance.Door3);
-
-        yield return new WaitForSeconds ( duration );
+		yield return new WaitForSeconds ( duration );
 
 		if ( SpawnListIndex == -1 )
 			Debug.LogError ( "This gate ( " + name + " has an invalid setup index ! Find GatesSetup game object and setup it." );

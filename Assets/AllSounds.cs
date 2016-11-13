@@ -50,4 +50,7 @@ public class AllSounds : SceneSingleton<AllSounds>
     public AudioClip WallCollision1;
     public AudioClip WallCollision2;
     public AudioClip WallCollision3;
+
+	public AudioClip PorteBasique;
+	public AudioClip PorteBleue;
 }
