@@ -50,9 +50,8 @@ public class UmbrellaWeapon : MonoBehaviour, IWeapon
 		tween.setOnCompleteHandler ( c => gameObject.DestroySelf () );
 	}
 
-	void OnCollisionEnter2D ( Collision2D collision )
+	void OnTriggerEnter2D ( Collider2D collider )
 	{
-		Collider2D collider = collision.collider;
 		Monster monster = collider.gameObject.GetComponent<Monster> ();
 		if ( monster != null )
 		{
