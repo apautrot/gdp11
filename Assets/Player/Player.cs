@@ -211,22 +211,19 @@ public class Player : SceneSingleton<Player>
 
 		if ((rigidbody.velocity.x > 1 || rigidbody.velocity.x < -1) || (rigidbody.velocity.y > 1 || rigidbody.velocity.y < -1))
 		{
-			if ( walkAudioInstance == null )
-			{
-				walkAudioInstance = Audio.Instance.PlaySound ( AllSounds.Instance.PlayerWalk1 );
-				if ( walkAudioInstance != null )
-					walkAudioInstance.loop = true;
-			}
+   //         walkAudioInstance = Audio.Instance.PlaySound ( AllSounds.Instance.PlayerWalk1 );
+			//if ( walkAudioInstance != null )
+			//	walkAudioInstance.loop = true;
 
 			animator.SetBool ("Walking", true);
 		}
 		else
 		{
-			if ( walkAudioInstance != null )
-			{
-				walkAudioInstance.Stop ();
-				walkAudioInstance = null;
-			}
+			//if ( walkAudioInstance != null )
+			//{
+			//	walkAudioInstance.Stop ();
+			//	walkAudioInstance = null;
+			//}
 
 			animator.SetBool ("Walking", false);
 		}
@@ -302,7 +299,7 @@ public class Player : SceneSingleton<Player>
                 lastDamage = Time.time;
 				Hurtable = false;
 				//GetComponent<SpriteRenderer> ().color.a;
-				if (EnergyPoints <= 0) {
+				if (EnergyPoints <= 1) {
 					Die();
 				} else {
 					EnergyPoints--;
@@ -317,6 +314,7 @@ public class Player : SceneSingleton<Player>
 		animator.Play ("Die");
         Audio.Instance.PlaySound(AllSounds.Instance.PlayerDies1);
         Movable = false;
+		Hurtable = false;
         EnergyPoints = 0;
         GetComponent<CircleCollider2D> ().enabled = false;
 	}

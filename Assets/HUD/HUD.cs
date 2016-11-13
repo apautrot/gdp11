@@ -10,7 +10,7 @@ public class HUD : SceneSingleton<HUD>
 	public GoEaseType heartScaleInEase = GoEaseType.BounceIn;
 	public GoEaseType heartScaleOutEase = GoEaseType.BounceOut;
 
-	TextMesh roomLabel, timeLabel;
+	TextMesh timeLabel;
 	List<GameObject> hearts;
 	Player player;
 
@@ -18,7 +18,6 @@ public class HUD : SceneSingleton<HUD>
 	{
 		player = Player.Instance;
 		player.OnEnergyPointChanged += OnEnergyPointChanged;
-		roomLabel = GameObject.Find ("RoomLabel").GetComponent<TextMesh> ();
 		timeLabel = GameObject.Find ("TimeLabel").GetComponent<TextMesh> ();
 		hearts = new List<GameObject> ();
 		hearts.Add(GameObject.Find ("Heart 1"));
@@ -32,7 +31,6 @@ public class HUD : SceneSingleton<HUD>
 			ShowHeart ( hearts[i], i * initialHeartApparitionDelay );
 		}
 
-		SetRoom ("#1");
 		SetLifes ( Player.Instance.EnergyPoints );
 	}
 
@@ -50,10 +48,6 @@ public class HUD : SceneSingleton<HUD>
 			timeLabel.transform.scaleTo( heartScaleInDuration, 1 ).eases(heartScaleInEase);
 		}
 			
-	}
-
-	void SetRoom(string room) {
-		this.roomLabel.text = "Room " + room;
 	}
 
 	private void ShowHeart ( GameObject heart, float delay = 0 )

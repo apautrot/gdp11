@@ -50,7 +50,7 @@ public class ItemHeart : ItemBase
 {
 	protected override void ApplyEffect ()
 	{
-		Audio.Instance.PlaySound ( AllSounds.Instance.GetItem );
+		Audio.Instance.PlaySound ( AllSounds.Instance.Heart );
 		Player.Instance.EnergyPoints++;
 	}
 }
