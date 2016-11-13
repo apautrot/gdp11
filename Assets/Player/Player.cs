@@ -121,7 +121,7 @@ public class Player : SceneSingleton<Player>
 
 	void Update ()
 	{
-		if ( InputConfiguration.Instance.ActionB.IsJustDown )
+		if ( InputConfiguration.Instance.ActionA.IsJustDown )
 			UseWeapon ();
 
 		if ( InputConfiguration.Instance.ActionB.IsJustDown )
@@ -236,8 +236,8 @@ public class Player : SceneSingleton<Player>
 		{
 			if ( WeaponPrefab != null )
 			{
-				GameObject weaponGO = gameObject.InstantiateChild ( WeaponPrefab );
-				weaponGO.transform.localPosition = new Vector3 ( 0, 32, 0 );
+				GameObject weaponGO = gameObject.InstantiateSibling ( WeaponPrefab );
+				weaponGO.transform.position = gameObject.transform.position + (Vector3) ( direction.ToVector2() * 64 );
 
 				currentWeapon = weaponGO.GetComponentAs<IWeapon> ();
 				currentWeapon.OnEnd += OnWeaponEffectEnd;
