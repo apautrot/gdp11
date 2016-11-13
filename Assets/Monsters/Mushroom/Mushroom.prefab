@@ -22,7 +22,6 @@ GameObject:
   - 114: {fileID: 114000010852513798}
   - 58: {fileID: 58000010504229958}
   - 50: {fileID: 50000012831690322}
-  - 114: {fileID: 114000010534770914}
   m_Layer: 0
   m_Name: Mushroom
   m_TagString: Untagged
@@ -123,18 +122,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114000010534770914
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013952024584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be818d9af2afc455980d80eb2aa7625a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  life: 1
 --- !u!114 &114000010852513798
 MonoBehaviour:
   m_ObjectHideFlags: 1

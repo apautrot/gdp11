@@ -211,19 +211,22 @@ public class Player : SceneSingleton<Player>
 
 		if ((rigidbody.velocity.x > 1 || rigidbody.velocity.x < -1) || (rigidbody.velocity.y > 1 || rigidbody.velocity.y < -1))
 		{
-   //         walkAudioInstance = Audio.Instance.PlaySound ( AllSounds.Instance.PlayerWalk1 );
-			//if ( walkAudioInstance != null )
-			//	walkAudioInstance.loop = true;
+			if ( walkAudioInstance == null )
+			{
+				walkAudioInstance = Audio.Instance.PlaySound ( AllSounds.Instance.PlayerWalk1 );
+				if ( walkAudioInstance != null )
+					walkAudioInstance.loop = true;
+			}
 
 			animator.SetBool ("Walking", true);
 		}
 		else
 		{
-			//if ( walkAudioInstance != null )
-			//{
-			//	walkAudioInstance.Stop ();
-			//	walkAudioInstance = null;
-			//}
+			if ( walkAudioInstance != null )
+			{
+				walkAudioInstance.Stop ();
+				walkAudioInstance = null;
+			}
 
 			animator.SetBool ("Walking", false);
 		}

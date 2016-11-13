@@ -39,7 +39,6 @@ GameObject:
   - 114: {fileID: 114000011142099216}
   - 50: {fileID: 50000011427669442}
   - 58: {fileID: 58000012475526256}
-  - 114: {fileID: 114000011384758842}
   - 95: {fileID: 95000013753399440}
   - 212: {fileID: 212000011130267340}
   m_Layer: 0
@@ -135,25 +134,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfe4b4b98ed00c648a143885deb866dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  life: 3
   sectionPrefab: {fileID: 1000011952597918, guid: 698c3f3dc02db884fb2d27e0dbe1ef0b,
     type: 2}
   caterpillarLength: 5
   targetSpeed: 50
   accelerationDuration: 1
   speed: 0
---- !u!114 &114000011384758842
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013109869938}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be818d9af2afc455980d80eb2aa7625a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 2
-  life: 2
 --- !u!114 &114000013550215026
 MonoBehaviour:
   m_ObjectHideFlags: 1
