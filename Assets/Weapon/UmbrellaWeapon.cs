@@ -10,6 +10,8 @@ interface IWeapon
 
 public class UmbrellaWeapon : MonoBehaviour, IWeapon
 {
+	bool isUsed;
+
 	public float shootDuration = 0.35f;
 	public float shootDistance = 100;
 	public GoEaseType shootEase = GoEaseType.QuadOut;
@@ -55,9 +57,14 @@ public class UmbrellaWeapon : MonoBehaviour, IWeapon
 		Monster monster = collider.gameObject.GetComponent<Monster> ();
 		if ( monster != null )
 		{
-            Audio.Instance.PlaySound(AllSounds.Instance.UmbrellaTouch1);
-            monster.TakeDamage ();        
-        }
+			if ( !isUsed )
+			{
+				isUsed = true;
+
+				Audio.Instance.PlaySound ( AllSounds.Instance.UmbrellaTouch1 );
+				monster.TakeDamage ();
+			}
+		}
 		else
 		{
             // Son quand il frappe et qu'il touche ne touche rien
