@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: c21f59829a8178444a7a67737a312b04
-timeCreated: 1479029240
+timeCreated: 1479043181
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -59,9 +59,9 @@ TextureImporter:
       name: crachat_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 108
-        width: 41
+        x: 2
+        y: 15
+        width: 42
         height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -72,10 +72,10 @@ TextureImporter:
       name: crachat_1
       rect:
         serializedVersion: 2
-        x: 14
-        y: 49
-        width: 17
-        height: 42
+        x: 49
+        y: 15
+        width: 42
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -85,10 +85,10 @@ TextureImporter:
       name: crachat_2
       rect:
         serializedVersion: 2
-        x: 14
-        y: 2
+        x: 108
+        y: 0
         width: 17
-        height: 42
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
