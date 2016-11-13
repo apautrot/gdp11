@@ -1,7 +1,8 @@
-﻿
-
-
-
+﻿- tir llama trop rapide / mettre du random
+- llama doivent tirer plus souvent
+- plus d'enemis par portes
+- colorer enemis en rouge quand touchés
+- empecher de taper enemis à nouveau quand touchés
 
 
 
