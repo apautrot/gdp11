@@ -134,7 +134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be818d9af2afc455980d80eb2aa7625a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
   life: 2
 --- !u!114 &114000010425832898
 MonoBehaviour:
@@ -147,8 +146,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 857cec81f21f34dd6860c80104c02eb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  life: 2
   prefab: {fileID: 1000014057341558, guid: 1bdc6fd460f7941dfa5ccd46ddab5af1, type: 2}
-  targetSpeed: 50
+  targetSpeed: 40
   accelerationDuration: 1
   fireRate: 2
   fireSpeed: 2

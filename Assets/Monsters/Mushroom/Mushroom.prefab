@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 3
-  targetSpeed: 100
+  targetSpeed: 150
   accelerationDuration: 1
 --- !u!114 &114000013742747958
 MonoBehaviour:
