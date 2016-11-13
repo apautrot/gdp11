@@ -37,11 +37,11 @@ public class Game : Singleton<Game>
 	public int time = 60;
 	private float lastTime;
 
-	FMODUnity.StudioEventEmitter fmodEmitter;
+	GameObject blackFade;
 
 	void Awake ()
 	{
-		fmodEmitter = GetComponent<FMODUnity.StudioEventEmitter> ();
+		blackFade = gameObject.FindChildByName ( "Black Fade" );
 	}
 
 	void Start ()
@@ -79,6 +79,9 @@ public class Game : Singleton<Game>
 
 		//Init timer
 		lastTime = Time.time;
+
+		blackFade.SetActive ( true );
+		blackFade.FadeOut ( 0.5f, FadeOutEndAction.Destroy );
 	}
 
 	void FixedUpdate() {
@@ -93,79 +96,5 @@ public class Game : Singleton<Game>
             Audio.Instance.PlaySound(AllSounds.Instance.TimeOver);
             Player.Instance.Die();
 		}
-	}
-
-	internal int _musicEnemyCount;
-	internal int MusicEnemyCount
-	{
-		get { return _musicEnemyCount; }
-		set
-		{
-			if ( _musicEnemyCount != value )
-			{
-				_musicEnemyCount = value;
-				if ( fmodEmitter != null )
-					fmodEmitter.SetParameter ( "EnemiesOnScreen", _musicEnemyCount );
-			}
-		}
-	}
-
-	internal bool _finalDoorOpened;
-	internal bool FinalDoorOpened
-	{
-		get { return _finalDoorOpened; }
-		set
-		{
-			if ( _finalDoorOpened != value )
-			{
-				_finalDoorOpened = value;
-				if ( fmodEmitter != null )
-					fmodEmitter.SetParameter ( "FinalDoorOpened", _finalDoorOpened ? 1 : 0 );
-			}
-		}
-	}
-
-	internal int _doorsOpened;
-	internal int DoorOpened
-	{
-		get { return _doorsOpened; }
-		set
-		{
-			if ( _doorsOpened != value )
-			{
-				_doorsOpened = value;
-				if ( fmodEmitter != null )
-					fmodEmitter.SetParameter ( "DoorsOpened", _doorsOpened );
-			}
-		}
-	}
-
-	internal int _lifePercent;
-	internal int LifePercent
-	{
-		get { return _lifePercent; }
-		set
-		{
-			if ( _lifePercent != value )
-			{
-				_lifePercent = value;
-				if ( fmodEmitter != null )
-					fmodEmitter.SetParameter ( "Life", _lifePercent );
-			}
-		}
-	}
-
-	void Update ()
- 	{
-		if ( Input.GetKeyDown ( KeyCode.O ) )
-			LifePercent = 0;
-		if ( Input.GetKeyDown ( KeyCode.P ) )
-			LifePercent = 100;
-
-		//  		if ( Input.GetKeyDown ( KeyCode.P ) )
-		//  			Player.Instance.EnergyPoints++;
-		//  
-		//  		if ( Input.GetKeyDown ( KeyCode.M ) )
-		//  			Player.Instance.EnergyPoints--;
 	}
 }
