@@ -12,8 +12,8 @@ TrueTypeFontImporter:
   fontNames:
   - Alice in Wonderland
   fallbackFontReferences: []
-  customCharacters: ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789
-    ,.?&
+  customCharacters: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789
+    ,.?&\xE9"
   fontRenderingMode: 0
   ascentCalculationMode: 1
   userData: 

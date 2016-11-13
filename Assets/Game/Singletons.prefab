@@ -22,6 +22,8 @@ GameObject:
   - 114: {fileID: 114000012135210584}
   - 114: {fileID: 114000013908646824}
   - 114: {fileID: 114000010890467028}
+  - 114: {fileID: 114000011551039726}
+  - 114: {fileID: 114000011663167904}
   m_Layer: 0
   m_Name: Singletons
   m_TagString: Untagged
@@ -53,6 +55,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30c0ffbce0c50b7489090acfc9552859, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114000011551039726
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013128871336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92652263c9c802449b6139969f9d2dd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114000011663167904
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013128871336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83fefe930a6c55a46b30c20fb7c83565, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerWalk1: {fileID: 0}
+  PlayerWalk2: {fileID: 0}
+  GetItem: {fileID: 8300000, guid: 72c59f1fd69988d4fa74140daac99d45, type: 3}
 --- !u!114 &114000012135210584
 MonoBehaviour:
   m_ObjectHideFlags: 1

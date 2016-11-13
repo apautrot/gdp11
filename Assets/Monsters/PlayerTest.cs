@@ -8,7 +8,7 @@ public class PlayerTest : MonoBehaviour {
 	public Vector3 moveSpeed = new Vector3 ( 10, 10, 10 );
 	public ForceMode2D MoveForceMode = ForceMode2D.Force;
 
-	new void Awake ()
+	void Awake ()
 	{
 		rigidbody = GetComponent<Rigidbody2D> ();
 	}
