@@ -52,41 +52,63 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnLists:
-  - Name: Items
-    Items:
-    - Chance: 0
-      ObjectType: 0
   - Name: Mushrooms Troop
     Items:
     - Chance: 0
-      ObjectType: 1
+      ObjectType: 2
+    - Chance: 5
+      ObjectType: 2
     - Chance: 4
-      ObjectType: 1
-    - Chance: 1
-      ObjectType: 1
-  - Name: All enemies
-    Items:
-    - Chance: 0
-      ObjectType: 1
-    - Chance: 0
       ObjectType: 2
-    - Chance: 0
-      ObjectType: 3
-  - Name: Random enemy between 3
-    Items:
+    - Chance: 3
+      ObjectType: 2
+    - Chance: 2
+      ObjectType: 2
     - Chance: 1
-      ObjectType: 1
+      ObjectType: 2
+  - Name: Random Enemies
+    Items:
     - Chance: 1
       ObjectType: 2
     - Chance: 1
       ObjectType: 3
+    - Chance: 1
+      ObjectType: 4
+    - Chance: 1
+      ObjectType: 5
   - Name: Distance and Obstruction
     Items:
     - Chance: 0
-      ObjectType: 2
+      ObjectType: 3
+    - Chance: 8
+      ObjectType: 3
+    - Chance: 1
+      ObjectType: 3
     - Chance: 0
-      ObjectType: 2
+      ObjectType: 4
+    - Chance: 8
+      ObjectType: 4
+    - Chance: 1
+      ObjectType: 4
   - Name: Rock'n roll
+    Items:
+    - Chance: 0
+      ObjectType: 5
+    - Chance: 8
+      ObjectType: 5
+    - Chance: 2
+      ObjectType: 5
+    - Chance: 10
+      ObjectType: 4
+  - Name: Fairy Celebrate
+    Items:
+    - Chance: 0
+      ObjectType: 0
+    - Chance: 8
+      ObjectType: 0
+    - Chance: 4
+      ObjectType: 0
+  - Name: Pink Force
     Items:
     - Chance: 0
       ObjectType: 3
@@ -94,21 +116,73 @@ MonoBehaviour:
       ObjectType: 3
     - Chance: 2
       ObjectType: 3
-  - Name: Fairy Celebrate
+    - Chance: 0
+      ObjectType: 5
+    - Chance: 8
+      ObjectType: 5
+    - Chance: 2
+      ObjectType: 5
+  - Name: Little Heart
     Items:
     - Chance: 0
       ObjectType: 0
-    - Chance: 10
-      ObjectType: 0
-    - Chance: 4
-      ObjectType: 0
+  - Name: Respite Moment
+    Items:
+    - Chance: 9
+      ObjectType: 1
+    - Chance: 1
+      ObjectType: 1
+  - Name: New Snake
+    Items:
+    - Chance: 0
+      ObjectType: 2
+    - Chance: 7
+      ObjectType: 4
+    - Chance: 2
+      ObjectType: 4
+    - Chance: 1
+      ObjectType: 4
   - Name: Gamer Mushroom
     Items:
+    - Chance: 0
+      ObjectType: 2
     - Chance: 1
-      ObjectType: 1
+      ObjectType: 2
     - Chance: 2
-      ObjectType: 1
+      ObjectType: 2
+    - Chance: 0
+      ObjectType: 5
+    - Chance: 1
+      ObjectType: 5
+    - Chance: 2
+      ObjectType: 5
+  - Name: The Hell
+    Items:
+    - Chance: 0
+      ObjectType: 2
+    - Chance: 1
+      ObjectType: 2
+    - Chance: 2
+      ObjectType: 2
+    - Chance: 0
+      ObjectType: 5
+    - Chance: 1
+      ObjectType: 5
+    - Chance: 2
+      ObjectType: 5
+    - Chance: 0
+      ObjectType: 3
     - Chance: 1
       ObjectType: 3
     - Chance: 2
       ObjectType: 3
+    - Chance: 0
+      ObjectType: 3
+    - Chance: 1
+      ObjectType: 4
+    - Chance: 2
+      ObjectType: 4
+  - Name: Liberation
+    Items:
+    - Chance: 0
+      ObjectType: 0
