@@ -20,8 +20,9 @@ public class Caterpillar : Monster
     SpriteRenderer sprite;
 
 	Vector3 previousPosition;
+    AudioClip[] audioPop;
 
-	new void Start()
+    new void Start()
     {
 		base.Start ();
 
@@ -34,7 +35,9 @@ public class Caterpillar : Monster
 
 		previousPosition = transform.position;
 
-		StartCoroutine ( CreateQueueCoroutine() );
+        audioPop = new AudioClip[] { (AllSounds.Instance.CaterpillarPop1), (AllSounds.Instance.CaterpillarPop2), (AllSounds.Instance.CaterpillarPop3) };
+
+        StartCoroutine( CreateQueueCoroutine() );
 		StartCoroutine ( AnimateCoroutine() );
 		StartCoroutine ( CheckIfBlocked () );
 	}
@@ -45,7 +48,8 @@ public class Caterpillar : Monster
 
 		for ( int i = 0; i < queueLength; i++ )
 		{
-			GameObject go = GameObject.Instantiate ( sectionPrefab );
+            Audio.Instance.PlaySound(AllSounds.Instance.PlayThisClip(audioPop));
+            GameObject go = GameObject.Instantiate ( sectionPrefab );
 			go.transform.position = transform.position;
 			go.GetComponent<SectionCaterpillar> ().SetParentSection ( lastSectionInstantiated );
 			lastSectionInstantiated = go;

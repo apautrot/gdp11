@@ -11,7 +11,11 @@ public class Llama : Monster
 	public float noFireArea;
 	Animator anim;
 	SpriteRenderer sprite;
-	float destX, destY;
+
+    AudioClip[] audioLama;
+    AudioClip[] audioLamaDie;
+
+    float destX, destY;
 	float speed {
 		get;
 		set;
@@ -29,7 +33,10 @@ public class Llama : Monster
 		this.floatTo("speed", accelerationDuration, targetSpeed, false);
 		sprite = gameObject.FindChildByName ("Sprite").GetComponent<SpriteRenderer> ();
 		anim = gameObject.FindChildByName("Sprite").GetComponent<Animator> ();
-	}
+        audioLama = new AudioClip[] { (AllSounds.Instance.Llama1), (AllSounds.Instance.Llama2), (AllSounds.Instance.Llama3) };
+        audioLamaDie = new AudioClip[] { (AllSounds.Instance.LlamaDies1), (AllSounds.Instance.LlamaDies2)};
+
+    }
 
 	void FixedUpdate() {
 		destX = Player.Instance.transform.position.x;
@@ -68,7 +75,8 @@ public class Llama : Monster
         GameObject go = (GameObject)Instantiate(prefab);
 		go.transform.position = transform.position;
         // Son de tirs
-        Audio.Instance.PlaySound(AllSounds.Instance.Llama1);
+        Audio.Instance.PlaySound(AllSounds.Instance.PlayThisClip(audioLama));
+
         go.GetComponent<Sputum>().Fire(destX, destY, fireSpeed);
 
         anim.SetBool ("Sputum", false);
@@ -76,7 +84,7 @@ public class Llama : Monster
 
     protected override void ApplySound()
     {
-        Audio.Instance.PlaySound(AllSounds.Instance.LlamaDies1);
+        Audio.Instance.PlaySound(AllSounds.Instance.PlayThisClip(audioLamaDie));
     }
 
 }
