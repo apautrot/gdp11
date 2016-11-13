@@ -99,7 +99,8 @@ public class Gate : MonoBehaviour
 
 		yield return new WaitForSeconds ( duration );
 
-		Game.Instance.DoorOpened++;
+		if ( Music.InstanceCreated )
+			Music.Instance.DoorOpened++;
 
 		if ( SpawnListIndex == -1 )
 			Debug.LogError ( "This gate ( " + name + " has an invalid setup index ! Find GatesSetup game object and setup it." );

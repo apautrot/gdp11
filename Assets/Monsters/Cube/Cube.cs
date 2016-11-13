@@ -36,8 +36,10 @@ public class Cube : Monster
         StartCoroutine(AnimateCoroutine());
     }
 
-    void OnDestroy()
+    new void OnDestroy()
     {
+		base.OnDestroy ();
+
         if (tween != null)
             tween.destroy();
 

@@ -37,6 +37,15 @@ public class Monster : MonoBehaviour
 	protected void Awake ()
 	{
 		body = GetComponent<Rigidbody2D> ();
+
+		if ( Music.InstanceCreated )
+			Music.Instance.EnemyCount++;
+	}
+
+	protected void OnDestroy ()
+	{
+		if ( Music.InstanceCreated )
+			Music.Instance.EnemyCount--;
 	}
 
 	protected void Start ()

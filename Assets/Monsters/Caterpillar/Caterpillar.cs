@@ -14,8 +14,6 @@ public class Caterpillar : Monster
     float maxHeight;
     float maxWidth;
 
-    float countSection;
-
     Animator anim;
     SpriteRenderer sprite;
 
@@ -26,7 +24,6 @@ public class Caterpillar : Monster
     {
 		base.Start ();
 
-        countSection = 0;
         maxHeight = GameCamera.Instance.maxHeight;
         maxWidth = GameCamera.Instance.maxWidth;
 

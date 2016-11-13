@@ -111,19 +111,19 @@ MonoBehaviour:
   WallCollision2: {fileID: 8300000, guid: a529197c44aca4e4290f3679287a3114, type: 3}
   WallCollision3: {fileID: 8300000, guid: ea5b7444bcb364d43a3362f33847bf0d, type: 3}
   PorteBasique: {fileID: 8300000, guid: 6c537662db0ac8f4da4403e315e29bb5, type: 3}
-  PorteBleue: {fileID: 0}
-  "Cass\xE9e": {fileID: 0}
-  Cloche: {fileID: 0}
-  Colonne: {fileID: 0}
-  Herbe: {fileID: 0}
-  Jaune: {fileID: 0}
-  Oeil: {fileID: 0}
-  Orange: {fileID: 0}
-  Orientale: {fileID: 0}
-  Rouge: {fileID: 0}
-  TriangleDroite: {fileID: 0}
-  TriangleGauche: {fileID: 0}
-  Verte: {fileID: 0}
+  PorteBleue: {fileID: 8300000, guid: d59e9134b4fef2347b33e9c49de5d84a, type: 3}
+  "Cass\xE9e": {fileID: 8300000, guid: 6c537662db0ac8f4da4403e315e29bb5, type: 3}
+  Cloche: {fileID: 8300000, guid: d59e9134b4fef2347b33e9c49de5d84a, type: 3}
+  Colonne: {fileID: 8300000, guid: 6c537662db0ac8f4da4403e315e29bb5, type: 3}
+  Herbe: {fileID: 8300000, guid: 6c537662db0ac8f4da4403e315e29bb5, type: 3}
+  Jaune: {fileID: 8300000, guid: d59e9134b4fef2347b33e9c49de5d84a, type: 3}
+  Oeil: {fileID: 8300000, guid: d608e2c9bc1f50c49bc7610840063e44, type: 3}
+  Orange: {fileID: 8300000, guid: d59e9134b4fef2347b33e9c49de5d84a, type: 3}
+  Orientale: {fileID: 8300000, guid: d608e2c9bc1f50c49bc7610840063e44, type: 3}
+  Rouge: {fileID: 8300000, guid: d59e9134b4fef2347b33e9c49de5d84a, type: 3}
+  TriangleDroite: {fileID: 8300000, guid: d608e2c9bc1f50c49bc7610840063e44, type: 3}
+  TriangleGauche: {fileID: 8300000, guid: d608e2c9bc1f50c49bc7610840063e44, type: 3}
+  Verte: {fileID: 8300000, guid: d59e9134b4fef2347b33e9c49de5d84a, type: 3}
   UmbrellaTouch1: {fileID: 8300000, guid: 2477dd950a1b20c4ab84c58d2c7ef5e7, type: 3}
   UmbrellaTouch2: {fileID: 8300000, guid: 9b2c207c920840842b23bac6c86a86fb, type: 3}
   UmbrellaTouch3: {fileID: 8300000, guid: 06b3b3906004140409f15113e235483b, type: 3}
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013128871336}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a028f9787f626ed429b21456a3abac38, type: 3}
   m_Name: 
