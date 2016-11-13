@@ -56,7 +56,7 @@ public class Caterpillar2_collision : MonoBehaviour {
 	}
 
 	void OnCollisionStay2D(Collision2D other) {
-		if (other.gameObject.tag != "Body")
-			target = new Vector3(-(transform.position - other.gameObject.transform.position), (transform.position - other.gameObject.transform.position).y, 0).normalized;
+		//if (other.gameObject.tag != "Body")
+			//target = new Vector3(-(transform.position - other.gameObject.transform.position), (transform.position - other.gameObject.transform.position).y, 0).normalized;
 	}
 }

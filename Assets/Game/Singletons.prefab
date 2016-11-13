@@ -77,9 +77,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83fefe930a6c55a46b30c20fb7c83565, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerWalk1: {fileID: 0}
-  PlayerWalk2: {fileID: 0}
+  PlayerWalk1: {fileID: 8300000, guid: b022fc872531dc64bad7c5151313721e, type: 3}
+  PlayerWalk2: {fileID: 8300000, guid: ae45fb096a007114b888201b35c59421, type: 3}
   GetItem: {fileID: 8300000, guid: 72c59f1fd69988d4fa74140daac99d45, type: 3}
+  GetKey: {fileID: 8300000, guid: a474c6f65e48f50489a48f648683d0f0, type: 3}
+  CaterpillarPop1: {fileID: 8300000, guid: 9eacdcccf5ec1844e940d7d3b6035151, type: 3}
+  CaterpillarPop2: {fileID: 8300000, guid: 67e5452a69c83ae4e9a4f048a6e12182, type: 3}
+  CaterpillarPop3: {fileID: 8300000, guid: 6c5b5ffe9de6192408d5e7f3661d4d70, type: 3}
+  Cube: {fileID: 8300000, guid: e6d7bcc03e80a3d43addddd323fb6aa9, type: 3}
+  CubeBigHit: {fileID: 8300000, guid: 5e6481c58599ba84d9f7c8c7245989f9, type: 3}
+  Door1: {fileID: 8300000, guid: 6c537662db0ac8f4da4403e315e29bb5, type: 3}
+  Door2: {fileID: 8300000, guid: d608e2c9bc1f50c49bc7610840063e44, type: 3}
+  Door3: {fileID: 8300000, guid: d59e9134b4fef2347b33e9c49de5d84a, type: 3}
+  Fire: {fileID: 8300000, guid: a56f5760daf541b4ebe2ea4794ed3ab3, type: 3}
+  Llama1: {fileID: 8300000, guid: 6d63cc815f6972b4b91b4b23f24e7460, type: 3}
+  Llama2: {fileID: 8300000, guid: 78c5d2257b3836847be8eef5de00e266, type: 3}
+  Llama3: {fileID: 8300000, guid: b558da4e73246554785e6564b744d155, type: 3}
+  LlamaDies1: {fileID: 8300000, guid: 2b309cb95b4757c4f98e843b8fe82bb3, type: 3}
+  LlamaDies2: {fileID: 8300000, guid: c63169c8b30ab5241b6e889f7f869cc4, type: 3}
+  MonsterDies: {fileID: 8300000, guid: bde5270f63de02f41b7e47cb3809ea19, type: 3}
+  PlayerDies1: {fileID: 8300000, guid: bc2654858386d6444888c41bac08e7e7, type: 3}
+  PlayerDies2: {fileID: 8300000, guid: 4fb3d520aa8f4a34f8492b1232e09e26, type: 3}
+  PlayerDies3: {fileID: 8300000, guid: fccae99a9d427904798fb72159729c77, type: 3}
+  PlayerSound1: {fileID: 8300000, guid: 12596fc7737004140a4816911e88aa57, type: 3}
+  PlayerSound2: {fileID: 8300000, guid: d8633bb644b5a054dbaac5337314a257, type: 3}
+  PlayerSound3: {fileID: 8300000, guid: 379b11561f729c141b51b136b3ff51ee, type: 3}
+  PlayerSound4: {fileID: 8300000, guid: 8358a483711b5df438b37d7427fd9b68, type: 3}
+  PlayerTakesDamage1: {fileID: 8300000, guid: 1ce603464e3110b4686f3a68ed3cc821, type: 3}
+  PlayerTakesDamage2: {fileID: 8300000, guid: d9fc0ce51bbbf0940ba049a4ff0025ed, type: 3}
+  PlayerTakesDamage3: {fileID: 8300000, guid: 3f68246b1ada68045b01fc60f8dc5a90, type: 3}
+  TimeOver: {fileID: 8300000, guid: c122504675934c64a8c9a6a238ca53b7, type: 3}
+  WallCollision1: {fileID: 8300000, guid: 80d7215477c7bb246a72d3a47298fa5c, type: 3}
+  WallCollision2: {fileID: 8300000, guid: a529197c44aca4e4290f3679287a3114, type: 3}
+  WallCollision3: {fileID: 8300000, guid: ea5b7444bcb364d43a3362f33847bf0d, type: 3}
 --- !u!114 &114000012135210584
 MonoBehaviour:
   m_ObjectHideFlags: 1

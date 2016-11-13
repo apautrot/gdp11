@@ -76,8 +76,9 @@ public class Game : Singleton<Game>
 			HUD.Instance.GetComponent<HUD> ().SetTime (time);
 		}
 
-		if (time == 0) {
-			Player.Instance.Die();
+		if (time == 0 && Player.Instance.EnergyPoints != 0) {
+            Audio.Instance.PlaySound(AllSounds.Instance.TimeOver);
+            Player.Instance.Die();
 		}
 	}
 

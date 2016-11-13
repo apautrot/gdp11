@@ -206,19 +206,19 @@ public class Player : SceneSingleton<Player>
 
 		if ((rigidbody.velocity.x > 1 || rigidbody.velocity.x < -1) || (rigidbody.velocity.y > 1 || rigidbody.velocity.y < -1))
 		{
-			walkAudioInstance = Audio.Instance.PlaySound ( AllSounds.Instance.PlayerWalk1 );
-			if ( walkAudioInstance != null )
-				walkAudioInstance.loop = true;
+   //         walkAudioInstance = Audio.Instance.PlaySound ( AllSounds.Instance.PlayerWalk1 );
+			//if ( walkAudioInstance != null )
+			//	walkAudioInstance.loop = true;
 
 			animator.SetBool ("Walking", true);
 		}
 		else
 		{
-			if ( walkAudioInstance != null )
-			{
-				walkAudioInstance.Stop ();
-				walkAudioInstance = null;
-			}
+			//if ( walkAudioInstance != null )
+			//{
+			//	walkAudioInstance.Stop ();
+			//	walkAudioInstance = null;
+			//}
 
 			animator.SetBool ("Walking", false);
 		}
@@ -292,11 +292,12 @@ public class Player : SceneSingleton<Player>
 			rigidbody.velocity = (transform.position - collision.transform.position) * collision.gameObject.GetComponent<Monster>().damage * 300f;
 
 			if (Hurtable) {
-				lastDamage = Time.time;
+                Audio.Instance.PlaySound(AllSounds.Instance.PlayerTakesDamage1);
+                lastDamage = Time.time;
 				Hurtable = false;
 				//GetComponent<SpriteRenderer> ().color.a;
 				if (EnergyPoints <= 0) {
-					Die ();
+					Die();
 				} else {
 					EnergyPoints--;
 				}
@@ -308,8 +309,10 @@ public class Player : SceneSingleton<Player>
 	public void Die() {
 		animator.SetBool ("Dead", true);
 		animator.Play ("Die");
-		Movable = false;
-		GetComponent<CircleCollider2D> ().enabled = false;
+        Audio.Instance.PlaySound(AllSounds.Instance.PlayerDies1);
+        Movable = false;
+        EnergyPoints = 0;
+        GetComponent<CircleCollider2D> ().enabled = false;
 	}
 }
 
